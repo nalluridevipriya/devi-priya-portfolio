@@ -14,6 +14,7 @@ type EditorialCardProps = {
   }
   children?: ReactNode
   className?: string
+  variant?: "default" | "plain"
 }
 
 export function EditorialCard({
@@ -23,11 +24,14 @@ export function EditorialCard({
   chip,
   children,
   className,
+  variant = "default",
 }: EditorialCardProps) {
   return (
     <article
       className={cn(
-        "rounded-[2rem] border border-border/80 bg-card/90 p-6 shadow-[0_24px_70px_-40px_rgba(74,56,40,0.28)] backdrop-blur-sm sm:p-8",
+        variant === "plain"
+          ? "p-0"
+          : "rounded-[2rem] border border-border/80 bg-card/90 p-6 shadow-[0_24px_70px_-40px_rgba(74,56,40,0.28)] backdrop-blur-sm sm:p-8",
         className
       )}
     >
@@ -35,7 +39,7 @@ export function EditorialCard({
       {title ? (
         <div className="space-y-3">
           <div className="flex flex-wrap items-start justify-between gap-3">
-            <h3 className="font-heading text-2xl leading-tight tracking-[-0.02em] text-foreground">
+            <h3 className="font-heading text-2xl font-light leading-tight tracking-[-0.02em] text-foreground">
               {title}
             </h3>
             {chip ? (

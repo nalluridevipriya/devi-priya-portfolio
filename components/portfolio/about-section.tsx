@@ -9,6 +9,7 @@ import type { AboutSectionContent, AboutTextSegment } from "@/lib/content/portfo
 type AboutSectionProps = {
   content: AboutSectionContent
   resumeHref: string
+  className?: string
 }
 
 function AboutParagraph({ segments }: { segments: AboutTextSegment[] }) {
@@ -45,9 +46,12 @@ function AboutParagraph({ segments }: { segments: AboutTextSegment[] }) {
   )
 }
 
-export function AboutSection({ content, resumeHref }: AboutSectionProps) {
+export function AboutSection({ content, resumeHref, className }: AboutSectionProps) {
   return (
-    <section id="about" className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:gap-14">
+    <section
+      id="about"
+      className={cn("grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:gap-14", className)}
+    >
       <div className="space-y-8">
         <p className="text-xs uppercase tracking-[0.32em] text-primary">
           + {content.eyebrow}

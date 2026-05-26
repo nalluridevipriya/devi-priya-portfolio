@@ -10,10 +10,8 @@ import { OverviewHighlightsGrid } from "@/components/portfolio/overview-highligh
 import { ProcessStepList } from "@/components/portfolio/process-step-list"
 import { ProjectHero } from "@/components/portfolio/project-hero"
 import { ProjectNav } from "@/components/portfolio/project-nav"
-import { PullQuote } from "@/components/portfolio/pull-quote"
 import { SectionHeading } from "@/components/portfolio/section-heading"
 import { SiteShell } from "@/components/portfolio/site-shell"
-import { cn } from "@/lib/utils"
 import {
   caseStudies,
   getAdjacentCaseStudies,
@@ -161,12 +159,7 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
         </div>
       </section>
 
-      <section
-        className={cn(
-          "grid gap-5",
-          caseStudy.reflectionQuote ? "lg:grid-cols-[0.75fr_1.25fr]" : ""
-        )}
-      >
+      <section>
         <div className="space-y-6">
           <SectionHeading
             eyebrow="Reflection"
@@ -187,13 +180,6 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
             </div>
           ) : null}
         </div>
-        {caseStudy.reflectionQuote ? (
-          <PullQuote
-            quote={caseStudy.reflectionQuote}
-            attribution={profile.name}
-            role={profile.title}
-          />
-        ) : null}
       </section>
 
       <ProjectNav previous={previous} next={next} />

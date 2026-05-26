@@ -7,7 +7,7 @@ import { useEffect, useState } from "react"
 import { cn } from "@/lib/utils"
 
 const navigation = [
-  { label: "Work", href: "/work" },
+  { label: "Projects", href: "/work" },
   { label: "About", href: "/#about" },
   { label: "Resume", href: "/resume" },
   { label: "Contact", href: "/#contact" },
@@ -19,7 +19,7 @@ function isNavItemActive(
   homeSection: string | null
 ) {
   switch (label) {
-    case "Work":
+    case "Projects":
       return pathname.startsWith("/work")
     case "Resume":
       return pathname.startsWith("/resume")
@@ -94,8 +94,8 @@ export function SiteNav() {
             className={cn(
               "text-[0.8125rem] font-medium tracking-[0.01em] transition-colors duration-300 sm:text-sm",
               isActive
-                ? "text-foreground"
-                : "text-foreground/65 hover:text-foreground"
+                ? "text-primary"
+                : "text-foreground/65 hover:text-primary"
             )}
           >
             {item.label}

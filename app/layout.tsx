@@ -12,6 +12,7 @@ const fontBody = Manrope({
 
 const fontHeading = Fraunces({
   subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
   variable: "--font-display",
 })
 

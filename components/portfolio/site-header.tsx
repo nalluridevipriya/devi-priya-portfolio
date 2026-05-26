@@ -5,7 +5,7 @@ import { SiteNav } from "@/components/portfolio/site-nav"
 function SiteLogo() {
   return (
     <Link href="/" className="group flex items-center gap-3 sm:gap-3.5">
-      <span className="flex size-10 shrink-0 items-center justify-center rounded-full border border-border/80 bg-card text-sm font-semibold leading-none tracking-tight text-foreground transition-colors group-hover:border-primary/50 group-hover:text-primary sm:size-11">
+      <span className="shrink-0 text-sm font-semibold leading-none tracking-tight text-foreground transition-colors group-hover:text-primary sm:text-base">
         {"d"}P
       </span>
       <span className="flex items-baseline gap-2 sm:gap-2.5">

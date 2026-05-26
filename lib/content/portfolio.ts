@@ -543,7 +543,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     slug: "focus-flow-habit-loop",
-    title: "LitTeen Social — Admin Dashboard & Ad Management Portal",
+    title: "Admin Dashboard & Ad Management Portal",
     tagline: "Designing clearer moderation and campaign workflows for a safer teen social platform.",
     summary:
       "A UX/UI redesign project focused on improving moderation workflows and advertising management for a teen-focused social media platform. The project explored how centralized dashboard systems could reduce operational friction, improve decision-making, and support safer platform governance for teenage users.",
@@ -688,7 +688,7 @@ export const resumeSections: ResumeSection[] = [
       },
       {
         eyebrow: "Supporting study",
-        title: "LitTeen Social — Admin Dashboard & Ad Management Portal",
+        title: "Admin Dashboard & Ad Management Portal",
         description:
           "A behavior-aware product concept exploring how tone and recovery patterns shape the user experience.",
         href: "/work/focus-flow-habit-loop",
