@@ -1,36 +1,10 @@
-import { MacBookMockup } from "@/components/portfolio/macbook-mockup"
+import { WebsiteShowcaseFrame } from "@/components/portfolio/website-showcase-frame"
 import { cn } from "@/lib/utils"
 import type { ProcessBeforeAfter } from "@/lib/content/portfolio"
 
 type BeforeAfterPanelProps = ProcessBeforeAfter & {
+  pageTitle?: string
   showTopDivider?: boolean
-}
-
-function ComparisonFrame({
-  label,
-  src,
-  alt,
-  placeholderGradient,
-}: {
-  label: string
-  src?: string
-  alt: string
-  placeholderGradient: string
-}) {
-  return (
-    <div className="space-y-3">
-      <p className="text-xs font-medium uppercase tracking-[0.24em] text-primary">{label}</p>
-      <MacBookMockup
-        src={src}
-        alt={alt}
-        placeholderGradient={placeholderGradient}
-        placeholderText={`Add image: ${alt}`}
-      />
-      {src ? (
-        <p className="text-center text-[0.6875rem] text-muted-foreground">Scroll inside the screen to explore</p>
-      ) : null}
-    </div>
-  )
 }
 
 export function BeforeAfterPanel({
@@ -42,8 +16,12 @@ export function BeforeAfterPanel({
   afterAlt = "After design",
   whatChanged,
   whyChanged,
+  pageTitle,
   showTopDivider = true,
 }: BeforeAfterPanelProps) {
+  const existingTitle = pageTitle ? `${pageTitle} — ${beforeLabel}` : beforeLabel
+  const redesignTitle = pageTitle ? `${pageTitle} — ${afterLabel}` : afterLabel
+
   return (
     <div
       className={cn(
@@ -51,18 +29,18 @@ export function BeforeAfterPanel({
         showTopDivider ? "mt-6 border-t border-border/80 pt-6" : ""
       )}
     >
-      <div className="grid gap-8 lg:grid-cols-2 lg:gap-10">
-        <ComparisonFrame
-          label={beforeLabel}
-          src={beforeImage}
-          alt={beforeAlt}
-          placeholderGradient="from-muted via-background to-card"
+      <div className="grid gap-6 lg:grid-cols-2 lg:gap-8">
+        <WebsiteShowcaseFrame
+          title={existingTitle}
+          image={beforeImage}
+          imageAlt={beforeAlt}
+          placeholderGradient="from-muted/40 via-[#f7f4f8] to-secondary/10"
         />
-        <ComparisonFrame
-          label={afterLabel}
-          src={afterImage}
-          alt={afterAlt}
-          placeholderGradient="from-primary/20 via-background to-card"
+        <WebsiteShowcaseFrame
+          title={redesignTitle}
+          image={afterImage}
+          imageAlt={afterAlt}
+          placeholderGradient="from-primary/20 via-[#f7f4f8] to-secondary/15"
         />
       </div>
 

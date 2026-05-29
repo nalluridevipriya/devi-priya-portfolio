@@ -42,12 +42,23 @@ export function SiteNav() {
       return
     }
 
-    const syncFromHash = () => {
+    const sectionVisibility = new Map<string, number>()
+
+    const updateActiveSection = () => {
       const hash = window.location.hash.replace("#", "")
       if (hash === "about" || hash === "contact") {
         setHomeSection(hash)
+        return
       }
+
+      const bestMatch = [...sectionVisibility.entries()]
+        .filter(([, ratio]) => ratio >= 0.3)
+        .sort((a, b) => b[1] - a[1])[0]
+
+      setHomeSection(bestMatch?.[0] ?? null)
     }
+
+    const syncFromHash = () => updateActiveSection()
 
     syncFromHash()
     window.addEventListener("hashchange", syncFromHash)
@@ -62,18 +73,22 @@ export function SiteNav() {
 
     const observer = new IntersectionObserver(
       (entries) => {
-        const visible = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)
-
-        if (visible[0]?.target.id) {
-          setHomeSection(visible[0].target.id)
+        for (const entry of entries) {
+          sectionVisibility.set(
+            entry.target.id,
+            entry.isIntersecting ? entry.intersectionRatio : 0
+          )
         }
+
+        updateActiveSection()
       },
       { rootMargin: "-35% 0px -45% 0px", threshold: [0, 0.2, 0.4, 0.6, 0.8, 1] }
     )
 
-    sectionElements.forEach((element) => observer.observe(element))
+    sectionElements.forEach((element) => {
+      sectionVisibility.set(element.id, 0)
+      observer.observe(element)
+    })
 
     return () => {
       window.removeEventListener("hashchange", syncFromHash)

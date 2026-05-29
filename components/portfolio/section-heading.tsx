@@ -3,7 +3,7 @@ import { cn } from "@/lib/utils"
 type SectionHeadingProps = {
   eyebrow: string
   title: string
-  description: string
+  description?: string
   centered?: boolean
 }
 
@@ -15,7 +15,7 @@ export function SectionHeading({
 }: SectionHeadingProps) {
   return (
     <div className={cn("space-y-4", centered ? "mx-auto max-w-3xl" : "")}>
-      <p className={cn("text-xs uppercase tracking-[0.32em] text-primary", centered ? "text-center" : "")}>
+      <p className={cn("text-[13px] font-medium uppercase tracking-[0.32em] text-primary", centered ? "text-center" : "")}>
         {eyebrow}
       </p>
       <div className="space-y-4">
@@ -27,14 +27,16 @@ export function SectionHeading({
         >
           {title}
         </h2>
-        <p
-          className={cn(
-            "text-[16px] leading-7 text-muted-foreground",
-            centered ? "mx-auto max-w-2xl text-left" : "max-w-2xl"
-          )}
-        >
-          {description}
-        </p>
+        {description ? (
+          <p
+            className={cn(
+              "text-[16px] leading-7 text-muted-foreground",
+              centered ? "mx-auto max-w-2xl text-left" : "max-w-2xl"
+            )}
+          >
+            {description}
+          </p>
+        ) : null}
       </div>
     </div>
   )

@@ -14,14 +14,7 @@ export function SiteShell({ children, mainClassName }: SiteShellProps) {
       <SiteHeader />
 
       <div className="mx-auto flex min-h-screen w-full max-w-7xl flex-col px-5 pb-14 sm:px-8 lg:px-10">
-        <main className={cn("flex flex-1 flex-col gap-24 pb-24", mainClassName)}>{children}</main>
-
-        <footer className="border-t border-border/70 pt-8 text-sm text-muted-foreground">
-          <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-            <p>Built as a warm, editorial portfolio shell for evolving UX case studies.</p>
-            <p>Replace local content as your real project details become ready.</p>
-          </div>
-        </footer>
+        <main className={cn("flex flex-1 flex-col gap-5 pb-5", mainClassName)}>{children}</main>
       </div>
     </div>
   )

@@ -135,6 +135,7 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
                 >
                   <BeforeAfterPanel
                     {...comparison.beforeAfter}
+                    pageTitle={comparison.title}
                     showTopDivider={false}
                   />
                 </EditorialCard>

@@ -1,11 +1,17 @@
 import Link from "next/link"
-import { RiArrowRightUpLine, RiMailLine, RiMapPin2Line } from "@remixicon/react"
+import {
+  RiArrowRightUpLine,
+  RiFilePdfLine,
+  RiMailLine,
+  RiMapPin2Line,
+  RiPhoneLine,
+} from "@remixicon/react"
 
 import { CtaRow } from "@/components/portfolio/cta-row"
 import { EditorialCard } from "@/components/portfolio/editorial-card"
-import { PullQuote } from "@/components/portfolio/pull-quote"
 import { SectionHeading } from "@/components/portfolio/section-heading"
 import { SiteShell } from "@/components/portfolio/site-shell"
+import { Button } from "@/components/ui/button"
 import { profile, resumeSections } from "@/lib/content/portfolio"
 
 export default function ResumePage() {
@@ -14,28 +20,55 @@ export default function ResumePage() {
       <section className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
         <SectionHeading
           eyebrow="Resume"
-          title="A scannable snapshot of strengths, projects, and the kind of product work I want to grow into."
-          description="This page is intentionally designed to act as the primary CTA destination for the portfolio. It reads quickly, keeps the essentials visible, and avoids forcing a file download."
+          title={profile.title}
+          description={profile.resumeSummary}
         />
 
-        <EditorialCard className="space-y-6">
+        <EditorialCard className="h-40 space-y-6">
           <div className="flex flex-wrap gap-3 text-sm text-muted-foreground">
-            <span className="inline-flex items-center gap-2 rounded-full border border-border/80 bg-background/80 px-4 py-2">
-              <RiMapPin2Line className="size-4" />
-              Open to remote and hybrid opportunities
-            </span>
-            <span className="inline-flex items-center gap-2 rounded-full border border-border/80 bg-background/80 px-4 py-2">
+            {profile.location ? (
+              <span className="inline-flex items-center gap-2 rounded-full border border-border/80 bg-background/80 px-4 py-2">
+                <RiMapPin2Line className="size-4" />
+                {profile.location}
+              </span>
+            ) : null}
+            {profile.phone ? (
+              <a
+                href={`tel:${profile.phone.replace(/[^\d+]/g, "")}`}
+                className="inline-flex items-center gap-2 rounded-full border border-border/80 bg-background/80 px-4 py-2 transition-colors hover:border-primary/40 hover:text-primary"
+              >
+                <RiPhoneLine className="size-4" />
+                {profile.phone}
+              </a>
+            ) : null}
+            <a
+              href={`mailto:${profile.email}`}
+              className="inline-flex items-center gap-2 rounded-full border border-border/80 bg-background/80 px-4 py-2 transition-colors hover:border-primary/40 hover:text-primary"
+            >
               <RiMailLine className="size-4" />
               {profile.email}
-            </span>
+            </a>
           </div>
-          <p className="text-lg leading-8 text-foreground">{profile.resumeSummary}</p>
+
+          {profile.resumePdfHref ? (
+            <Button asChild size="lg" className="my-[15px] h-[40px] w-40">
+              <a href={profile.resumePdfHref} target="_blank" rel="noreferrer">
+                Open PDF resume
+                <RiFilePdfLine className="size-4" />
+              </a>
+            </Button>
+          ) : null}
         </EditorialCard>
       </section>
 
       <section className="grid gap-5 lg:grid-cols-2">
         {resumeSections.map((section) => (
-          <EditorialCard key={section.title} title={section.title} description={section.summary}>
+          <EditorialCard
+            key={section.title}
+            title={section.title}
+            description={section.summary}
+            className={section.title === "Experience" ? "lg:col-span-2" : undefined}
+          >
             <div className="space-y-4">
               {section.items.map((item) => (
                 <div
@@ -70,6 +103,16 @@ export default function ResumePage() {
                     ) : null}
                   </div>
                   <p className="mt-3 text-sm leading-7 text-muted-foreground">{item.description}</p>
+                  {item.bullets?.length ? (
+                    <ul className="mt-4 space-y-2 border-t border-border/60 pt-4">
+                      {item.bullets.map((bullet) => (
+                        <li key={bullet} className="flex gap-3 text-sm leading-7 text-muted-foreground">
+                          <span className="mt-2 size-1.5 shrink-0 rounded-full bg-primary" />
+                          <span>{bullet}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  ) : null}
                 </div>
               ))}
             </div>
@@ -77,20 +120,26 @@ export default function ResumePage() {
         ))}
       </section>
 
-      <PullQuote quote={profile.pullQuote} attribution={profile.name} role={profile.title} />
-
       <section id="contact">
         <CtaRow
-          title="Prefer a PDF later?"
-          description="The site is already wired to use this resume page as the main CTA. If you add a PDF in the future, keep this page as the human-friendly overview and link the file as a secondary action."
+          title="Let's connect"
+          description="Reach out about internships, UX roles, or collaboration. You can also open the PDF resume for sharing or printing."
           primaryAction={{
+            href: profile.resumePdfHref ?? `mailto:${profile.email}`,
+            label: "Open PDF resume",
+          }}
+          secondaryAction={{
             href: `mailto:${profile.email}`,
             label: "Email me",
           }}
-          secondaryAction={{
-            href: "/#work",
-            label: "Browse case studies",
-          }}
+          tertiaryAction={
+            profile.linkedinHref
+              ? {
+                  href: profile.linkedinHref,
+                  label: "LinkedIn",
+                }
+              : undefined
+          }
         />
       </section>
     </SiteShell>

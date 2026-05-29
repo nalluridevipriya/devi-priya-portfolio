@@ -46,7 +46,45 @@ function AboutParagraph({ segments }: { segments: AboutTextSegment[] }) {
   )
 }
 
+function AboutPhoto({
+  photo,
+  className,
+}: {
+  photo: AboutSectionContent["photos"][number]
+  className?: string
+}) {
+  return (
+    <div
+      className={cn(
+        "group relative aspect-[4/5] overflow-hidden rounded-[1.25rem] border border-border/70 shadow-[0_18px_50px_-35px_rgba(74,56,40,0.3)] sm:rounded-[1.5rem]",
+        className
+      )}
+    >
+      {photo.src ? (
+        <Image
+          src={photo.src}
+          alt={photo.alt}
+          fill
+          className="object-cover grayscale transition duration-500 group-hover:scale-105 group-hover:grayscale-0"
+          sizes="(max-width: 640px) 160px, (max-width: 1024px) 200px, 168px"
+        />
+      ) : (
+        <div
+          className={cn(
+            "absolute inset-0 bg-gradient-to-br grayscale transition duration-500 group-hover:scale-105 group-hover:grayscale-0",
+            photo.gradient
+          )}
+          aria-label={photo.alt}
+        />
+      )}
+      <div className="pointer-events-none absolute inset-0 bg-foreground/0 transition duration-500 group-hover:bg-foreground/5" />
+    </div>
+  )
+}
+
 export function AboutSection({ content, resumeHref, className }: AboutSectionProps) {
+  const [topLeftPhoto, bottomRightPhoto] = content.photos
+
   return (
     <section
       id="about"
@@ -72,32 +110,13 @@ export function AboutSection({ content, resumeHref, className }: AboutSectionPro
       </div>
 
       <div className="mx-auto w-full max-w-sm sm:max-w-md lg:mx-0 lg:ml-auto lg:max-w-[21rem]">
-        <div className="grid grid-cols-2 gap-3 sm:gap-4">
-          {content.photos.map((photo) => (
-            <div
-              key={photo.alt}
-              className="group relative aspect-[4/5] overflow-hidden rounded-[1.25rem] border border-border/70 shadow-[0_18px_50px_-35px_rgba(74,56,40,0.3)] sm:rounded-[1.5rem]"
-            >
-              {photo.src ? (
-                <Image
-                  src={photo.src}
-                  alt={photo.alt}
-                  fill
-                  className="object-cover grayscale transition duration-500 group-hover:scale-105 group-hover:grayscale-0"
-                  sizes="(max-width: 640px) 160px, (max-width: 1024px) 200px, 168px"
-                />
-              ) : (
-                <div
-                  className={cn(
-                    "absolute inset-0 bg-gradient-to-br grayscale transition duration-500 group-hover:scale-105 group-hover:grayscale-0",
-                    photo.gradient
-                  )}
-                  aria-label={photo.alt}
-                />
-              )}
-              <div className="pointer-events-none absolute inset-0 bg-foreground/0 transition duration-500 group-hover:bg-foreground/5" />
-            </div>
-          ))}
+        <div className="grid grid-cols-2 grid-rows-2 gap-3 sm:gap-4">
+          {topLeftPhoto ? (
+            <AboutPhoto photo={topLeftPhoto} className="col-start-1 row-start-1" />
+          ) : null}
+          {bottomRightPhoto ? (
+            <AboutPhoto photo={bottomRightPhoto} className="col-start-2 row-start-2" />
+          ) : null}
         </div>
       </div>
     </section>
