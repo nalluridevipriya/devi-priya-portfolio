@@ -56,7 +56,7 @@ function AboutPhoto({
   return (
     <div
       className={cn(
-        "group relative aspect-[4/5] overflow-hidden rounded-[1.25rem] border border-border/70 shadow-[0_18px_50px_-35px_rgba(74,56,40,0.3)] sm:rounded-[1.5rem]",
+        "group relative aspect-[4/5] overflow-hidden rounded-[1.25rem] border border-primary/25 bg-primary/15 shadow-[0_18px_50px_-35px_rgba(89,62,95,0.22)] sm:rounded-[1.5rem]",
         className
       )}
     >
@@ -65,19 +65,20 @@ function AboutPhoto({
           src={photo.src}
           alt={photo.alt}
           fill
-          className="object-cover grayscale transition duration-500 group-hover:scale-105 group-hover:grayscale-0"
+          className="object-cover transition duration-500 group-hover:scale-105"
           sizes="(max-width: 640px) 160px, (max-width: 1024px) 200px, 168px"
         />
       ) : (
         <div
           className={cn(
-            "absolute inset-0 bg-gradient-to-br grayscale transition duration-500 group-hover:scale-105 group-hover:grayscale-0",
+            "absolute inset-0 bg-gradient-to-br transition duration-500 group-hover:scale-105",
             photo.gradient
           )}
           aria-label={photo.alt}
         />
       )}
-      <div className="pointer-events-none absolute inset-0 bg-foreground/0 transition duration-500 group-hover:bg-foreground/5" />
+      <div className="pointer-events-none absolute inset-0 bg-primary/30 mix-blend-multiply transition duration-500 group-hover:opacity-0" />
+      <div className="pointer-events-none absolute inset-0 bg-primary/10 transition duration-500 group-hover:bg-primary/0" />
     </div>
   )
 }

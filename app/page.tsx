@@ -7,13 +7,13 @@ import { SectionHeading } from "@/components/portfolio/section-heading"
 import { SiteShell } from "@/components/portfolio/site-shell"
 import { WorkShowcaseGrid } from "@/components/portfolio/work-showcase-grid"
 
-import { aboutSection, caseStudies, heroPhotos, profile, workingProcess } from "@/lib/content/portfolio"
+import { aboutSection, caseStudies, profile, workingProcess } from "@/lib/content/portfolio"
 
 export default function Page() {
   return (
     <SiteShell>
       <section className="flex flex-col gap-12 overflow-visible lg:gap-14">
-        <HomeHero profile={profile} photos={heroPhotos} />
+        <HomeHero profile={profile} />
       </section>
 
       <SectionDivider />

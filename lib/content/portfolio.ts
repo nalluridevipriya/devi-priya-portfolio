@@ -119,6 +119,23 @@ export type AboutSectionContent = {
   photos: AboutPhoto[]
 }
 
+export type SkillTool = {
+  id: string
+  name: string
+  src: string
+}
+
+export const skillTools: SkillTool[] = [
+  { id: "figma", name: "Figma", src: "/skills/figma.svg" },
+  { id: "indesign", name: "Adobe InDesign", src: "/skills/indesign.svg" },
+  { id: "illustrator", name: "Adobe Illustrator", src: "/skills/illustrator.svg" },
+  { id: "photoshop", name: "Adobe Photoshop", src: "/skills/photoshop.svg" },
+  { id: "google-slides", name: "Google Slides", src: "/skills/google-slides.svg" },
+  { id: "google-sheets", name: "Google Sheets", src: "/skills/google-sheets.svg" },
+  { id: "notion", name: "Notion", src: "/skills/notion.svg" },
+  { id: "cursor", name: "Cursor", src: "/skills/cursor_light.svg" },
+]
+
 export type ResumeSection = {
   title: string
   summary?: string
@@ -809,14 +826,8 @@ export const resumeSections: ResumeSection[] = [
   },
   {
     title: "Skills",
-    items: [
-      {
-        eyebrow: "Design & tools",
-        title: "Figma, Adobe Suite, Google Workspace",
-        description:
-          "Figma wireframing, UI design, basic prototyping, Adobe Suite (Illustrator, InDesign, Photoshop), creating design iterations, graphics, and presentations, Google Workspace (Docs, Sheets, Slides).",
-      },
-    ],
+    summary: "Design and productivity tools I use regularly.",
+    items: [],
   },
   {
     title: "Experience",
