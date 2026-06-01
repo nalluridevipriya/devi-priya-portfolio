@@ -1,6 +1,10 @@
 export type ProcessBeforeAfter = {
   beforeImage?: string
   afterImage?: string
+  beforeImageWidth?: number
+  beforeImageHeight?: number
+  afterImageWidth?: number
+  afterImageHeight?: number
   beforeLabel?: string
   afterLabel?: string
   beforeAlt?: string
@@ -31,6 +35,8 @@ export type WebsiteShowcasePage = {
   title: string
   image?: string
   imageAlt: string
+  imageWidth?: number
+  imageHeight?: number
   openHref?: string
   placeholderGradient?: string
 }
@@ -621,7 +627,9 @@ export const caseStudies: CaseStudy[] = [
         title: "Ticket purchasing flow",
         beforeAfter: {
           beforeAlt: "Original Arizona Science Center ticket purchasing screen",
-          afterImage: "/work/arizona-science-center/ticket-flow-after.png",
+          afterImage: "/work/arizona-science-center/ticket-flow-after-display.png",
+          afterImageWidth: 1600,
+          afterImageHeight: 4032,
           afterAlt: "Redesigned step-by-step ticket purchasing flow",
           beforeLabel: "Existing design",
           afterLabel: "Redesign",
@@ -635,6 +643,9 @@ export const caseStudies: CaseStudy[] = [
         title: "Exhibition browsing page",
         beforeAfter: {
           beforeAlt: "Original Arizona Science Center exhibition detail page",
+          afterImage: "/work/arizona-science-center/exhibition-page-after.png",
+          afterImageWidth: 1440,
+          afterImageHeight: 5504,
           afterAlt: "Redesigned exhibition page with unified layout",
           beforeLabel: "Existing design",
           afterLabel: "Redesign",

@@ -10,6 +10,10 @@ type BeforeAfterPanelProps = ProcessBeforeAfter & {
 export function BeforeAfterPanel({
   beforeImage,
   afterImage,
+  beforeImageWidth,
+  beforeImageHeight,
+  afterImageWidth,
+  afterImageHeight,
   beforeLabel = "Before",
   afterLabel = "After",
   beforeAlt = "Before design",
@@ -34,12 +38,16 @@ export function BeforeAfterPanel({
           title={existingTitle}
           image={beforeImage}
           imageAlt={beforeAlt}
+          imageWidth={beforeImageWidth}
+          imageHeight={beforeImageHeight}
           placeholderGradient="from-muted/40 via-[#f7f4f8] to-secondary/10"
         />
         <WebsiteShowcaseFrame
           title={redesignTitle}
           image={afterImage}
           imageAlt={afterAlt}
+          imageWidth={afterImageWidth}
+          imageHeight={afterImageHeight}
           placeholderGradient="from-primary/20 via-[#f7f4f8] to-secondary/15"
         />
       </div>

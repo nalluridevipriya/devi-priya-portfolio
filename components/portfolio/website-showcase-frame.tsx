@@ -11,6 +11,8 @@ export function WebsiteShowcaseFrame({
   title,
   image,
   imageAlt,
+  imageWidth,
+  imageHeight,
   openHref,
   placeholderGradient = "from-primary/15 via-background to-secondary/10",
   className,
@@ -54,8 +56,11 @@ export function WebsiteShowcaseFrame({
             <img
               src={image}
               alt={imageAlt}
-              className="mx-auto block h-auto w-auto max-w-full"
-              loading="lazy"
+              width={imageWidth}
+              height={imageHeight}
+              className="mx-auto block h-auto w-full max-w-full"
+              loading={imageWidth && imageWidth > 2000 ? "eager" : "lazy"}
+              decoding="async"
               draggable={false}
             />
           ) : (
