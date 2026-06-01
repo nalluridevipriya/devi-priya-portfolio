@@ -8,6 +8,7 @@ import { cn } from "@/lib/utils"
 
 const navigation = [
   { label: "Projects", href: "/work" },
+  { label: "Other Works", href: "/other-works" },
   { label: "About", href: "/#about" },
   { label: "Resume", href: "/resume" },
   { label: "Contact", href: "/#contact" },
@@ -21,6 +22,8 @@ function isNavItemActive(
   switch (label) {
     case "Projects":
       return pathname.startsWith("/work")
+    case "Other Works":
+      return pathname.startsWith("/other-works") || (pathname === "/" && homeSection === "other-works")
     case "Resume":
       return pathname.startsWith("/resume")
     case "About":
@@ -46,7 +49,7 @@ export function SiteNav() {
 
     const updateActiveSection = () => {
       const hash = window.location.hash.replace("#", "")
-      if (hash === "about" || hash === "contact") {
+      if (hash === "about" || hash === "contact" || hash === "other-works") {
         setHomeSection(hash)
         return
       }
@@ -65,7 +68,8 @@ export function SiteNav() {
 
     const aboutEl = document.getElementById("about")
     const contactEl = document.getElementById("contact")
-    const sectionElements = [aboutEl, contactEl].filter(Boolean) as HTMLElement[]
+    const otherWorksEl = document.getElementById("other-works")
+    const sectionElements = [aboutEl, contactEl, otherWorksEl].filter(Boolean) as HTMLElement[]
 
     if (sectionElements.length === 0) {
       return () => window.removeEventListener("hashchange", syncFromHash)

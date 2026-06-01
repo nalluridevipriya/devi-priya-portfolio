@@ -12,13 +12,27 @@ type AboutSectionProps = {
   className?: string
 }
 
-function AboutParagraph({ segments }: { segments: AboutTextSegment[] }) {
+function AboutParagraph({
+  segments,
+  variant = "default",
+}: {
+  segments: AboutTextSegment[]
+  variant?: "default" | "note"
+}) {
+  const emphasisClass = variant === "note" ? undefined : "text-foreground"
+
   return (
-    <p className="text-base leading-8 text-muted-foreground sm:text-lg sm:leading-8">
+    <p
+      className={
+        variant === "note"
+          ? "about-sticky-note-text"
+          : "text-base leading-8 text-muted-foreground sm:text-lg sm:leading-8"
+      }
+    >
       {segments.map((segment, index) => {
         if (segment.bold && segment.italic) {
           return (
-            <strong key={index} className="font-semibold italic text-foreground">
+            <strong key={index} className={cn("font-semibold italic", emphasisClass)}>
               {segment.text}
             </strong>
           )
@@ -26,7 +40,7 @@ function AboutParagraph({ segments }: { segments: AboutTextSegment[] }) {
 
         if (segment.italic) {
           return (
-            <em key={index} className="italic text-foreground">
+            <em key={index} className={cn("italic", emphasisClass)}>
               {segment.text}
             </em>
           )
@@ -34,7 +48,7 @@ function AboutParagraph({ segments }: { segments: AboutTextSegment[] }) {
 
         if (segment.bold) {
           return (
-            <strong key={index} className="font-semibold text-foreground">
+            <strong key={index} className={cn("font-semibold", emphasisClass)}>
               {segment.text}
             </strong>
           )
@@ -46,39 +60,37 @@ function AboutParagraph({ segments }: { segments: AboutTextSegment[] }) {
   )
 }
 
-function AboutPhoto({
+function AboutPolaroid({
   photo,
   className,
+  tiltClassName,
+  animationClassName,
 }: {
   photo: AboutSectionContent["photos"][number]
   className?: string
+  tiltClassName?: string
+  animationClassName?: string
 }) {
   return (
-    <div
-      className={cn(
-        "group relative aspect-[4/5] overflow-hidden rounded-[1.25rem] border border-primary/25 bg-primary/15 shadow-[0_18px_50px_-35px_rgba(89,62,95,0.22)] sm:rounded-[1.5rem]",
-        className
-      )}
-    >
-      {photo.src ? (
-        <Image
-          src={photo.src}
-          alt={photo.alt}
-          fill
-          className="object-cover transition duration-500 group-hover:scale-105"
-          sizes="(max-width: 640px) 160px, (max-width: 1024px) 200px, 168px"
-        />
-      ) : (
-        <div
-          className={cn(
-            "absolute inset-0 bg-gradient-to-br transition duration-500 group-hover:scale-105",
-            photo.gradient
+    <div className={cn("about-polaroid", animationClassName, className)}>
+      <div className={cn("about-polaroid-frame", tiltClassName)}>
+        <div className="about-polaroid-photo">
+          {photo.src ? (
+            <Image
+              src={photo.src}
+              alt={photo.alt}
+              fill
+              className="object-cover"
+              sizes="(max-width: 640px) 160px, (max-width: 1024px) 200px, 168px"
+            />
+          ) : (
+            <div
+              className={cn("absolute inset-0 bg-gradient-to-br", photo.gradient)}
+              aria-label={photo.alt}
+            />
           )}
-          aria-label={photo.alt}
-        />
-      )}
-      <div className="pointer-events-none absolute inset-0 bg-primary/30 mix-blend-multiply transition duration-500 group-hover:opacity-0" />
-      <div className="pointer-events-none absolute inset-0 bg-primary/10 transition duration-500 group-hover:bg-primary/0" />
+        </div>
+      </div>
     </div>
   )
 }
@@ -89,17 +101,25 @@ export function AboutSection({ content, resumeHref, className }: AboutSectionPro
   return (
     <section
       id="about"
-      className={cn("grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:gap-14", className)}
+      className={cn(
+        "grid gap-10 overflow-visible lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:gap-14",
+        className
+      )}
     >
-      <div className="space-y-8">
-        <p className="text-xs uppercase tracking-[0.32em] text-primary">
+      <div className="space-y-8 overflow-visible">
+        <p className="text-xs font-bold uppercase tracking-[0.32em] text-primary">
           + {content.eyebrow}
         </p>
 
-        <div className="space-y-6">
-          {content.paragraphs.map((paragraph, index) => (
-            <AboutParagraph key={index} segments={paragraph} />
-          ))}
+        <div className="about-sticky-note-wrap">
+          <article className="about-sticky-note bg-[#ede4f2]">
+            <span className="about-sticky-note-tape" aria-hidden="true" />
+            <div className="about-sticky-note-body">
+              {content.paragraphs.map((paragraph, index) => (
+                <AboutParagraph key={index} segments={paragraph} variant="note" />
+              ))}
+            </div>
+          </article>
         </div>
 
         <Button asChild size="lg" className="w-fit px-6">
@@ -110,13 +130,23 @@ export function AboutSection({ content, resumeHref, className }: AboutSectionPro
         </Button>
       </div>
 
-      <div className="mx-auto w-full max-w-sm sm:max-w-md lg:mx-0 lg:ml-auto lg:max-w-[21rem]">
-        <div className="grid grid-cols-2 grid-rows-2 gap-3 sm:gap-4">
+      <div className="mx-auto w-full max-w-sm overflow-visible sm:max-w-md lg:mx-0 lg:ml-auto lg:max-w-[21rem]">
+        <div className="grid grid-cols-2 grid-rows-2 gap-3 overflow-visible sm:gap-4">
           {topLeftPhoto ? (
-            <AboutPhoto photo={topLeftPhoto} className="col-start-1 row-start-1" />
+            <AboutPolaroid
+              photo={topLeftPhoto}
+              className="col-start-1 row-start-1"
+              tiltClassName="-rotate-[5deg]"
+              animationClassName="about-polaroid-float"
+            />
           ) : null}
           {bottomRightPhoto ? (
-            <AboutPhoto photo={bottomRightPhoto} className="col-start-2 row-start-2" />
+            <AboutPolaroid
+              photo={bottomRightPhoto}
+              className="col-start-2 row-start-2"
+              tiltClassName="rotate-[4deg]"
+              animationClassName="about-polaroid-float-alt"
+            />
           ) : null}
         </div>
       </div>

@@ -453,6 +453,157 @@
     }
   }
 
+  .about-sticky-note-wrap {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 36rem;
+    padding: 0.85rem 0.5rem 0.35rem;
+    overflow: visible;
+  }
+
+  .about-sticky-note {
+    --note-paper: #ede4f2;
+    --note-line: rgb(89 62 95 / 0.16);
+    --note-margin: rgb(89 62 95 / 0.44);
+
+    position: relative;
+    z-index: 0;
+    width: 100%;
+    background-color: var(--note-paper);
+    background-image:
+      linear-gradient(
+        to right,
+        transparent 2rem,
+        var(--note-margin) 2rem,
+        var(--note-margin) calc(2rem + 1.5px),
+        transparent calc(2rem + 1.5px)
+      ),
+      repeating-linear-gradient(
+        to bottom,
+        transparent 0,
+        transparent calc(1.75rem - 1px),
+        var(--note-line) calc(1.75rem - 1px),
+        var(--note-line) 1.75rem
+      );
+    background-size: 100% 100%, 100% 1.75rem;
+    background-position: 0 0, 0 2.25rem;
+    border: 1px solid rgb(89 62 95 / 0.14);
+    border-radius: 2px;
+    box-shadow:
+      0 1px 0 rgb(255 255 255 / 0.7) inset,
+      0 10px 24px -14px rgb(89 62 95 / 0.34),
+      0 18px 36px -18px rgb(45 40 36 / 0.18);
+    transform: rotate(-2.75deg);
+    transform-origin: center center;
+  }
+
+  .about-sticky-note-tape {
+    position: absolute;
+    top: -0.7rem;
+    left: 50%;
+    z-index: 2;
+    width: 4.75rem;
+    height: 1.4rem;
+    border: 1px solid rgb(89 62 95 / 0.1);
+    border-radius: 1px;
+    background: linear-gradient(
+      180deg,
+      rgb(255 248 244 / 0.92),
+      rgb(237 214 226 / 0.82)
+    );
+    box-shadow: 0 2px 5px rgb(45 40 36 / 0.1);
+    transform: translateX(-50%) rotate(3deg);
+    pointer-events: none;
+  }
+
+  .about-sticky-note-body {
+    position: relative;
+    z-index: 1;
+    padding: 2.35rem 1.5rem 1.85rem 2.45rem;
+  }
+
+  .about-sticky-note-text {
+    margin: 0;
+    font-family: var(--font-body);
+    font-size: 0.9375rem;
+    line-height: 1.75rem;
+    color: var(--foreground);
+  }
+
+  .about-sticky-note-text:not(:last-child) {
+    margin-bottom: 1.75rem;
+  }
+
+  .about-sticky-note-text strong {
+    font-weight: 600;
+    color: var(--primary);
+  }
+
+  .about-sticky-note-text em {
+    font-style: italic;
+    color: var(--primary);
+  }
+
+  @keyframes about-polaroid-float {
+    0%,
+    100% {
+      transform: translate3d(0, 0, 0);
+    }
+    25% {
+      transform: translate3d(4px, -8px, 0);
+    }
+    50% {
+      transform: translate3d(-3px, -14px, 0);
+    }
+    75% {
+      transform: translate3d(-5px, -6px, 0);
+    }
+  }
+
+  @keyframes about-polaroid-float-alt {
+    0%,
+    100% {
+      transform: translate3d(0, 0, 0);
+    }
+    33% {
+      transform: translate3d(-6px, -10px, 0);
+    }
+    66% {
+      transform: translate3d(5px, -16px, 0);
+    }
+  }
+
+  .about-polaroid {
+    width: 100%;
+    will-change: transform;
+  }
+
+  .about-polaroid-frame {
+    background: color-mix(in oklab, var(--primary) 12%, var(--primary-foreground));
+    padding: 0.5rem 0.5rem 2.35rem;
+    border: 1px solid color-mix(in oklab, var(--primary) 26%, transparent);
+    box-shadow:
+      0 1px 0 rgb(255 255 255 / 0.55) inset,
+      0 10px 24px -14px rgb(89 62 95 / 0.3),
+      0 16px 32px -18px rgb(89 62 95 / 0.14);
+  }
+
+  .about-polaroid-photo {
+    position: relative;
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
+    background: color-mix(in oklab, var(--primary) 10%, var(--muted));
+  }
+
+  .about-polaroid-float {
+    animation: about-polaroid-float 5.2s ease-in-out infinite;
+  }
+
+  .about-polaroid-float-alt {
+    animation: about-polaroid-float-alt 5.8s ease-in-out infinite;
+  }
+
   .hero-photo-enter {
     animation: hero-photo-enter 1s cubic-bezier(0.22, 1, 0.36, 1) both;
     will-change: transform, opacity, filter;
@@ -520,7 +671,9 @@
     .hero-photo-enter,
     .hero-photo-float,
     .hero-photo-float-alt,
-    .hero-photo-float-slow {
+    .hero-photo-float-slow,
+    .about-polaroid-float,
+    .about-polaroid-float-alt {
       animation: none;
     }
 

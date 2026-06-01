@@ -7,6 +7,7 @@ import {
   RiPhoneLine,
 } from "@remixicon/react"
 
+import { cn } from "@/lib/utils"
 import { CtaRow } from "@/components/portfolio/cta-row"
 import { EditorialCard } from "@/components/portfolio/editorial-card"
 import { SectionHeading } from "@/components/portfolio/section-heading"
@@ -68,7 +69,14 @@ export default function ResumePage() {
             key={section.title}
             title={section.title}
             description={section.summary}
-            className={section.title === "Experience" ? "lg:col-span-2" : undefined}
+            className={cn(
+              "h-full flex flex-col",
+              section.title === "Experience" ? "lg:col-span-2" : undefined
+            )}
+            contentClassName={cn(
+              "flex-1",
+              section.title === "Skills" ? "flex items-center" : undefined
+            )}
           >
             {section.title === "Skills" ? (
               <SkillsLogoGrid tools={skillTools} />

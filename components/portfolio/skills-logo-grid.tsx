@@ -8,9 +8,9 @@ type SkillsLogoGridProps = {
 
 export function SkillsLogoGrid({ tools, className }: SkillsLogoGridProps) {
   return (
-    <div className={cn("grid grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-4", className)}>
+    <div className={cn("flex w-full flex-wrap justify-center gap-x-6 gap-y-6", className)}>
       {tools.map((tool) => (
-        <div key={tool.id} className="group flex flex-col items-center gap-2">
+        <div key={tool.id} className="group flex w-[4.75rem] flex-col items-center gap-2 sm:w-[5.5rem]">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={tool.src}

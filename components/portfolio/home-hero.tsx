@@ -28,7 +28,7 @@ function HeroPill({
   return (
     <span
       className={cn(
-        "inline-flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-[0.6875rem] font-medium leading-none shadow-sm backdrop-blur-sm sm:px-3.5 sm:text-xs",
+        "inline-flex shrink-0 items-center gap-1.5 rounded-full border px-3 py-1.5 font-sans text-[0.6875rem] font-medium not-italic leading-none shadow-sm backdrop-blur-sm sm:px-3.5 sm:text-xs",
         motion === "alt" ? "hero-pill-float-alt" : "hero-pill-float",
         variant === "primary"
           ? "border-primary/45 bg-primary/15 text-primary shadow-[0_10px_28px_-14px_rgba(89,62,95,0.35)]"
@@ -135,10 +135,21 @@ export function HomeHero({ profile }: HomeHeroProps) {
           />
         </div>
 
-        <div className="mt-3 flex w-full justify-center sm:mt-4">
-          <h1 className="hero-name whitespace-nowrap text-center font-heading text-[clamp(1.625rem,4.2vw,3.25rem)] font-medium leading-none tracking-[-0.03em] text-foreground">
-            {heroNameNodes(profile.name)}
-          </h1>
+        <div className="relative mt-3 flex w-full justify-center sm:mt-4">
+          <div className="relative inline-block">
+            <div className="absolute bottom-full left-0 mb-2 sm:mb-2.5">
+              <HeroPill
+                label={profile.heroPills[2]}
+                variant="primary"
+                motion="alt"
+                animationDelay="0.3s"
+                plusDelay="0.45s"
+              />
+            </div>
+            <h1 className="hero-name whitespace-nowrap font-heading text-[clamp(1.625rem,4.2vw,3.25rem)] font-medium leading-none tracking-[-0.03em] text-foreground">
+              {heroNameNodes(profile.name)}
+            </h1>
+          </div>
         </div>
 
         <div className="mt-3 flex w-full justify-start pl-2 sm:mt-4 sm:pl-6 md:pl-8">
@@ -158,7 +169,15 @@ export function HomeHero({ profile }: HomeHeroProps) {
               {profile.heroOpenToLabel}
             </span>
           </div>
-          <div className="hero-sticky-note-wrap shrink-0 self-end">
+          <div className="hero-sticky-note-wrap flex shrink-0 flex-col items-end gap-2 self-end sm:gap-2.5">
+            <HeroPill
+              label={profile.heroPills[3]}
+              variant="secondary"
+              motion="alt"
+              animationDelay="0.75s"
+              plusDelay="1.05s"
+              className="relative -top-[10px]"
+            />
             <div className="hero-sticky-note">
               <p className="hero-sticky-note-text">{profile.heroHeadline}</p>
             </div>

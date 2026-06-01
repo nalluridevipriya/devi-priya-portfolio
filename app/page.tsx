@@ -1,13 +1,14 @@
 import { AboutSection } from "@/components/portfolio/about-section"
 import { CtaRow } from "@/components/portfolio/cta-row"
 import { HomeHero } from "@/components/portfolio/home-hero"
+import { OtherWorksGrid } from "@/components/portfolio/other-works-grid"
 import { ProcessTimeline } from "@/components/portfolio/process-timeline"
 import { SectionDivider } from "@/components/portfolio/section-divider"
 import { SectionHeading } from "@/components/portfolio/section-heading"
 import { SiteShell } from "@/components/portfolio/site-shell"
 import { WorkShowcaseGrid } from "@/components/portfolio/work-showcase-grid"
 
-import { aboutSection, caseStudies, profile, workingProcess } from "@/lib/content/portfolio"
+import { aboutSection, caseStudies, otherWorks, profile, workingProcess } from "@/lib/content/portfolio"
 
 export default function Page() {
   return (
@@ -22,6 +23,18 @@ export default function Page() {
         <p className="text-[13px] font-medium uppercase tracking-[0.32em] text-primary">Projects</p>
 
         <WorkShowcaseGrid caseStudies={caseStudies} />
+      </section>
+
+      <SectionDivider />
+
+      <section id="other-works" className="space-y-8">
+        <SectionHeading
+          eyebrow="Other works"
+          title="Interior design projects from my earlier spatial design practice."
+          description="Residential, corporate, and retail work that still informs how I think about flow, hierarchy, and detail."
+        />
+
+        <OtherWorksGrid works={otherWorks} />
       </section>
 
       <SectionDivider />

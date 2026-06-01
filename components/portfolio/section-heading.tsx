@@ -15,7 +15,7 @@ export function SectionHeading({
 }: SectionHeadingProps) {
   return (
     <div className={cn("space-y-4", centered ? "mx-auto max-w-3xl" : "")}>
-      <p className={cn("text-[13px] font-medium uppercase tracking-[0.32em] text-primary", centered ? "text-center" : "")}>
+      <p className={cn("text-[13px] font-semibold uppercase tracking-[0.32em] text-primary", centered ? "text-center" : "")}>
         {eyebrow}
       </p>
       <div className="space-y-4">

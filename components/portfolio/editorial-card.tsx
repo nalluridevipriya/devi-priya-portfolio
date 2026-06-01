@@ -14,6 +14,7 @@ type EditorialCardProps = {
   }
   children?: ReactNode
   className?: string
+  contentClassName?: string
   variant?: "default" | "plain"
 }
 
@@ -24,6 +25,7 @@ export function EditorialCard({
   chip,
   children,
   className,
+  contentClassName,
   variant = "default",
 }: EditorialCardProps) {
   return (
@@ -59,7 +61,9 @@ export function EditorialCard({
           ) : null}
         </div>
       ) : null}
-      {children ? <div className={cn(title ? "mt-6" : "")}>{children}</div> : null}
+      {children ? (
+        <div className={cn(title ? "mt-6" : "", contentClassName)}>{children}</div>
+      ) : null}
     </article>
   )
 }

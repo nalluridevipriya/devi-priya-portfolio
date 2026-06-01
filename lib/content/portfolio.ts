@@ -75,6 +75,24 @@ export type CaseStudy = {
   }[]
 }
 
+export type OtherWork = {
+  slug: string
+  title: string
+  tagline: string
+  summary: string
+  category: "Residential" | "Corporate" | "Retail"
+  role: string
+  period: string
+  context: string
+  approach: string
+  highlights: {
+    label: string
+    value: string
+  }[]
+  contributions: string[]
+  coverStyle?: string
+}
+
 export type SiteProfile = {
   name: string
   title: string
@@ -82,7 +100,7 @@ export type SiteProfile = {
   /** Short status next to the green dot (e.g. “Open to work”) */
   heroOpenToLabel: string
   /** Floating “+ …” labels beside the hero name */
-  heroPills: readonly [string, string]
+  heroPills: readonly [string, string, string, string]
   about: string
   pullQuote: string
   editorialNote: string
@@ -154,7 +172,12 @@ export const profile: SiteProfile = {
   heroHeadline:
     "Designer interested in understanding users and creating intuitive digital experiences.",
   heroOpenToLabel: "Open to work",
-  heroPills: ["User Experience Designer", "Product Designer"],
+  heroPills: [
+    "User Experience Designer",
+    "Product Designer",
+    "UX Researcher",
+    "Interior Designer",
+  ],
   about:
     "I care about the product moments that can quietly raise or lower stress: onboarding, service navigation, and any place where too much information lands at once. I am especially interested in internship and entry-level roles where I can keep sharpening my research, interaction, and storytelling practice in real teams.",
   pullQuote:
@@ -598,6 +621,7 @@ export const caseStudies: CaseStudy[] = [
         title: "Ticket purchasing flow",
         beforeAfter: {
           beforeAlt: "Original Arizona Science Center ticket purchasing screen",
+          afterImage: "/work/arizona-science-center/ticket-flow-after.png",
           afterAlt: "Redesigned step-by-step ticket purchasing flow",
           beforeLabel: "Existing design",
           afterLabel: "Redesign",
@@ -808,6 +832,90 @@ export const caseStudies: CaseStudy[] = [
   },
 ]
 
+export const otherWorks: OtherWork[] = [
+  {
+    slug: "residential-interiors",
+    title: "Residential Interior Design",
+    tagline: "Designing calm, functional homes that reflect how people actually live.",
+    summary:
+      "Selected residential work focused on spatial planning, material palettes, and client-facing presentations that translate everyday needs into thoughtful interior environments.",
+    category: "Residential",
+    role: "Interior Designer",
+    period: "2022 – 2024",
+    context:
+      "Residential projects required balancing client aspirations with practical constraints around circulation, storage, lighting, and buildability across apartments and independent homes.",
+    approach:
+      "Work moved from requirement gathering and moodboards into layout development, technical drawings, vendor coordination, and site reviews to keep the finished space aligned with the original design intent.",
+    highlights: [
+      { label: "Space type", value: "Apartments and independent homes" },
+      { label: "Core lens", value: "Function, comfort, and visual clarity" },
+      { label: "Deliverables", value: "Layouts, moodboards, and working drawings" },
+      { label: "Strength shown", value: "Client communication and design translation" },
+    ],
+    contributions: [
+      "Translated client briefs into spatial layouts that improved circulation, storage, and day-to-day usability.",
+      "Developed moodboards and presentation materials to help clients visualize finishes, furniture direction, and overall atmosphere.",
+      "Prepared technical drawings and specifications that supported smoother coordination between design and on-site execution.",
+      "Participated in client meetings to capture feedback and refine layouts without losing project momentum.",
+    ],
+    coverStyle: "from-[#ddd0c4] via-[#f3ebe3] to-[#d8cfc4]",
+  },
+  {
+    slug: "corporate-workspaces",
+    title: "Corporate Office Interiors",
+    tagline: "Creating workplace environments that support focus, collaboration, and brand identity.",
+    summary:
+      "Office interior work spanning planning, documentation, and site coordination for professional environments that needed clearer zoning and stronger spatial hierarchy.",
+    category: "Corporate",
+    role: "Interior Designer",
+    period: "2021 – 2023",
+    context:
+      "Corporate projects involved adapting layouts to different team sizes, meeting rhythms, and brand expressions while keeping MEP constraints and construction timelines in view.",
+    approach:
+      "Design development combined zoning studies, furniture planning, finish selections, and detailed documentation with regular site visits to validate progress against the approved intent.",
+    highlights: [
+      { label: "Space type", value: "Corporate offices and work hubs" },
+      { label: "Core lens", value: "Workflow, zoning, and brand expression" },
+      { label: "Deliverables", value: "Layouts, BOQs, and site documentation" },
+      { label: "Strength shown", value: "Technical drawing and site accountability" },
+    ],
+    contributions: [
+      "Designed office layouts with clearer zoning for focused work, collaboration, and shared support areas.",
+      "Owned technical drawings and specifications that bridged design intent and on-site execution.",
+      "Conducted site visits to review progress, resolve field issues, and maintain schedule alignment.",
+      "Supported vendor communication and documentation to reduce delays during fit-out phases.",
+    ],
+    coverStyle: "from-[#c8ccd8] via-[#eceff4] to-[#d5d0c8]",
+  },
+  {
+    slug: "retail-commercial-spaces",
+    title: "Retail & Commercial Spaces",
+    tagline: "Shaping customer-facing environments with stronger circulation and visual impact.",
+    summary:
+      "Retail and commercial interior work exploring customer flow, display logic, and material storytelling for spaces that needed to feel inviting while staying operationally practical.",
+    category: "Retail",
+    role: "Project Manager / Interior Designer",
+    period: "2023 – 2024",
+    context:
+      "Retail-focused work required coordinating multiple stakeholders, translating business goals into spatial decisions, and keeping design quality intact through procurement and installation.",
+    approach:
+      "Projects combined concept development, client presentations, vendor negotiation, and on-site coordination across concurrent retail and commercial assignments.",
+    highlights: [
+      { label: "Space type", value: "Retail and commercial interiors" },
+      { label: "Core lens", value: "Customer flow and brand presence" },
+      { label: "Deliverables", value: "Concept decks, layouts, and vendor coordination" },
+      { label: "Strength shown", value: "End-to-end project delivery" },
+    ],
+    contributions: [
+      "Managed design delivery across concurrent retail and commercial projects from client conversations through final handoff.",
+      "Built moodboards, graphics, and presentations that communicated design direction and supported new business conversations.",
+      "Coordinated vendors, quotes, and on-site teams so the built result stayed faithful to the approved design.",
+      "Balanced aesthetic decisions with operational needs like display visibility, storage, and maintenance access.",
+    ],
+    coverStyle: "from-[#dccfbf] via-[#f5ece1] to-[#cfc4b8]",
+  },
+]
+
 export const resumeSections: ResumeSection[] = [
   {
     title: "Education",
@@ -884,5 +992,22 @@ export function getAdjacentCaseStudies(slug: string) {
   return {
     previous: caseStudies[index - 1],
     next: caseStudies[index + 1],
+  }
+}
+
+export function getOtherWorkBySlug(slug: string) {
+  return otherWorks.find((work) => work.slug === slug)
+}
+
+export function getAdjacentOtherWorks(slug: string) {
+  const index = otherWorks.findIndex((work) => work.slug === slug)
+
+  if (index === -1) {
+    return { previous: undefined, next: undefined }
+  }
+
+  return {
+    previous: otherWorks[index - 1],
+    next: otherWorks[index + 1],
   }
 }

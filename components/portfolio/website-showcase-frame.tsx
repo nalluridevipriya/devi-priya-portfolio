@@ -1,4 +1,3 @@
-import Image from "next/image"
 import { RiArrowRightUpLine, RiFileTextLine } from "@remixicon/react"
 
 import { cn } from "@/lib/utils"
@@ -51,14 +50,12 @@ export function WebsiteShowcaseFrame({
           aria-label={`Scrollable preview: ${imageAlt}`}
         >
           {image ? (
-            <Image
+            // eslint-disable-next-line @next/next/no-img-element
+            <img
               src={image}
               alt={imageAlt}
-              width={0}
-              height={0}
-              sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 560px"
-              className="block h-auto w-full"
-              style={{ width: "100%", height: "auto" }}
+              className="mx-auto block h-auto w-auto max-w-full"
+              loading="lazy"
               draggable={false}
             />
           ) : (
