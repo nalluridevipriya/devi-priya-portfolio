@@ -15,19 +15,23 @@ type AboutSectionProps = {
 function AboutParagraph({
   segments,
   variant = "default",
+  isGreeting = false,
 }: {
   segments: AboutTextSegment[]
   variant?: "default" | "note"
+  isGreeting?: boolean
 }) {
   const emphasisClass = variant === "note" ? undefined : "text-foreground"
 
   return (
     <p
-      className={
+      className={cn(
         variant === "note"
-          ? "about-sticky-note-text"
+          ? isGreeting
+            ? "about-sticky-note-text about-sticky-note-greeting"
+            : "about-sticky-note-text"
           : "text-base leading-8 text-muted-foreground sm:text-lg sm:leading-8"
-      }
+      )}
     >
       {segments.map((segment, index) => {
         if (segment.bold && segment.italic) {
@@ -102,7 +106,7 @@ export function AboutSection({ content, resumeHref, className }: AboutSectionPro
     <section
       id="about"
       className={cn(
-        "grid gap-10 overflow-visible lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:gap-14",
+        "grid gap-10 overflow-visible lg:grid-cols-[1.35fr_0.65fr] lg:items-center lg:gap-14",
         className
       )}
     >
@@ -116,7 +120,12 @@ export function AboutSection({ content, resumeHref, className }: AboutSectionPro
             <span className="about-sticky-note-tape" aria-hidden="true" />
             <div className="about-sticky-note-body">
               {content.paragraphs.map((paragraph, index) => (
-                <AboutParagraph key={index} segments={paragraph} variant="note" />
+                <AboutParagraph
+                  key={index}
+                  segments={paragraph}
+                  variant="note"
+                  isGreeting={index === 0}
+                />
               ))}
             </div>
           </article>

@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import { Fraunces, Manrope } from "next/font/google"
+import { Caveat, Fraunces, Manrope } from "next/font/google"
 
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
@@ -14,6 +14,12 @@ const fontHeading = Fraunces({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
   variable: "--font-display",
+})
+
+const fontScript = Caveat({
+  subsets: ["latin"],
+  weight: ["500", "600", "700"],
+  variable: "--font-script",
 })
 
 export const metadata: Metadata = {
@@ -34,7 +40,12 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={cn("scroll-smooth antialiased", fontBody.variable, fontHeading.variable)}
+      className={cn(
+        "scroll-smooth antialiased",
+        fontBody.variable,
+        fontHeading.variable,
+        fontScript.variable
+      )}
     >
       <body>
         <ThemeProvider>

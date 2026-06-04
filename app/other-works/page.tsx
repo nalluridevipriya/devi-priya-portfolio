@@ -3,7 +3,7 @@ import type { Metadata } from "next"
 import { OtherWorksGrid } from "@/components/portfolio/other-works-grid"
 import { SectionHeading } from "@/components/portfolio/section-heading"
 import { SiteShell } from "@/components/portfolio/site-shell"
-import { otherWorks, profile } from "@/lib/content/portfolio"
+import { otherWorkGroups, profile } from "@/lib/content/portfolio"
 
 export const metadata: Metadata = {
   title: `Other Works | ${profile.name}`,
@@ -21,7 +21,7 @@ export default function OtherWorksPage() {
           description="A selection of residential, corporate, and retail work from my interior design background, alongside my UX portfolio."
         />
 
-        <OtherWorksGrid works={otherWorks} />
+        <OtherWorksGrid groups={otherWorkGroups} />
       </section>
     </SiteShell>
   )

@@ -457,9 +457,15 @@
     position: relative;
     z-index: 1;
     width: 100%;
-    max-width: 36rem;
+    max-width: 44rem;
     padding: 0.85rem 0.5rem 0.35rem;
     overflow: visible;
+  }
+
+  @media (min-width: 1024px) {
+    .about-sticky-note-wrap {
+      max-width: 100%;
+    }
   }
 
   .about-sticky-note {
@@ -526,13 +532,29 @@
   .about-sticky-note-text {
     margin: 0;
     font-family: var(--font-body);
-    font-size: 0.9375rem;
+    font-size: 0.875rem;
     line-height: 1.75rem;
     color: var(--foreground);
   }
 
   .about-sticky-note-text:not(:last-child) {
     margin-bottom: 1.75rem;
+  }
+
+  .about-sticky-note-greeting {
+    font-family: var(--font-script), "Segoe Print", "Bradley Hand", cursive;
+    font-size: 1.5rem;
+    line-height: 1.5rem;
+    font-weight: 600;
+    color: color-mix(in oklab, var(--primary) 55%, #c97852);
+  }
+
+  .about-sticky-note-greeting strong {
+    font-family: inherit;
+    font-size: 24px;
+    font-weight: 700;
+    font-style: normal;
+    color: inherit;
   }
 
   .about-sticky-note-text strong {

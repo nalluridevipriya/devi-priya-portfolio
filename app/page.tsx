@@ -2,13 +2,12 @@ import { AboutSection } from "@/components/portfolio/about-section"
 import { CtaRow } from "@/components/portfolio/cta-row"
 import { HomeHero } from "@/components/portfolio/home-hero"
 import { OtherWorksGrid } from "@/components/portfolio/other-works-grid"
-import { ProcessTimeline } from "@/components/portfolio/process-timeline"
 import { SectionDivider } from "@/components/portfolio/section-divider"
 import { SectionHeading } from "@/components/portfolio/section-heading"
 import { SiteShell } from "@/components/portfolio/site-shell"
 import { WorkShowcaseGrid } from "@/components/portfolio/work-showcase-grid"
 
-import { aboutSection, caseStudies, otherWorks, profile, workingProcess } from "@/lib/content/portfolio"
+import { aboutSection, caseStudies, otherWorkGroups, profile } from "@/lib/content/portfolio"
 
 export default function Page() {
   return (
@@ -34,18 +33,7 @@ export default function Page() {
           description="Residential, corporate, and retail work that still informs how I think about flow, hierarchy, and detail."
         />
 
-        <OtherWorksGrid works={otherWorks} />
-      </section>
-
-      <SectionDivider />
-
-      <section className="space-y-8">
-        <SectionHeading
-          eyebrow="How I work"
-          title="A research-first based process that turns uncertainity into factual based next steps."
-          description="Define the problem, map the journey, prototype, test and refine"
-        />
-        <ProcessTimeline items={workingProcess} />
+        <OtherWorksGrid groups={otherWorkGroups} />
       </section>
 
       <SectionDivider />

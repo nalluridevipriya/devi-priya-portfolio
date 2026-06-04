@@ -41,6 +41,16 @@ export type WebsiteShowcasePage = {
   placeholderGradient?: string
 }
 
+export type QuantitativeResearch = {
+  title?: string
+  description: string
+  observationsHeading?: string
+  observations: {
+    value: string
+    description: string
+  }[]
+}
+
 export type CaseStudy = {
   slug: string
   title: string
@@ -79,6 +89,23 @@ export type CaseStudy = {
     label: string
     value: string
   }[]
+  quantitativeResearch?: QuantitativeResearch
+}
+
+export type InteriorProductLayout = "featured" | "wide" | "tall" | "standard"
+
+export type InteriorProduct = {
+  id: string
+  workSlug: string
+  name: string
+  category: string
+  material: string
+  dimensions?: string
+  description: string
+  image?: string
+  imageAlt: string
+  placeholderGradient?: string
+  layout: InteriorProductLayout
 }
 
 export type OtherWork = {
@@ -97,6 +124,20 @@ export type OtherWork = {
   }[]
   contributions: string[]
   coverStyle?: string
+  productShowcaseTitle?: string
+  productShowcaseDescription?: string
+}
+
+export type OtherWorkGroup = {
+  id: string
+  title: string
+  description?: string
+  slugs: string[]
+}
+
+/** Drop interior project images into `public/other-works/<slug>/`. */
+export function otherWorkAssetPath(slug: string, filename: string) {
+  return `/other-works/${slug}/${filename}`
 }
 
 export type SiteProfile = {
@@ -154,11 +195,38 @@ export const skillTools: SkillTool[] = [
   { id: "indesign", name: "Adobe InDesign", src: "/skills/indesign.svg" },
   { id: "illustrator", name: "Adobe Illustrator", src: "/skills/illustrator.svg" },
   { id: "photoshop", name: "Adobe Photoshop", src: "/skills/photoshop.svg" },
+  { id: "autocad", name: "AutoCAD", src: "/skills/autocad.svg" },
   { id: "google-slides", name: "Google Slides", src: "/skills/google-slides.svg" },
   { id: "google-sheets", name: "Google Sheets", src: "/skills/google-sheets.svg" },
   { id: "notion", name: "Notion", src: "/skills/notion.svg" },
   { id: "cursor", name: "Cursor", src: "/skills/cursor_light.svg" },
 ]
+
+export const resumeQuickLook = {
+  titlePrefix: "Background at a",
+  titleAccent: "glance",
+  subtitle: "A snapshot from my resume — open the PDF anytime for the full version.",
+}
+
+export const resumeSkillTags = [
+  "User Research",
+  "Usability Testing",
+  "Information Architecture",
+  "User Flows",
+  "Wireframing",
+  "Prototyping",
+  "Interaction Design",
+  "UI Design",
+  "Design Systems",
+  "Accessibility",
+  "Heuristic Evaluation",
+  "Journey Mapping",
+  "Client Communication",
+  "Cross-functional Collaboration",
+  "Spatial Planning",
+  "Technical Drawings",
+  "Project Management",
+] as const
 
 export type ResumeSection = {
   title: string
@@ -204,32 +272,60 @@ export const profile: SiteProfile = {
 export const aboutSection: AboutSectionContent = {
   eyebrow: "Hey, that's me!",
   paragraphs: [
+    [{ text: "Namaste!", bold: true }],
     [
       { text: "I'm a " },
       { text: "designer", italic: true },
       {
-        text: " who enjoys making things simple, clear, and easy to use. I like digging into how people think, spotting what's confusing, and turning that into something that just makes sense.",
+        text: " who enjoys making things ",
+      },
+      { text: "simpler", bold: true },
+      { text: ", " },
+      { text: "clearer", bold: true },
+      { text: ", and " },
+      { text: "easier", bold: true },
+      {
+        text: " to use. I'm naturally curious about how people think, make decisions, and interact with the world around them. I like understanding where people get stuck, and turning those insights into experiences that just ",
+      },
+      { text: "make sense", bold: true },
+      { text: "." },
+    ],
+    [
+      { text: "My background in " },
+      { text: "interior design", italic: true },
+      {
+        text: " taught me how people move through and interact with physical spaces. ",
+      },
+      { text: "UX design", italic: true },
+      {
+        text: " gave me a way to apply that same thinking to digital products, organizing information, simplifying complex systems, and creating experiences that feel ",
+      },
+      { text: "intuitive from start to finish", bold: true },
+      { text: "." },
+    ],
+    [
+      { text: "Whether I'm conducting " },
+      { text: "research", italic: true },
+      { text: ", mapping " },
+      { text: "user journeys", italic: true },
+      { text: ", designing " },
+      { text: "interfaces", italic: true },
+      { text: ", or refining " },
+      { text: "interactions", italic: true },
+      {
+        text: ", I'm always looking for ways to reduce friction and make products feel more natural and approachable.",
       },
     ],
     [
-      { text: "For me, it's not just about how something looks — it's about how it works and how it feels to use. I enjoy working on " },
-      { text: "flows", italic: true },
-      { text: ", " },
-      { text: "interactions", italic: true },
-      { text: ", and " },
-      { text: "small details", bold: true },
-      { text: " that make a big difference in everyday experiences." },
-    ],
-    [
-      { text: "At the end of the day, I just want to build " },
-      { text: "products", bold: true },
-      { text: " that feel " },
+      { text: "At the end of the day, I want to build " },
       { text: "thoughtful", bold: true },
-      { text: ", " },
+      { text: " and " },
       { text: "intuitive", bold: true },
-      { text: ", and " },
-      { text: "easy", bold: true },
-      { text: " for anyone to use." },
+      { text: " " },
+      { text: "products", bold: true },
+      { text: " that help people accomplish what they need with " },
+      { text: "confidence", bold: true },
+      { text: "." },
     ],
   ],
   photos: [
@@ -323,7 +419,7 @@ export const workingProcess: ProcessStep[] = [
     description:
       "Capture what seems stronger, what still feels uncertain, and what evidence is needed next.",
     artifact:
-      "That reflection becomes the bridge between a draft student project and a case study that can mature over time.",
+      "That reflection becomes the bridge between a draft project and a case study that can mature over time.",
   },
 ]
 
@@ -502,6 +598,39 @@ export const caseStudies: CaseStudy[] = [
       "A research-driven UX/UI redesign project focused on improving the Arizona Science Center website experience through usability evaluation, accessibility analysis, and interface redesign. The project explored how clearer navigation, stronger information hierarchy, and simplified user flows could improve exhibition discovery and reduce friction during ticket purchasing",
     problem:
       "Users experienced significant friction while navigating the website, purchasing tickets, and locating important information such as FAQs, exhibit details, and event timings. Research revealed that inconsistent navigation, unclear ticket structures, and fragmented information architecture increased cognitive load, reduced user confidence, and led to task abandonment.",
+    quantitativeResearch: {
+      title: "Quantitative Research",
+      description:
+        "We conducted moderated usability testing with **9 participants** to evaluate navigation, ticket purchasing, information discovery, FAQ access, and mobile usability on the Arizona Science Center website. The study measured task success rates, usability issues, and user behavior across key visitor journeys.",
+      observationsHeading: "Observations",
+      observations: [
+        {
+          value: "62%",
+          description:
+            "**61.6% overall task success rate**, indicating that many users encountered obstacles while completing common website tasks.",
+        },
+        {
+          value: "100%",
+          description:
+            "**100% of participants were unable to easily locate FAQs and refund information**, making it one of the most critical usability issues identified during testing.",
+        },
+        {
+          value: "67%",
+          description:
+            "**66.7% of participants experienced difficulty completing the ticket purchasing flow**, including adding tickets to the cart and understanding ticket types.",
+        },
+        {
+          value: "78%",
+          description:
+            "**77.8% of users encountered issues with the mobile navigation menu**, reporting problems with responsiveness and discoverability while using the site on mobile devices.",
+        },
+        {
+          value: "100%",
+          description:
+            "**100% of users reported irrelevant search results**, making search an unreliable method for finding exhibits, FAQs, and support content.",
+        },
+      ],
+    },
     processTitle: "From usability findings to a more intuitive user experience.",
     processDescription:
       "Each redesign decision was guided by usability testing, heuristic evaluation, observations, and user research findings. The process focused on reducing friction in navigation, improving information hierarchy, and simplifying critical user tasks across the website.",
@@ -851,7 +980,7 @@ export const otherWorks: OtherWork[] = [
     summary:
       "Selected residential work focused on spatial planning, material palettes, and client-facing presentations that translate everyday needs into thoughtful interior environments.",
     category: "Residential",
-    role: "Interior Designer",
+    role: "Project Manager / Designer",
     period: "2022 – 2024",
     context:
       "Residential projects required balancing client aspirations with practical constraints around circulation, storage, lighting, and buildability across apartments and independent homes.",
@@ -870,6 +999,39 @@ export const otherWorks: OtherWork[] = [
       "Participated in client meetings to capture feedback and refine layouts without losing project momentum.",
     ],
     coverStyle: "from-[#ddd0c4] via-[#f3ebe3] to-[#d8cfc4]",
+    productShowcaseTitle: "Objects and finishes from residential projects",
+    productShowcaseDescription:
+      "Furniture, storage, and surface selections developed alongside layouts—each piece chosen for daily use, maintenance, and how light reads across the room.",
+  },
+  {
+    slug: "apartment-interiors",
+    title: "Apartment Interior Design",
+    tagline: "Making compact urban homes feel open, organized, and easy to live in every day.",
+    summary:
+      "Apartment-focused work emphasizing efficient layouts, built-in storage, and finish palettes that hold up in smaller footprints without feeling cramped or generic.",
+    category: "Residential",
+    role: "Project Manager / Designer",
+    period: "2022 – 2023",
+    context:
+      "Apartment clients often needed clearer zoning between work, rest, and entertaining within a single open plan, plus storage that did not consume precious floor area.",
+    approach:
+      "Projects started with lifestyle interviews and existing-condition surveys, then moved into space-planning options, 3D visualizations for client sign-off, and detailed joinery drawings for compact kitchens and bedrooms.",
+    highlights: [
+      { label: "Space type", value: "Urban apartments and compact flats" },
+      { label: "Core lens", value: "Storage, light, and multi-use zones" },
+      { label: "Deliverables", value: "Layouts, joinery details, and finish schedules" },
+      { label: "Strength shown", value: "Constraint-led spatial problem solving" },
+    ],
+    contributions: [
+      "Reorganized open-plan apartments into clearer work, dining, and rest zones without adding permanent walls.",
+      "Specified built-in wardrobes and kitchen modules sized to millimeter tolerances for tighter construction sites.",
+      "Curated lighter material palettes and lighting layers to amplify daylight in north-facing units.",
+      "Coordinated with contractors on snag lists and finish samples so handover matched approved visuals.",
+    ],
+    coverStyle: "from-[#d4c8bc] via-[#f0e8e0] to-[#c9bfb3]",
+    productShowcaseTitle: "Compact living objects and surfaces",
+    productShowcaseDescription:
+      "Seating, kitchen surfaces, and built-ins chosen for apartment scale—durability, maintenance, and how each piece reads in a smaller room.",
   },
   {
     slug: "corporate-workspaces",
@@ -878,7 +1040,7 @@ export const otherWorks: OtherWork[] = [
     summary:
       "Office interior work spanning planning, documentation, and site coordination for professional environments that needed clearer zoning and stronger spatial hierarchy.",
     category: "Corporate",
-    role: "Interior Designer",
+    role: "Designer",
     period: "2021 – 2023",
     context:
       "Corporate projects involved adapting layouts to different team sizes, meeting rhythms, and brand expressions while keeping MEP constraints and construction timelines in view.",
@@ -897,6 +1059,9 @@ export const otherWorks: OtherWork[] = [
       "Supported vendor communication and documentation to reduce delays during fit-out phases.",
     ],
     coverStyle: "from-[#c8ccd8] via-[#eceff4] to-[#d5d0c8]",
+    productShowcaseTitle: "Workplace furniture and surface systems",
+    productShowcaseDescription:
+      "Zoning, acoustics, and brand expression translated into modular furniture, partitions, and reception details specified for build teams.",
   },
   {
     slug: "retail-commercial-spaces",
@@ -905,7 +1070,7 @@ export const otherWorks: OtherWork[] = [
     summary:
       "Retail and commercial interior work exploring customer flow, display logic, and material storytelling for spaces that needed to feel inviting while staying operationally practical.",
     category: "Retail",
-    role: "Project Manager / Interior Designer",
+    role: "Project Manager / Designer",
     period: "2023 – 2024",
     context:
       "Retail-focused work required coordinating multiple stakeholders, translating business goals into spatial decisions, and keeping design quality intact through procurement and installation.",
@@ -924,6 +1089,178 @@ export const otherWorks: OtherWork[] = [
       "Balanced aesthetic decisions with operational needs like display visibility, storage, and maintenance access.",
     ],
     coverStyle: "from-[#dccfbf] via-[#f5ece1] to-[#cfc4b8]",
+    productShowcaseTitle: "Display and customer-facing product moments",
+    productShowcaseDescription:
+      "Retail fixtures and commercial details designed for circulation, visibility, and the operational realities behind the finished space.",
+  },
+]
+
+export const otherWorkGroups: OtherWorkGroup[] = [
+  {
+    id: "residential",
+    title: "Residential projects",
+    description: "Homes and apartments focused on circulation, storage, and calm material palettes.",
+    slugs: ["residential-interiors", "apartment-interiors"],
+  },
+  {
+    id: "commercial",
+    title: "Commercial projects",
+    description: "Workplace and retail environments balancing brand expression with day-to-day operations.",
+    slugs: ["corporate-workspaces", "retail-commercial-spaces"],
+  },
+]
+
+export const interiorProducts: InteriorProduct[] = [
+  {
+    id: "res-console",
+    workSlug: "residential-interiors",
+    name: "Modular storage console",
+    category: "Storage",
+    material: "Oak veneer · matte lacquer",
+    dimensions: "W 72\" × D 16\" × H 30\"",
+    description:
+      "Low-profile console with concealed cable routing and adjustable shelving for living zones that needed storage without visual weight.",
+    imageAlt: "Modular oak storage console in a residential living room",
+    placeholderGradient: "from-[#c4b5a6] via-[#ebe3da] to-[#d8cfc4]",
+    layout: "featured",
+  },
+  {
+    id: "res-lounge",
+    workSlug: "apartment-interiors",
+    name: "Upholstered lounge chair",
+    category: "Seating",
+    material: "Linen blend · walnut frame",
+    dimensions: "W 32\" × D 34\" × H 31\"",
+    description:
+      "Compact lounge form with a higher seat pitch for apartment living rooms where comfort had to coexist with tighter footprints.",
+    imageAlt: "Upholstered lounge chair with walnut frame",
+    placeholderGradient: "from-[#b8a99a] via-[#f0e8e0] to-[#d4c8bc]",
+    layout: "tall",
+  },
+  {
+    id: "res-backsplash",
+    workSlug: "apartment-interiors",
+    name: "Kitchen backsplash tile system",
+    category: "Surfaces",
+    material: "Hand-glazed ceramic · brass trim",
+    description:
+      "Vertical tile rhythm and grout contrast used to draw the eye along the work triangle while staying easy to wipe down.",
+    imageAlt: "Hand-glazed ceramic kitchen backsplash with brass trim",
+    placeholderGradient: "from-[#a8a092] via-[#ede6de] to-[#cfc6ba]",
+    layout: "standard",
+  },
+  {
+    id: "res-wardrobe",
+    workSlug: "residential-interiors",
+    name: "Wardrobe facade panels",
+    category: "Built-in",
+    material: "Fluted MDF · brushed brass pulls",
+    dimensions: "Floor-to-ceiling run",
+    description:
+      "Full-height wardrobe fronts with fluted texture to break up long bedroom walls and soften reflected light from windows.",
+    imageAlt: "Fluted wardrobe facade panels with brass hardware",
+    placeholderGradient: "from-[#9e9488] via-[#e8dfd6] to-[#c9bfb3]",
+    layout: "wide",
+  },
+  {
+    id: "corp-divider",
+    workSlug: "corporate-workspaces",
+    name: "Acoustic desk divider",
+    category: "Workplace",
+    material: "PET felt · powder-coated steel",
+    dimensions: "W 48\" × H 42\"",
+    description:
+      "Desk-mounted screen balancing visual privacy with open sightlines so focus zones did not feel boxed in.",
+    imageAlt: "Acoustic desk divider in an open office",
+    placeholderGradient: "from-[#9aa3b5] via-[#e8ecf2] to-[#c5c9d4]",
+    layout: "featured",
+  },
+  {
+    id: "corp-pod",
+    workSlug: "corporate-workspaces",
+    name: "Collaboration pod seating",
+    category: "Seating",
+    material: "Commercial-grade fabric · ash ply",
+    description:
+      "Curved booth seating sized for quick stand-ups and laptop sessions between formal meeting rooms.",
+    imageAlt: "Collaboration pod seating in a corporate lounge",
+    placeholderGradient: "from-[#8d97ab] via-[#eceff5] to-[#b8beca]",
+    layout: "standard",
+  },
+  {
+    id: "corp-reception",
+    workSlug: "corporate-workspaces",
+    name: "Reception counter cladding",
+    category: "Millwork",
+    material: "Stone-look laminate · LED cove",
+    dimensions: "L-shaped reception",
+    description:
+      "Layered counter profile with integrated lighting to anchor arrival and reinforce brand color at the first touchpoint.",
+    imageAlt: "Reception counter with stone-look laminate cladding",
+    placeholderGradient: "from-[#7f8a9e] via-[#e4e8ef] to-[#aeb5c3]",
+    layout: "wide",
+  },
+  {
+    id: "corp-lighting",
+    workSlug: "corporate-workspaces",
+    name: "Linear pendant cluster",
+    category: "Lighting",
+    material: "Aluminum · diffused acrylic",
+    description:
+      "Grouped pendants over bench desking to create rhythm and reduce glare without dropping ceiling height visually.",
+    imageAlt: "Linear pendant lighting cluster over office bench desking",
+    placeholderGradient: "from-[#8892a4] via-[#eef1f6] to-[#c0c6d2]",
+    layout: "tall",
+  },
+  {
+    id: "retail-plinth",
+    workSlug: "retail-commercial-spaces",
+    name: "Display plinth system",
+    category: "Fixtures",
+    material: "Powder-coated steel · oak cap",
+    dimensions: "Modular heights",
+    description:
+      "Stackable plinths with interchangeable tops so merchandising could shift seasonally without new custom builds.",
+    imageAlt: "Modular retail display plinth system",
+    placeholderGradient: "from-[#b5a48f] via-[#f2e9dc] to-[#cfc0ad]",
+    layout: "featured",
+  },
+  {
+    id: "retail-partition",
+    workSlug: "retail-commercial-spaces",
+    name: "Fitting room partition",
+    category: "Spatial",
+    material: "Textured glass · bronze channel",
+    description:
+      "Semi-private partitions that kept sightlines open on the sales floor while giving try-on areas a calmer envelope.",
+    imageAlt: "Textured glass fitting room partition with bronze framing",
+    placeholderGradient: "from-[#a89882] via-[#ede4d6] to-[#c4b5a3]",
+    layout: "tall",
+  },
+  {
+    id: "retail-shelf",
+    workSlug: "retail-commercial-spaces",
+    name: "Feature lighting shelf",
+    category: "Display",
+    material: "Brushed brass · integrated LED",
+    description:
+      "Wall-mounted shelf with concealed lighting to highlight hero products and guide customers along the primary path.",
+    imageAlt: "Feature display shelf with integrated LED lighting",
+    placeholderGradient: "from-[#9f8f7a] via-[#ebe1d2] to-[#bfb09c]",
+    layout: "standard",
+  },
+  {
+    id: "retail-counter",
+    workSlug: "retail-commercial-spaces",
+    name: "Point-of-sale counter",
+    category: "Millwork",
+    material: "Terrazzo-look solid surface",
+    dimensions: "Compact checkout",
+    description:
+      "Durable counter edge and concealed storage for POS hardware, designed for high-traffic corners without blocking flow.",
+    imageAlt: "Retail point-of-sale counter in terrazzo-look solid surface",
+    placeholderGradient: "from-[#948575] via-[#e6ddd0] to-[#b8a896]",
+    layout: "wide",
   },
 ]
 
@@ -942,11 +1279,6 @@ export const resumeSections: ResumeSection[] = [
         description: "Lisaa School of Design · Bangalore, India",
       },
     ],
-  },
-  {
-    title: "Skills",
-    summary: "Design and productivity tools I use regularly.",
-    items: [],
   },
   {
     title: "Experience",
@@ -1008,6 +1340,16 @@ export function getAdjacentCaseStudies(slug: string) {
 
 export function getOtherWorkBySlug(slug: string) {
   return otherWorks.find((work) => work.slug === slug)
+}
+
+export function getOtherWorksForGroup(group: OtherWorkGroup) {
+  return group.slugs
+    .map((slug) => getOtherWorkBySlug(slug))
+    .filter((work): work is OtherWork => work !== undefined)
+}
+
+export function getInteriorProductsByWorkSlug(workSlug: string) {
+  return interiorProducts.filter((product) => product.workSlug === workSlug)
 }
 
 export function getAdjacentOtherWorks(slug: string) {

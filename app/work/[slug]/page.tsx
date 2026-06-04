@@ -10,6 +10,7 @@ import { OverviewHighlightsGrid } from "@/components/portfolio/overview-highligh
 import { ProcessStepList } from "@/components/portfolio/process-step-list"
 import { ProjectHero } from "@/components/portfolio/project-hero"
 import { ProjectNav } from "@/components/portfolio/project-nav"
+import { QuantitativeResearchSection } from "@/components/portfolio/quantitative-research-section"
 import { SectionHeading } from "@/components/portfolio/section-heading"
 import { SiteShell } from "@/components/portfolio/site-shell"
 import {
@@ -79,6 +80,12 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
 
         <OverviewHighlightsGrid items={caseStudy.overviewHighlights} />
       </section>
+
+      {caseStudy.quantitativeResearch ? (
+        <section className="space-y-5">
+          <QuantitativeResearchSection research={caseStudy.quantitativeResearch} />
+        </section>
+      ) : null}
 
       <section className="space-y-5">
         <div className="flex flex-col gap-10 lg:gap-12">
