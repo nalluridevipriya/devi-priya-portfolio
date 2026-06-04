@@ -111,10 +111,10 @@ export function SiteNav() {
             href={item.href}
             aria-current={isActive ? "page" : undefined}
             className={cn(
-              "text-[0.8125rem] font-medium tracking-[0.01em] transition-colors duration-300 sm:text-sm",
+              "inline-flex items-center text-[0.8125rem] font-medium tracking-[0.01em] transition-colors duration-300 sm:text-sm",
               isActive
-                ? "text-primary"
-                : "text-foreground/65 hover:text-primary"
+                ? "rounded-full border border-primary px-3.5 py-1.5 text-primary"
+                : "text-foreground/65 hover:text-foreground"
             )}
           >
             {item.label}

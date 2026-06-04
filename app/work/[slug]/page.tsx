@@ -70,7 +70,6 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
             eyebrow="Overview"
             title="Role and context"
             description={caseStudy.context}
-            centered
           />
           <EditorialCard
             title="Problem statement"
@@ -99,7 +98,6 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
               caseStudy.processDescription ??
               "Each step below is written in a way that can stay useful now and still be replaced with stronger proof points once final project artifacts are ready."
             }
-            centered
           />
           <ProcessStepList steps={caseStudy.processSteps} />
         </div>
@@ -116,7 +114,6 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
               caseStudy.keyDecisionsDescription ??
               "This is where the case study makes judgment visible, not just outputs."
             }
-            centered
           />
           <KeyDecisionsGrid decisions={caseStudy.keyDecisions} />
         </div>
@@ -125,25 +122,20 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
       {caseStudy.outcomeComparisons?.length ? (
         <section className="space-y-5">
           <div className="flex flex-col gap-10 lg:gap-12">
-            <div className="mx-auto max-w-3xl text-center">
-              <p className="text-xs uppercase tracking-[0.32em] text-primary">Before & after</p>
-            </div>
+            <p className="text-[13px] font-semibold uppercase tracking-[0.32em] text-primary">
+              Before & after
+            </p>
             <div className="flex w-full flex-col gap-10 lg:gap-12">
               {caseStudy.outcomeComparisons.map((comparison) => (
-                <EditorialCard
-                  key={comparison.title}
-                  className="w-full"
-                  title={comparison.title}
-                  chip={
-                    comparison.figmaHref
-                      ? { href: comparison.figmaHref, label: "Figma" }
-                      : undefined
-                  }
-                >
+                <EditorialCard key={comparison.title} className="w-full" title={comparison.title}>
                   <BeforeAfterPanel
                     {...comparison.beforeAfter}
                     pageTitle={comparison.title}
                     showTopDivider={false}
+                    figmaHref={comparison.figmaHref}
+                    figmaLabel={comparison.figmaLabel}
+                    websiteHref={comparison.websiteHref}
+                    websiteLabel={comparison.websiteLabel}
                   />
                 </EditorialCard>
               ))}
@@ -161,7 +153,6 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
               caseStudy.outcomesDescription ??
               "The outcomes are phrased carefully to stay credible without pretending the draft already has production metrics."
             }
-            centered
           />
           <OutcomesGrid outcomes={caseStudy.outcomes} />
         </div>

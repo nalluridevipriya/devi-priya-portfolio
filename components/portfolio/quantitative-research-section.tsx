@@ -35,11 +35,11 @@ export function QuantitativeResearchSection({
 
   return (
     <section className={cn("space-y-10", className)}>
-      <div className="mx-auto max-w-3xl space-y-4 text-center">
+      <div className="max-w-3xl space-y-4">
         <h2 className="font-heading text-3xl font-light tracking-[-0.03em] text-foreground sm:text-4xl">
           {research.title ?? "Quantitative Research"}
         </h2>
-        <p className="text-base leading-8 text-muted-foreground">
+        <p className="max-w-2xl text-base leading-8 text-muted-foreground">
           <RichText text={research.description} />
         </p>
       </div>

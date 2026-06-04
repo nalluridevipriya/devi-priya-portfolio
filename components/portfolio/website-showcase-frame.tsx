@@ -5,6 +5,7 @@ import type { WebsiteShowcasePage } from "@/lib/content/portfolio"
 
 type WebsiteShowcaseFrameProps = WebsiteShowcasePage & {
   className?: string
+  openLabel?: string
 }
 
 export function WebsiteShowcaseFrame({
@@ -14,6 +15,7 @@ export function WebsiteShowcaseFrame({
   imageWidth,
   imageHeight,
   openHref,
+  openLabel = "Open",
   placeholderGradient = "from-primary/15 via-background to-secondary/10",
   className,
 }: WebsiteShowcaseFrameProps) {
@@ -36,9 +38,9 @@ export function WebsiteShowcaseFrame({
             href={openHref}
             target="_blank"
             rel="noreferrer"
-            className="inline-flex shrink-0 items-center gap-1.5 rounded-full border border-primary-foreground/25 bg-primary-foreground/10 px-3 py-1.5 text-xs font-medium text-primary-foreground transition-colors hover:bg-primary-foreground/20 sm:text-sm"
+            className="inline-flex shrink-0 items-center gap-1.5 rounded-full border border-primary-foreground/50 bg-primary-foreground/25 px-3 py-1.5 text-xs font-medium text-primary-foreground shadow-[0_2px_12px_-4px_rgba(0,0,0,0.25)] backdrop-blur-sm transition-colors hover:border-primary-foreground/70 hover:bg-primary-foreground/40 sm:text-sm"
           >
-            Open
+            {openLabel}
             <RiArrowRightUpLine className="size-3.5" />
           </a>
         ) : null}

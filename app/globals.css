@@ -567,6 +567,76 @@
     color: var(--primary);
   }
 
+  .portfolio-sticky-note-wrap {
+    position: relative;
+    height: 100%;
+    padding: 0.35rem 0.15rem 0.5rem;
+    overflow: visible;
+  }
+
+  .portfolio-sticky-note-wrap .portfolio-sticky-note {
+    transform-origin: center center;
+    background-image: none;
+    background-color: var(--note-paper, #ede4f2);
+  }
+
+  .portfolio-sticky-note-wrap .portfolio-sticky-note.portfolio-sticky-note-tilt-1 {
+    transform: rotate(-2deg);
+  }
+
+  .portfolio-sticky-note-wrap .portfolio-sticky-note.portfolio-sticky-note-tilt-2 {
+    transform: rotate(2.25deg);
+  }
+
+  .portfolio-sticky-note-wrap .portfolio-sticky-note.portfolio-sticky-note-tilt-3 {
+    transform: rotate(-1.5deg);
+  }
+
+  .portfolio-sticky-note-wrap .portfolio-sticky-note.portfolio-sticky-note-tilt-4 {
+    transform: rotate(1.75deg);
+  }
+
+  .portfolio-sticky-note-wrap .portfolio-sticky-note.portfolio-sticky-note-tilt-5 {
+    transform: rotate(-2.25deg);
+  }
+
+  .portfolio-sticky-note-body {
+    padding: 1.35rem 0.85rem 1.15rem 1.25rem !important;
+  }
+
+  .portfolio-sticky-note-label {
+    margin: 0 0 0.65rem;
+    font-family: var(--font-body);
+    font-size: 0.625rem;
+    font-weight: 600;
+    line-height: 1.45;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--primary);
+  }
+
+  .portfolio-sticky-note-text {
+    font-size: 0.8125rem;
+    line-height: 1.5rem;
+  }
+
+  .portfolio-sticky-note-text + .portfolio-sticky-note-text {
+    margin-top: 0.65rem;
+  }
+
+  .portfolio-sticky-note-artifact {
+    color: color-mix(in oklab, var(--primary) 62%, var(--foreground));
+    font-size: 0.75rem;
+    line-height: 1.45rem;
+  }
+
+  .portfolio-sticky-note-media {
+    margin-top: 1rem;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    border: 1px solid rgb(89 62 95 / 0.12);
+  }
+
   @keyframes about-polaroid-float {
     0%,
     100% {

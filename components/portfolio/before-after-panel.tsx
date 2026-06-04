@@ -5,6 +5,10 @@ import type { ProcessBeforeAfter } from "@/lib/content/portfolio"
 type BeforeAfterPanelProps = ProcessBeforeAfter & {
   pageTitle?: string
   showTopDivider?: boolean
+  figmaHref?: string
+  figmaLabel?: string
+  websiteHref?: string
+  websiteLabel?: string
 }
 
 export function BeforeAfterPanel({
@@ -22,6 +26,10 @@ export function BeforeAfterPanel({
   whyChanged,
   pageTitle,
   showTopDivider = true,
+  figmaHref,
+  figmaLabel = "Figma Prototype",
+  websiteHref,
+  websiteLabel = "Arizona Science Center Website",
 }: BeforeAfterPanelProps) {
   const existingTitle = pageTitle ? `${pageTitle} — ${beforeLabel}` : beforeLabel
   const redesignTitle = pageTitle ? `${pageTitle} — ${afterLabel}` : afterLabel
@@ -41,6 +49,8 @@ export function BeforeAfterPanel({
           imageWidth={beforeImageWidth}
           imageHeight={beforeImageHeight}
           placeholderGradient="from-muted/40 via-[#f7f4f8] to-secondary/10"
+          openHref={websiteHref}
+          openLabel={websiteLabel}
         />
         <WebsiteShowcaseFrame
           title={redesignTitle}
@@ -49,6 +59,8 @@ export function BeforeAfterPanel({
           imageWidth={afterImageWidth}
           imageHeight={afterImageHeight}
           placeholderGradient="from-primary/20 via-[#f7f4f8] to-secondary/15"
+          openHref={figmaHref}
+          openLabel={figmaLabel}
         />
       </div>
 

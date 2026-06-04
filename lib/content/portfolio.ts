@@ -28,6 +28,9 @@ export type OutcomeItem = {
 export type OutcomeComparison = {
   title: string
   figmaHref?: string
+  figmaLabel?: string
+  websiteHref?: string
+  websiteLabel?: string
   beforeAfter: ProcessBeforeAfter
 }
 
@@ -739,6 +742,11 @@ export const caseStudies: CaseStudy[] = [
     outcomeComparisons: [
       {
         title: "Homepage & navigation",
+        websiteHref: "https://www.azscience.org/",
+        websiteLabel: "Arizona Science Center Website",
+        figmaHref:
+          "https://www.figma.com/design/zctEWyruHMVh4V6awsAv9H/Arizona-Science-Center-Website-Redesign?node-id=0-1",
+        figmaLabel: "Figma Prototype",
         beforeAfter: {
           beforeImage: "/work/arizona-science-center/homepage-before.png",
           afterImage: "/work/arizona-science-center/homepage-after.png",
@@ -753,25 +761,15 @@ export const caseStudies: CaseStudy[] = [
         },
       },
       {
-        title: "Ticket purchasing flow",
-        beforeAfter: {
-          beforeAlt: "Original Arizona Science Center ticket purchasing screen",
-          afterImage: "/work/arizona-science-center/ticket-flow-after-display.png",
-          afterImageWidth: 1600,
-          afterImageHeight: 4032,
-          afterAlt: "Redesigned step-by-step ticket purchasing flow",
-          beforeLabel: "Existing design",
-          afterLabel: "Redesign",
-          whatChanged:
-            "Restructured checkout into a guided step-by-step flow with clearer ticket types, inclusions, and supportive microcopy.",
-          whyChanged:
-            "Testing showed confusion around ticket options and checkout steps led to hesitation and task abandonment.",
-        },
-      },
-      {
         title: "Exhibition browsing page",
+        websiteHref: "https://www.azscience.org/experience/all-exhibitions/",
+        websiteLabel: "All Exhibitions",
+        figmaHref:
+          "https://www.figma.com/design/zctEWyruHMVh4V6awsAv9H/Arizona-Science-Center-Website-Redesign?node-id=0-1",
+        figmaLabel: "Figma Prototype",
         beforeAfter: {
-          beforeAlt: "Original Arizona Science Center exhibition detail page",
+          beforeImage: "/work/arizona-science-center/exhibition-page-before.png",
+          beforeAlt: "Original Arizona Science Center All Exhibitions page",
           afterImage: "/work/arizona-science-center/exhibition-page-after.png",
           afterImageWidth: 1440,
           afterImageHeight: 5504,
@@ -782,6 +780,28 @@ export const caseStudies: CaseStudy[] = [
             "Standardized exhibition layouts with consistent placement of descriptions, timings, interaction types, and educational content.",
           whyChanged:
             "Fragmented page structures increased scanning effort and made it harder for users to compare exhibits.",
+        },
+      },
+      {
+        title: "Ticket purchasing flow",
+        websiteHref: "https://www.azscience.org/buy-tickets/",
+        websiteLabel: "Buy Tickets",
+        figmaHref:
+          "https://www.figma.com/design/zctEWyruHMVh4V6awsAv9H/Arizona-Science-Center-Website-Redesign?node-id=0-1",
+        figmaLabel: "Figma Prototype",
+        beforeAfter: {
+          beforeImage: "/work/arizona-science-center/ticket-page-before.png",
+          beforeAlt: "Original Arizona Science Center Buy Tickets page",
+          afterImage: "/work/arizona-science-center/ticket-flow-after-display.png",
+          afterImageWidth: 1600,
+          afterImageHeight: 4032,
+          afterAlt: "Redesigned step-by-step ticket purchasing flow",
+          beforeLabel: "Existing design",
+          afterLabel: "Redesign",
+          whatChanged:
+            "Restructured checkout into a guided step-by-step flow with clearer ticket types, inclusions, and supportive microcopy.",
+          whyChanged:
+            "Testing showed confusion around ticket options and checkout steps led to hesitation and task abandonment.",
         },
       },
     ],
