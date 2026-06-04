@@ -38,10 +38,10 @@ function isNavItemActive(
 export function SiteNav() {
   const pathname = usePathname()
   const [homeSection, setHomeSection] = useState<string | null>(null)
+  const activeHomeSection = pathname === "/" ? homeSection : null
 
   useEffect(() => {
     if (pathname !== "/") {
-      setHomeSection(null)
       return
     }
 
@@ -103,7 +103,7 @@ export function SiteNav() {
   return (
     <nav className="flex flex-wrap items-center gap-x-5 gap-y-2 sm:gap-x-7 lg:gap-x-8">
       {navigation.map((item) => {
-        const isActive = isNavItemActive(item.label, pathname, homeSection)
+        const isActive = isNavItemActive(item.label, pathname, activeHomeSection)
 
         return (
           <Link
@@ -111,10 +111,10 @@ export function SiteNav() {
             href={item.href}
             aria-current={isActive ? "page" : undefined}
             className={cn(
-              "inline-flex items-center text-[0.8125rem] font-medium tracking-[0.01em] transition-colors duration-300 sm:text-sm",
+              "inline-flex items-center rounded-full border px-3.5 py-1.5 text-[0.8125rem] font-medium tracking-[0.01em] transition-colors duration-300 sm:text-sm",
               isActive
-                ? "rounded-full border border-primary px-3.5 py-1.5 text-primary"
-                : "text-foreground/65 hover:text-foreground"
+                ? "border-primary bg-primary text-primary-foreground"
+                : "border-transparent text-foreground/65 hover:border-primary hover:text-foreground"
             )}
           >
             {item.label}

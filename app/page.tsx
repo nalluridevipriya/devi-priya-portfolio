@@ -30,7 +30,6 @@ export default function Page() {
         <SectionHeading
           eyebrow="Other works"
           title="Interior design projects from my earlier spatial design practice."
-          description="Residential, corporate, and retail work that still informs how I think about flow, hierarchy, and detail."
         />
 
         <OtherWorksGrid groups={otherWorkGroups} />
