@@ -36,7 +36,10 @@ export function QuantitativeResearchSection({
   return (
     <section className={cn("space-y-10", className)}>
       <div className="max-w-3xl space-y-4">
-        <h2 className="font-heading text-3xl font-light tracking-[-0.03em] text-foreground sm:text-4xl">
+        <h3 className="text-left text-[13px] font-semibold uppercase tracking-[0.32em] text-primary">
+          {research.observationsHeading ?? "Observations"}
+        </h3>
+        <h2 className="font-heading text-2xl font-light tracking-[-0.03em] text-foreground">
           {research.title ?? "Quantitative Research"}
         </h2>
         <p className="max-w-2xl text-base leading-8 text-muted-foreground">
@@ -45,10 +48,6 @@ export function QuantitativeResearchSection({
       </div>
 
       <div className="space-y-8">
-        <h3 className="py-10 text-left font-heading text-2xl font-light tracking-[-0.02em] text-foreground">
-          {research.observationsHeading ?? "Observations"}
-        </h3>
-
         <div className="grid gap-10 md:grid-cols-2 md:gap-x-16 lg:gap-x-24">
           <div className="flex flex-col gap-12 md:gap-16">
             {leftObservations.map((observation) => (

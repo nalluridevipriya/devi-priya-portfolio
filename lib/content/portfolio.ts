@@ -1,6 +1,8 @@
 export type ProcessBeforeAfter = {
   beforeImage?: string
+  beforeImages?: WebsiteShowcaseImage[]
   afterImage?: string
+  afterImages?: WebsiteShowcaseImage[]
   beforeImageWidth?: number
   beforeImageHeight?: number
   afterImageWidth?: number
@@ -11,6 +13,13 @@ export type ProcessBeforeAfter = {
   afterAlt?: string
   whatChanged: string
   whyChanged: string
+}
+
+export type WebsiteShowcaseImage = {
+  src: string
+  alt: string
+  width?: number
+  height?: number
 }
 
 export type ProcessStep = {
@@ -37,6 +46,7 @@ export type OutcomeComparison = {
 export type WebsiteShowcasePage = {
   title: string
   image?: string
+  images?: WebsiteShowcaseImage[]
   imageAlt: string
   imageWidth?: number
   imageHeight?: number
@@ -748,7 +758,7 @@ export const caseStudies: CaseStudy[] = [
           "https://www.figma.com/design/zctEWyruHMVh4V6awsAv9H/Arizona-Science-Center-Website-Redesign?node-id=0-1",
         figmaLabel: "Figma Prototype",
         beforeAfter: {
-          beforeImage: "/work/arizona-science-center/homepage-before.png",
+          beforeImage: "/work/arizona-science-center/homepage-existing.png",
           afterImage: "/work/arizona-science-center/homepage-after.png",
           beforeAlt: "Original Arizona Science Center homepage",
           afterAlt: "Redesigned homepage with clearer navigation",
@@ -768,9 +778,51 @@ export const caseStudies: CaseStudy[] = [
           "https://www.figma.com/design/zctEWyruHMVh4V6awsAv9H/Arizona-Science-Center-Website-Redesign?node-id=0-1",
         figmaLabel: "Figma Prototype",
         beforeAfter: {
-          beforeImage: "/work/arizona-science-center/exhibition-page-before.png",
+          beforeImage: "/work/arizona-science-center/all-exhibitions-existing.png",
+          beforeImages: [
+            {
+              src: "/work/arizona-science-center/all-exhibitions-existing.png",
+              alt: "Original Arizona Science Center All Exhibitions page with embedded videos",
+              width: 1834,
+              height: 8192,
+            },
+            {
+              src: "/work/arizona-science-center/cavescape-existing.png",
+              alt: "Original Arizona Science Center CaveScape exhibition detail page",
+              width: 3052,
+              height: 8192,
+            },
+            {
+              src: "/work/arizona-science-center/all-about-me-existing.png",
+              alt: "Original Arizona Science Center All About Me exhibition detail page",
+              width: 2412,
+              height: 8192,
+            },
+          ],
+          beforeImageWidth: 1834,
+          beforeImageHeight: 8192,
           beforeAlt: "Original Arizona Science Center All Exhibitions page",
           afterImage: "/work/arizona-science-center/exhibition-page-after.png",
+          afterImages: [
+            {
+              src: "/work/arizona-science-center/exhibition-page-after.png",
+              alt: "Redesigned Arizona Science Center All Exhibitions page",
+              width: 1440,
+              height: 5504,
+            },
+            {
+              src: "/work/arizona-science-center/featured-exhibit-redesign.png",
+              alt: "Redesigned Arizona Science Center featured exhibit detail page",
+              width: 2880,
+              height: 4106,
+            },
+            {
+              src: "/work/arizona-science-center/all-about-me-redesign.png",
+              alt: "Redesigned Arizona Science Center All About Me exhibit detail page",
+              width: 2880,
+              height: 7374,
+            },
+          ],
           afterImageWidth: 1440,
           afterImageHeight: 5504,
           afterAlt: "Redesigned exhibition page with unified layout",
@@ -790,7 +842,7 @@ export const caseStudies: CaseStudy[] = [
           "https://www.figma.com/design/zctEWyruHMVh4V6awsAv9H/Arizona-Science-Center-Website-Redesign?node-id=0-1",
         figmaLabel: "Figma Prototype",
         beforeAfter: {
-          beforeImage: "/work/arizona-science-center/ticket-page-before.png",
+          beforeImage: "/work/arizona-science-center/buy-tickets-existing.png",
           beforeAlt: "Original Arizona Science Center Buy Tickets page",
           afterImage: "/work/arizona-science-center/ticket-flow-after-display.png",
           afterImageWidth: 1600,

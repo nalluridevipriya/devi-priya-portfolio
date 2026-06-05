@@ -18,7 +18,6 @@ export default function OtherWorksPage() {
         <SectionHeading
           eyebrow="Other works"
           title="Interior design projects that shaped how I think about space, flow, and material detail."
-          description="A selection of residential, corporate, and retail work from my interior design background, alongside my UX portfolio."
         />
 
         <OtherWorksGrid groups={otherWorkGroups} />

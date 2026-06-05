@@ -130,7 +130,6 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
                 <EditorialCard key={comparison.title} className="w-full" title={comparison.title}>
                   <BeforeAfterPanel
                     {...comparison.beforeAfter}
-                    pageTitle={comparison.title}
                     showTopDivider={false}
                     figmaHref={comparison.figmaHref}
                     figmaLabel={comparison.figmaLabel}

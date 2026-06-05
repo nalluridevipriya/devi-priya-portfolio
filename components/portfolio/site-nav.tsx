@@ -45,57 +45,72 @@ export function SiteNav() {
       return
     }
 
-    const sectionVisibility = new Map<string, number>()
+    const aboutEl = document.getElementById("about")
+    const contactEl = document.getElementById("contact")
+    const otherWorksEl = document.getElementById("other-works")
+    const sectionElements = [aboutEl, contactEl, otherWorksEl].filter(Boolean) as HTMLElement[]
 
     const updateActiveSection = () => {
-      const hash = window.location.hash.replace("#", "")
-      if (hash === "about" || hash === "contact" || hash === "other-works") {
-        setHomeSection(hash)
-        return
-      }
+      const viewportHeight = window.innerHeight
+      const bestMatch = sectionElements
+        .map((element) => {
+          const rect = element.getBoundingClientRect()
+          const visibleHeight = Math.max(
+            0,
+            Math.min(rect.bottom, viewportHeight) - Math.max(rect.top, 0)
+          )
+          const ratio = visibleHeight / Math.min(rect.height, viewportHeight)
 
-      const bestMatch = [...sectionVisibility.entries()]
+          return [element.id, ratio] as const
+        })
         .filter(([, ratio]) => ratio >= 0.3)
         .sort((a, b) => b[1] - a[1])[0]
 
       setHomeSection(bestMatch?.[0] ?? null)
     }
 
-    const syncFromHash = () => updateActiveSection()
+    let scrollFrame = 0
+    const syncFromScroll = () => {
+      if (scrollFrame) {
+        return
+      }
+
+      scrollFrame = requestAnimationFrame(() => {
+        scrollFrame = 0
+        updateActiveSection()
+      })
+    }
+
+    const syncFromHash = () => {
+      requestAnimationFrame(updateActiveSection)
+    }
+
+    if (sectionElements.length === 0) {
+      return
+    }
 
     syncFromHash()
     window.addEventListener("hashchange", syncFromHash)
-
-    const aboutEl = document.getElementById("about")
-    const contactEl = document.getElementById("contact")
-    const otherWorksEl = document.getElementById("other-works")
-    const sectionElements = [aboutEl, contactEl, otherWorksEl].filter(Boolean) as HTMLElement[]
-
-    if (sectionElements.length === 0) {
-      return () => window.removeEventListener("hashchange", syncFromHash)
-    }
+    window.addEventListener("scroll", syncFromScroll, { passive: true })
+    document.addEventListener("scroll", syncFromScroll, { passive: true, capture: true })
+    const activeSectionInterval = window.setInterval(updateActiveSection, 250)
 
     const observer = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) {
-          sectionVisibility.set(
-            entry.target.id,
-            entry.isIntersecting ? entry.intersectionRatio : 0
-          )
-        }
-
-        updateActiveSection()
-      },
+      () => updateActiveSection(),
       { rootMargin: "-35% 0px -45% 0px", threshold: [0, 0.2, 0.4, 0.6, 0.8, 1] }
     )
 
-    sectionElements.forEach((element) => {
-      sectionVisibility.set(element.id, 0)
-      observer.observe(element)
-    })
+    sectionElements.forEach((element) => observer.observe(element))
 
     return () => {
+      if (scrollFrame) {
+        cancelAnimationFrame(scrollFrame)
+      }
+
       window.removeEventListener("hashchange", syncFromHash)
+      window.removeEventListener("scroll", syncFromScroll)
+      document.removeEventListener("scroll", syncFromScroll, { capture: true })
+      window.clearInterval(activeSectionInterval)
       observer.disconnect()
     }
   }, [pathname])

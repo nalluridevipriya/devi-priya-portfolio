@@ -3,7 +3,6 @@ import { cn } from "@/lib/utils"
 import type { ProcessBeforeAfter } from "@/lib/content/portfolio"
 
 type BeforeAfterPanelProps = ProcessBeforeAfter & {
-  pageTitle?: string
   showTopDivider?: boolean
   figmaHref?: string
   figmaLabel?: string
@@ -13,7 +12,9 @@ type BeforeAfterPanelProps = ProcessBeforeAfter & {
 
 export function BeforeAfterPanel({
   beforeImage,
+  beforeImages,
   afterImage,
+  afterImages,
   beforeImageWidth,
   beforeImageHeight,
   afterImageWidth,
@@ -24,16 +25,12 @@ export function BeforeAfterPanel({
   afterAlt = "After design",
   whatChanged,
   whyChanged,
-  pageTitle,
   showTopDivider = true,
   figmaHref,
   figmaLabel = "Figma Prototype",
   websiteHref,
   websiteLabel = "Arizona Science Center Website",
 }: BeforeAfterPanelProps) {
-  const existingTitle = pageTitle ? `${pageTitle} — ${beforeLabel}` : beforeLabel
-  const redesignTitle = pageTitle ? `${pageTitle} — ${afterLabel}` : afterLabel
-
   return (
     <div
       className={cn(
@@ -43,8 +40,9 @@ export function BeforeAfterPanel({
     >
       <div className="grid gap-6 lg:grid-cols-2 lg:gap-8">
         <WebsiteShowcaseFrame
-          title={existingTitle}
+          title={beforeLabel}
           image={beforeImage}
+          images={beforeImages}
           imageAlt={beforeAlt}
           imageWidth={beforeImageWidth}
           imageHeight={beforeImageHeight}
@@ -53,8 +51,9 @@ export function BeforeAfterPanel({
           openLabel={websiteLabel}
         />
         <WebsiteShowcaseFrame
-          title={redesignTitle}
+          title={afterLabel}
           image={afterImage}
+          images={afterImages}
           imageAlt={afterAlt}
           imageWidth={afterImageWidth}
           imageHeight={afterImageHeight}
