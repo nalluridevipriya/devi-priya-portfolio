@@ -46,8 +46,9 @@ function SkillPill({ label }: { label: string }) {
 export function ResumeSummarySection({ className }: { className?: string }) {
   const experience = resumeSections.find((section) => section.title === "Experience")
   const education = resumeSections.find((section) => section.title === "Education")
-  const designTools = skillTools.filter((tool) => tool.id !== "cursor")
-  const aiTools = skillTools.filter((tool) => tool.id === "cursor")
+  const aiToolIds = new Set(["cursor", "codex"])
+  const designTools = skillTools.filter((tool) => !aiToolIds.has(tool.id))
+  const aiTools = skillTools.filter((tool) => aiToolIds.has(tool.id))
 
   return (
     <section className={cn("space-y-10 sm:space-y-12", className)}>

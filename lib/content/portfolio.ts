@@ -54,6 +54,16 @@ export type WebsiteShowcasePage = {
   placeholderGradient?: string
 }
 
+export type ScreenDesign = {
+  src: string
+  alt: string
+  label?: string
+  width: number
+  height: number
+}
+
+export type ScreenDesignsLayout = "flow" | "iphone-scroll"
+
 export type QuantitativeResearch = {
   title?: string
   description: string
@@ -92,6 +102,20 @@ export type CaseStudy = {
   showcasePages?: WebsiteShowcasePage[]
   showcaseTitle?: string
   showcaseDescription?: string
+  screenDesigns?: ScreenDesign[]
+  screenDesignsTitle?: string
+  screenDesignsDescription?: string
+  screenDesignsLayout?: ScreenDesignsLayout
+  screenDesignsFigmaHref?: string
+  screenDesignsFigmaLabel?: string
+  reportPdfHref?: string
+  screenDesignsLinks?: {
+    href: string
+    label: string
+  }[]
+  screenDesignsSupportingImages?: (ScreenDesign & {
+    title?: string
+  })[]
   reflectionTitle?: string
   reflection: string
   reflectionNextSteps?: string[]
@@ -206,19 +230,33 @@ export type SkillTool = {
 export const skillTools: SkillTool[] = [
   { id: "figma", name: "Figma", src: "/skills/figma.svg" },
   { id: "indesign", name: "Adobe InDesign", src: "/skills/indesign.svg" },
-  { id: "illustrator", name: "Adobe Illustrator", src: "/skills/illustrator.svg" },
+  {
+    id: "illustrator",
+    name: "Adobe Illustrator",
+    src: "/skills/illustrator.svg",
+  },
   { id: "photoshop", name: "Adobe Photoshop", src: "/skills/photoshop.svg" },
   { id: "autocad", name: "AutoCAD", src: "/skills/autocad.svg" },
-  { id: "google-slides", name: "Google Slides", src: "/skills/google-slides.svg" },
-  { id: "google-sheets", name: "Google Sheets", src: "/skills/google-sheets.svg" },
+  {
+    id: "google-slides",
+    name: "Google Slides",
+    src: "/skills/google-slides.svg",
+  },
+  {
+    id: "google-sheets",
+    name: "Google Sheets",
+    src: "/skills/google-sheets.svg",
+  },
   { id: "notion", name: "Notion", src: "/skills/notion.svg" },
   { id: "cursor", name: "Cursor", src: "/skills/cursor_light.svg" },
+  { id: "codex", name: "Codex", src: "/skills/codex.svg" },
 ]
 
 export const resumeQuickLook = {
   titlePrefix: "Background at a",
   titleAccent: "glance",
-  subtitle: "A snapshot from my resume — open the PDF anytime for the full version.",
+  subtitle:
+    "A snapshot from my resume — open the PDF anytime for the full version.",
 }
 
 export const resumeSkillTags = [
@@ -298,7 +336,7 @@ export const aboutSection: AboutSectionContent = {
       { text: ", and " },
       { text: "easier", bold: true },
       {
-        text: " to use. I'm naturally curious about how people think, make decisions, and interact with the world around them. I like understanding where people get stuck, and turning those insights into experiences that just ",
+        text: " to use. I'm curious about how people think, make decisions, and interact with the world around them. I like understanding where people get stuck, and turning those insights into experiences that just ",
       },
       { text: "make sense", bold: true },
       { text: "." },
@@ -449,10 +487,11 @@ export const caseStudies: CaseStudy[] = [
     duration: "Academic concept project",
     team: "Team project with peer critique",
     context:
-      "This project explored how a mobile healthcare management experience could support caregivers and patients who struggle to organize medical information across paper files, messaging apps, notes, and photo galleries.",
+      "This project explored how a mobile healthcare management experience could support caregivers and patients who struggle to organize medical information across multiple files, messaging apps, notes, and photo galleries.",
     problem:
-      "Research revealed that users were storing prescriptions, reports, reminders, and appointment information across fragmented systems, creating stress and delays during healthcare situations when timely access matters most.",
-    processTitle: "From fragmented healthcare management to a unified care experience.",
+      "Users often struggle to access important healthcare information because prescriptions, medical reports, medication reminders, and appointment details are scattered across multiple platforms and formats. This fragmentation increases cognitive load, creates delays during time-sensitive situations, and makes healthcare management more stressful for both patients and caregivers.",
+    processTitle:
+      "From fragmented healthcare management to a unified care experience.",
     processDescription:
       "Each design decision was guided by user interviews, workflow analysis, usability testing, and healthcare research findings. The process focused on reducing cognitive load, simplifying information retrieval, and supporting both caregivers and patients through clearer digital healthcare management.",
     processSteps: [
@@ -492,7 +531,8 @@ export const caseStudies: CaseStudy[] = [
           "Outcome: Guided improvements to navigation structures, screen hierarchy, feedback systems, and overall usability consistency.",
       },
     ],
-    keyDecisionsTitle: "The design decisions that shaped the healthcare experience.",
+    keyDecisionsTitle:
+      "The design decisions that shaped the healthcare experience.",
     keyDecisionsDescription:
       "Every design decision was grounded in healthcare usability principles, cognitive load reduction, and accessibility-focused interaction design. The goal was to help users feel more organized, confident, and supported while managing medical information.",
     keyDecisions: [
@@ -596,11 +636,29 @@ export const caseStudies: CaseStudy[] = [
           "Concept project based on interviews, ideation, and usability testing without fabricated clinical outcomes or implementation claims.",
       },
     ],
+    screenDesignsTitle: "Prototype Mockups",
+    screenDesignsDescription:
+      "A mobile healthcare management home screen presented in an iPhone mockup.",
+    screenDesigns: [
+      {
+        src: "/work/campus-connect-onboarding/healthcare-prototype-flow-sr.png",
+        alt: "Healthcare app prototype flow showing home, lab report, and all lab tests screens in iPhone mockups",
+        label: "Healthcare app prototype flow",
+        width: 3294,
+        height: 3121,
+      },
+    ],
+    screenDesignsFigmaHref:
+      "https://www.figma.com/proto/o5URHoVTYsKHOPB1YODcdm/Healthcare-Management-App?node-id=1-767&p=f&viewport=288%2C283%2C0.08&t=oInVpXctVFv93Sw6-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=1%3A767&page-id=0%3A1",
+    screenDesignsFigmaLabel: "Healthcare Management App",
+    reportPdfHref:
+      "/work/campus-connect-onboarding/healthcare-management-app-report.pdf",
   },
   {
     slug: "neighborly-pantry-flow",
     title: "Arizona Science Center Website Redesign",
-    tagline: "A UX redesign focused on simplifying exploration, discovery, and ticket booking.",
+    tagline:
+      "A UX redesign focused on simplifying exploration, discovery, and ticket booking.",
     summary:
       "Redesigned key areas of the Arizona Science Center website to improve navigation clarity, exhibition discovery, and the ticket purchasing experience. The project focused on reducing cognitive load, improving information hierarchy, and creating a more intuitive user journey across the platform.",
     projectType: "Re-Design",
@@ -644,7 +702,8 @@ export const caseStudies: CaseStudy[] = [
         },
       ],
     },
-    processTitle: "From usability findings to a more intuitive user experience.",
+    processTitle:
+      "From usability findings to a more intuitive user experience.",
     processDescription:
       "Each redesign decision was guided by usability testing, heuristic evaluation, observations, and user research findings. The process focused on reducing friction in navigation, improving information hierarchy, and simplifying critical user tasks across the website.",
     processSteps: [
@@ -778,7 +837,8 @@ export const caseStudies: CaseStudy[] = [
           "https://www.figma.com/design/zctEWyruHMVh4V6awsAv9H/Arizona-Science-Center-Website-Redesign?node-id=0-1",
         figmaLabel: "Figma Prototype",
         beforeAfter: {
-          beforeImage: "/work/arizona-science-center/all-exhibitions-existing.png",
+          beforeImage:
+            "/work/arizona-science-center/all-exhibitions-existing.png",
           beforeImages: [
             {
               src: "/work/arizona-science-center/all-exhibitions-existing.png",
@@ -844,7 +904,28 @@ export const caseStudies: CaseStudy[] = [
         beforeAfter: {
           beforeImage: "/work/arizona-science-center/buy-tickets-existing.png",
           beforeAlt: "Original Arizona Science Center Buy Tickets page",
-          afterImage: "/work/arizona-science-center/ticket-flow-after-display.png",
+          afterImage:
+            "/work/arizona-science-center/ticket-flow-after-display.png",
+          afterImages: [
+            {
+              src: "/work/arizona-science-center/ticket-flow-after-display.png",
+              alt: "Redesigned Arizona Science Center ticket selection flow",
+              width: 1600,
+              height: 4032,
+            },
+            {
+              src: "/work/arizona-science-center/ticket-payment-redesign.png",
+              alt: "Redesigned Arizona Science Center ticket payment page",
+              width: 2880,
+              height: 3736,
+            },
+            {
+              src: "/work/arizona-science-center/ticket-confirmation-redesign.png",
+              alt: "Redesigned Arizona Science Center ticket confirmation page",
+              width: 2880,
+              height: 3736,
+            },
+          ],
           afterImageWidth: 1600,
           afterImageHeight: 4032,
           afterAlt: "Redesigned step-by-step ticket purchasing flow",
@@ -871,19 +952,23 @@ export const caseStudies: CaseStudy[] = [
     overviewHighlights: [
       {
         label: "Audience",
-        value: "Families, students, tourists, and returning visitors planning visits, exploring exhibitions, and purchasing tickets online.",
+        value:
+          "Families, students, tourists, and returning visitors planning visits, exploring exhibitions, and purchasing tickets online.",
       },
       {
         label: "Core lens",
-        value: "Usability, information clarity, intuitive navigation, accessibility, and reducing cognitive load during high-friction tasks.",
+        value:
+          "Usability, information clarity, intuitive navigation, accessibility, and reducing cognitive load during high-friction tasks.",
       },
       {
         label: "Format",
-        value: "Focused redesign of high-friction website pages identified through usability testing, heuristic evaluation, and user research.",
+        value:
+          "Focused redesign of high-friction website pages identified through usability testing, heuristic evaluation, and user research.",
       },
       {
         label: "Strength shown",
-        value: "UX research synthesis, usability testing, information architecture, interaction design, and translating research findings into structured, user-centered design solutions.",
+        value:
+          "UX research synthesis, usability testing, information architecture, interaction design, and translating research findings into structured, user-centered design solutions.",
       },
     ],
   },
@@ -942,7 +1027,8 @@ export const caseStudies: CaseStudy[] = [
           "Outcome: increased transparency, operational confidence, and workflow predictability for both moderators and advertisers.",
       },
     ],
-    keyDecisionsTitle: "The design decisions that shaped the platform experience.",
+    keyDecisionsTitle:
+      "The design decisions that shaped the platform experience.",
     keyDecisionsDescription:
       "Every redesign decision was grounded in workflow analysis, research findings, and usability considerations gathered throughout the project. The focus was on improving operational efficiency, reducing friction, and helping internal teams make faster and clearer decisions.",
     keyDecisions: [
@@ -980,6 +1066,34 @@ export const caseStudies: CaseStudy[] = [
           "The system was designed to support moderation efficiency while also addressing advertiser workflows and platform governance needs.",
         impact:
           "Created a stronger balance between operational usability, platform safety, and business requirements.",
+      },
+    ],
+    screenDesigns: [
+      {
+        src: "/work/litteen-social/screen-design-flow.png",
+        alt: "LitTeen Social moderation flow showing dashboard preview, security alert review, and removal reason selection",
+        width: 6764,
+        height: 4198,
+      },
+    ],
+    screenDesignsFigmaHref:
+      "https://www.figma.com/proto/llMj8QoMoYEqVEjevc8U6j/Admin-Dashboard---Ad-Management-Portal?page-id=0%3A1&node-id=8-8494&p=f&viewport=-1735%2C132%2C0.74&t=nRsP7s0SWsZUlTTk-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=8%3A8494",
+    screenDesignsFigmaLabel: "Admin Dashboard",
+    reportPdfHref: "/work/litteen-social/technical-report.pdf",
+    screenDesignsLinks: [
+      {
+        href: "https://www.figma.com/proto/llMj8QoMoYEqVEjevc8U6j/Admin-Dashboard---Ad-Management-Portal?page-id=0%3A1&node-id=29-479&p=f&viewport=-1735%2C132%2C0.74&t=nRsP7s0SWsZUlTTk-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=29%3A479&show-proto-sidebar=1",
+        label: "Ad Management Portal",
+      },
+    ],
+    screenDesignsSupportingImages: [
+      {
+        src: "/work/litteen-social/ad-management-portal-flow.png",
+        alt: "Ad management portal dashboard flow showing campaign list, campaign performance, and campaign details screens connected with arrows",
+        label: "Ad Management Portal flow",
+        title: "Ad Manager Dashboard",
+        width: 8256,
+        height: 5338,
       },
     ],
     outcomesTitle: "What the redesign improved",
@@ -1048,7 +1162,8 @@ export const otherWorks: OtherWork[] = [
   {
     slug: "residential-interiors",
     title: "Residential Interior Design",
-    tagline: "Designing calm, functional homes that reflect how people actually live.",
+    tagline:
+      "Designing calm, functional homes that reflect how people actually live.",
     summary:
       "Selected residential work focused on spatial planning, material palettes, and client-facing presentations that translate everyday needs into thoughtful interior environments.",
     category: "Residential",
@@ -1061,8 +1176,14 @@ export const otherWorks: OtherWork[] = [
     highlights: [
       { label: "Space type", value: "Apartments and independent homes" },
       { label: "Core lens", value: "Function, comfort, and visual clarity" },
-      { label: "Deliverables", value: "Layouts, moodboards, and working drawings" },
-      { label: "Strength shown", value: "Client communication and design translation" },
+      {
+        label: "Deliverables",
+        value: "Layouts, moodboards, and working drawings",
+      },
+      {
+        label: "Strength shown",
+        value: "Client communication and design translation",
+      },
     ],
     contributions: [
       "Translated client briefs into spatial layouts that improved circulation, storage, and day-to-day usability.",
@@ -1078,7 +1199,8 @@ export const otherWorks: OtherWork[] = [
   {
     slug: "apartment-interiors",
     title: "Apartment Interior Design",
-    tagline: "Making compact urban homes feel open, organized, and easy to live in every day.",
+    tagline:
+      "Making compact urban homes feel open, organized, and easy to live in every day.",
     summary:
       "Apartment-focused work emphasizing efficient layouts, built-in storage, and finish palettes that hold up in smaller footprints without feeling cramped or generic.",
     category: "Residential",
@@ -1091,8 +1213,14 @@ export const otherWorks: OtherWork[] = [
     highlights: [
       { label: "Space type", value: "Urban apartments and compact flats" },
       { label: "Core lens", value: "Storage, light, and multi-use zones" },
-      { label: "Deliverables", value: "Layouts, joinery details, and finish schedules" },
-      { label: "Strength shown", value: "Constraint-led spatial problem solving" },
+      {
+        label: "Deliverables",
+        value: "Layouts, joinery details, and finish schedules",
+      },
+      {
+        label: "Strength shown",
+        value: "Constraint-led spatial problem solving",
+      },
     ],
     contributions: [
       "Reorganized open-plan apartments into clearer work, dining, and rest zones without adding permanent walls.",
@@ -1108,7 +1236,8 @@ export const otherWorks: OtherWork[] = [
   {
     slug: "corporate-workspaces",
     title: "Corporate Office Interiors",
-    tagline: "Creating workplace environments that support focus, collaboration, and brand identity.",
+    tagline:
+      "Creating workplace environments that support focus, collaboration, and brand identity.",
     summary:
       "Office interior work spanning planning, documentation, and site coordination for professional environments that needed clearer zoning and stronger spatial hierarchy.",
     category: "Corporate",
@@ -1122,7 +1251,10 @@ export const otherWorks: OtherWork[] = [
       { label: "Space type", value: "Corporate offices and work hubs" },
       { label: "Core lens", value: "Workflow, zoning, and brand expression" },
       { label: "Deliverables", value: "Layouts, BOQs, and site documentation" },
-      { label: "Strength shown", value: "Technical drawing and site accountability" },
+      {
+        label: "Strength shown",
+        value: "Technical drawing and site accountability",
+      },
     ],
     contributions: [
       "Designed office layouts with clearer zoning for focused work, collaboration, and shared support areas.",
@@ -1138,7 +1270,8 @@ export const otherWorks: OtherWork[] = [
   {
     slug: "retail-commercial-spaces",
     title: "Retail & Commercial Spaces",
-    tagline: "Shaping customer-facing environments with stronger circulation and visual impact.",
+    tagline:
+      "Shaping customer-facing environments with stronger circulation and visual impact.",
     summary:
       "Retail and commercial interior work exploring customer flow, display logic, and material storytelling for spaces that needed to feel inviting while staying operationally practical.",
     category: "Retail",
@@ -1151,7 +1284,10 @@ export const otherWorks: OtherWork[] = [
     highlights: [
       { label: "Space type", value: "Retail and commercial interiors" },
       { label: "Core lens", value: "Customer flow and brand presence" },
-      { label: "Deliverables", value: "Concept decks, layouts, and vendor coordination" },
+      {
+        label: "Deliverables",
+        value: "Concept decks, layouts, and vendor coordination",
+      },
       { label: "Strength shown", value: "End-to-end project delivery" },
     ],
     contributions: [
@@ -1171,13 +1307,15 @@ export const otherWorkGroups: OtherWorkGroup[] = [
   {
     id: "residential",
     title: "Residential projects",
-    description: "Homes and apartments focused on circulation, storage, and calm material palettes.",
+    description:
+      "Homes and apartments focused on circulation, storage, and calm material palettes.",
     slugs: ["residential-interiors", "apartment-interiors"],
   },
   {
     id: "commercial",
     title: "Commercial projects",
-    description: "Workplace and retail environments balancing brand expression with day-to-day operations.",
+    description:
+      "Workplace and retail environments balancing brand expression with day-to-day operations.",
     slugs: ["corporate-workspaces", "retail-commercial-spaces"],
   },
 ]
@@ -1189,7 +1327,7 @@ export const interiorProducts: InteriorProduct[] = [
     name: "Modular storage console",
     category: "Storage",
     material: "Oak veneer · matte lacquer",
-    dimensions: "W 72\" × D 16\" × H 30\"",
+    dimensions: 'W 72" × D 16" × H 30"',
     description:
       "Low-profile console with concealed cable routing and adjustable shelving for living zones that needed storage without visual weight.",
     imageAlt: "Modular oak storage console in a residential living room",
@@ -1202,7 +1340,7 @@ export const interiorProducts: InteriorProduct[] = [
     name: "Upholstered lounge chair",
     category: "Seating",
     material: "Linen blend · walnut frame",
-    dimensions: "W 32\" × D 34\" × H 31\"",
+    dimensions: 'W 32" × D 34" × H 31"',
     description:
       "Compact lounge form with a higher seat pitch for apartment living rooms where comfort had to coexist with tighter footprints.",
     imageAlt: "Upholstered lounge chair with walnut frame",
@@ -1240,7 +1378,7 @@ export const interiorProducts: InteriorProduct[] = [
     name: "Acoustic desk divider",
     category: "Workplace",
     material: "PET felt · powder-coated steel",
-    dimensions: "W 48\" × H 42\"",
+    dimensions: 'W 48" × H 42"',
     description:
       "Desk-mounted screen balancing visual privacy with open sightlines so focus zones did not feel boxed in.",
     imageAlt: "Acoustic desk divider in an open office",
@@ -1358,7 +1496,8 @@ export const resumeSections: ResumeSection[] = [
       {
         eyebrow: "07/2023 – 07/2024",
         title: "Project Manager / Interior Designer",
-        description: "Retro Designs & Dimensions Pvt Ltd · Visakhapatnam, India",
+        description:
+          "Retro Designs & Dimensions Pvt Ltd · Visakhapatnam, India",
         bullets: [
           "Managed end-to-end coordination and design delivery for 3 concurrent projects, translating client needs into functional spatial layouts, taking ownership of the process from client conversations to final handoff.",
           "Built moodboards, graphics, and presentations to communicate vision and successfully bring in new business.",

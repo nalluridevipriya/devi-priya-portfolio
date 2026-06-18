@@ -13,6 +13,9 @@ import { SiteShell } from "@/components/portfolio/site-shell"
 import { Button } from "@/components/ui/button"
 import { profile } from "@/lib/content/portfolio"
 
+const contactChipClass =
+  "inline-flex max-w-full min-w-0 items-center gap-2 rounded-full border border-border/80 bg-background/80 px-4 py-2 transition-colors hover:border-primary/40 hover:text-primary"
+
 export default function ResumePage() {
   return (
     <SiteShell>
@@ -23,34 +26,34 @@ export default function ResumePage() {
           description={profile.resumeSummary}
         />
 
-        <EditorialCard className="h-40 space-y-6">
+        <EditorialCard className="min-h-40 space-y-6">
           <div className="flex flex-wrap gap-3 text-sm text-muted-foreground">
             {profile.location ? (
-              <span className="inline-flex items-center gap-2 rounded-full border border-border/80 bg-background/80 px-4 py-2">
-                <RiMapPin2Line className="size-4" />
-                {profile.location}
+              <span className={contactChipClass}>
+                <RiMapPin2Line className="size-4 shrink-0" />
+                <span className="min-w-0">{profile.location}</span>
               </span>
             ) : null}
             {profile.phone ? (
               <a
                 href={`tel:${profile.phone.replace(/[^\d+]/g, "")}`}
-                className="inline-flex items-center gap-2 rounded-full border border-border/80 bg-background/80 px-4 py-2 transition-colors hover:border-primary/40 hover:text-primary"
+                className={contactChipClass}
               >
-                <RiPhoneLine className="size-4" />
-                {profile.phone}
+                <RiPhoneLine className="size-4 shrink-0" />
+                <span className="min-w-0">{profile.phone}</span>
               </a>
             ) : null}
             <a
               href={`mailto:${profile.email}`}
-              className="inline-flex items-center gap-2 rounded-full border border-border/80 bg-background/80 px-4 py-2 transition-colors hover:border-primary/40 hover:text-primary"
+              className={contactChipClass}
             >
-              <RiMailLine className="size-4" />
-              {profile.email}
+              <RiMailLine className="size-4 shrink-0" />
+              <span className="min-w-0 break-all">{profile.email}</span>
             </a>
           </div>
 
           {profile.resumePdfHref ? (
-            <Button asChild size="lg" className="my-[15px] h-[40px] w-40">
+            <Button asChild size="lg" className="my-[15px] h-10 w-full sm:w-40">
               <a href={profile.resumePdfHref} target="_blank" rel="noreferrer">
                 Open PDF resume
                 <RiFilePdfLine className="size-4" />

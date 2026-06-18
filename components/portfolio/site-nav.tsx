@@ -8,10 +8,9 @@ import { cn } from "@/lib/utils"
 
 const navigation = [
   { label: "Projects", href: "/work" },
-  { label: "Other Works", href: "/other-works" },
   { label: "About", href: "/#about" },
   { label: "Resume", href: "/resume" },
-  { label: "Contact", href: "/#contact" },
+  { label: "Contact", href: "#contact" },
 ] as const
 
 function isNavItemActive(
@@ -22,8 +21,6 @@ function isNavItemActive(
   switch (label) {
     case "Projects":
       return pathname.startsWith("/work")
-    case "Other Works":
-      return pathname.startsWith("/other-works") || (pathname === "/" && homeSection === "other-works")
     case "Resume":
       return pathname.startsWith("/resume")
     case "About":
@@ -40,6 +37,30 @@ export function SiteNav() {
   const [homeSection, setHomeSection] = useState<string | null>(null)
   const activeHomeSection = pathname === "/" ? homeSection : null
 
+  const scrollToContact = () => {
+    const contactEl = document.getElementById("contact")
+
+    if (!contactEl) {
+      window.location.hash = "contact"
+      return
+    }
+
+    const headerHeight =
+      document.querySelector<HTMLElement>(".site-header")?.offsetHeight ?? 0
+    const targetTop =
+      contactEl.getBoundingClientRect().top +
+      window.scrollY -
+      headerHeight -
+      24
+
+    window.history.pushState(
+      null,
+      "",
+      `${window.location.pathname}${window.location.search}#contact`
+    )
+    window.scrollTo({ top: Math.max(0, targetTop), behavior: "smooth" })
+  }
+
   useEffect(() => {
     if (pathname !== "/") {
       return
@@ -47,8 +68,7 @@ export function SiteNav() {
 
     const aboutEl = document.getElementById("about")
     const contactEl = document.getElementById("contact")
-    const otherWorksEl = document.getElementById("other-works")
-    const sectionElements = [aboutEl, contactEl, otherWorksEl].filter(Boolean) as HTMLElement[]
+    const sectionElements = [aboutEl, contactEl].filter(Boolean) as HTMLElement[]
 
     const updateActiveSection = () => {
       const viewportHeight = window.innerHeight
@@ -119,11 +139,20 @@ export function SiteNav() {
     <nav className="flex flex-wrap items-center gap-x-5 gap-y-2 sm:gap-x-7 lg:gap-x-8">
       {navigation.map((item) => {
         const isActive = isNavItemActive(item.label, pathname, activeHomeSection)
+        const isContact = item.label === "Contact"
 
         return (
           <Link
             key={item.label}
             href={item.href}
+            onClick={
+              isContact
+                ? (event) => {
+                    event.preventDefault()
+                    scrollToContact()
+                  }
+                : undefined
+            }
             aria-current={isActive ? "page" : undefined}
             className={cn(
               "inline-flex items-center rounded-full border px-3.5 py-1.5 text-[0.8125rem] font-medium tracking-[0.01em] transition-colors duration-300 sm:text-sm",
