@@ -22,13 +22,45 @@ const fontScript = Caveat({
   variable: "--font-script",
 })
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL
+  ? new URL(process.env.NEXT_PUBLIC_SITE_URL)
+  : process.env.VERCEL_URL
+    ? new URL(`https://${process.env.VERCEL_URL}`)
+    : new URL("http://localhost:3000")
+
+const siteTitle = "Devi Priya Nalluri | UX Portfolio"
+const siteDescription =
+  "Portfolio of Devi Priya — UX Designer creating user-centered experiences through research, strategy, interaction design, and prototyping."
+
 export const metadata: Metadata = {
+  metadataBase: siteUrl,
   title: {
-    default: "Devi Priya Nalluri | UX Portfolio",
+    default: siteTitle,
     template: "%s",
   },
-  description:
-    "A warm, editorial UX portfolio for entry-level and internship opportunities, with case studies, resume highlights, and honest draft project storytelling.",
+  description: siteDescription,
+  openGraph: {
+    title: siteTitle,
+    description: siteDescription,
+    url: "/",
+    siteName: "Devi Priya Nalluri",
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: "Devi Priya Nalluri UX portfolio preview",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: siteTitle,
+    description: siteDescription,
+    images: ["/opengraph-image"],
+  },
 }
 
 export default function RootLayout({
