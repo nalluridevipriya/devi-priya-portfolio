@@ -6,6 +6,7 @@ import { cn } from "@/lib/utils"
 
 type EditorialCardProps = {
   title?: string
+  titleElement?: "h2" | "h3" | "h4"
   description?: string
   icon?: ReactNode
   chip?: {
@@ -20,6 +21,7 @@ type EditorialCardProps = {
 
 export function EditorialCard({
   title,
+  titleElement = "h3",
   description,
   icon,
   chip,
@@ -28,6 +30,8 @@ export function EditorialCard({
   contentClassName,
   variant = "default",
 }: EditorialCardProps) {
+  const Title = titleElement
+
   return (
     <article
       className={cn(
@@ -37,13 +41,17 @@ export function EditorialCard({
         className
       )}
     >
-      {icon ? <div className="mb-5 inline-flex rounded-full border border-border/80 bg-background/90 p-3">{icon}</div> : null}
+      {icon ? (
+        <div className="mb-5 inline-flex rounded-full border border-border/80 bg-background/90 p-3">
+          {icon}
+        </div>
+      ) : null}
       {title ? (
         <div className="space-y-3">
           <div className="flex flex-wrap items-start justify-between gap-3">
-            <h3 className="font-heading text-2xl font-light leading-tight tracking-[-0.02em] text-foreground">
+            <Title className="font-heading text-2xl leading-tight font-light tracking-[-0.02em] text-pretty text-foreground">
               {title}
-            </h3>
+            </Title>
             {chip ? (
               <Link
                 href={chip.href}
@@ -57,12 +65,16 @@ export function EditorialCard({
             ) : null}
           </div>
           {description ? (
-            <p className="text-base leading-7 text-muted-foreground">{description}</p>
+            <p className="text-base leading-7 text-muted-foreground">
+              {description}
+            </p>
           ) : null}
         </div>
       ) : null}
       {children ? (
-        <div className={cn(title ? "mt-6" : "", contentClassName)}>{children}</div>
+        <div className={cn(title ? "mt-6" : "", contentClassName)}>
+          {children}
+        </div>
       ) : null}
     </article>
   )

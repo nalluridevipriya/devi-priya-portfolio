@@ -28,7 +28,7 @@ function HeroPill({
   return (
     <span
       className={cn(
-        "inline-flex shrink-0 items-center gap-1.5 rounded-full border px-3 py-1.5 font-sans text-[0.6875rem] font-medium not-italic leading-none shadow-sm backdrop-blur-sm sm:px-3.5 sm:text-xs",
+        "inline-flex shrink-0 items-center gap-1.5 rounded-full border px-3 py-1.5 font-sans text-[0.6875rem] leading-none font-medium not-italic shadow-sm backdrop-blur-sm sm:px-3.5 sm:text-xs",
         motion === "alt" ? "hero-pill-float-alt" : "hero-pill-float",
         variant === "primary"
           ? "border-primary/45 bg-primary/15 text-primary shadow-[0_10px_28px_-14px_rgba(89,62,95,0.35)]"
@@ -84,11 +84,17 @@ function heroNameNodes(fullName: string) {
         <AnimatedNameSegment delayMs={0} className="text-foreground">
           {first}{" "}
         </AnimatedNameSegment>
-        <AnimatedNameSegment delayMs={wordStaggerMs} className="italic text-foreground">
+        <AnimatedNameSegment
+          delayMs={wordStaggerMs}
+          className="text-foreground italic"
+        >
           {second}{" "}
         </AnimatedNameSegment>
         {restPrefix ? (
-          <AnimatedNameSegment delayMs={wordStaggerMs * 2} className="text-foreground">
+          <AnimatedNameSegment
+            delayMs={wordStaggerMs * 2}
+            className="text-foreground"
+          >
             {restPrefix}{" "}
           </AnimatedNameSegment>
         ) : null}
@@ -108,7 +114,10 @@ function heroNameNodes(fullName: string) {
         <AnimatedNameSegment delayMs={0} className="text-foreground">
           {parts[0]}{" "}
         </AnimatedNameSegment>
-        <AnimatedNameSegment delayMs={wordStaggerMs} className="italic text-foreground">
+        <AnimatedNameSegment
+          delayMs={wordStaggerMs}
+          className="text-foreground italic"
+        >
           {parts[1]}
         </AnimatedNameSegment>
       </>
@@ -146,7 +155,7 @@ export function HomeHero({ profile }: HomeHeroProps) {
                 plusDelay="0.45s"
               />
             </div>
-            <h1 className="hero-name whitespace-nowrap font-heading text-[clamp(1.625rem,4.2vw,3.25rem)] font-medium leading-none tracking-[-0.03em] text-foreground">
+            <h1 className="hero-name text-center font-heading text-[clamp(1.625rem,4.2vw,3.25rem)] leading-none font-medium tracking-[-0.03em] text-balance text-foreground">
               {heroNameNodes(profile.name)}
             </h1>
           </div>

@@ -24,6 +24,7 @@ export default function ResumePage() {
           eyebrow="Resume"
           title={profile.title}
           description={profile.resumeSummary}
+          headingLevel="h1"
         />
 
         <EditorialCard className="min-h-40 space-y-6">
@@ -43,10 +44,7 @@ export default function ResumePage() {
                 <span className="min-w-0">{profile.phone}</span>
               </a>
             ) : null}
-            <a
-              href={`mailto:${profile.email}`}
-              className={contactChipClass}
-            >
+            <a href={`mailto:${profile.email}`} className={contactChipClass}>
               <RiMailLine className="size-4 shrink-0" />
               <span className="min-w-0 break-all">{profile.email}</span>
             </a>
@@ -55,8 +53,8 @@ export default function ResumePage() {
           {profile.resumePdfHref ? (
             <Button asChild size="lg" className="my-[15px] h-10 w-full sm:w-40">
               <a href={profile.resumePdfHref} target="_blank" rel="noreferrer">
-                Open PDF resume
-                <RiFilePdfLine className="size-4" />
+                Open Resume PDF
+                <RiFilePdfLine className="size-4" aria-hidden="true" />
               </a>
             </Button>
           ) : null}
@@ -71,11 +69,11 @@ export default function ResumePage() {
           description="Reach out about internships, UX roles, or collaboration. You can also open the PDF resume for sharing or printing."
           primaryAction={{
             href: profile.resumePdfHref ?? `mailto:${profile.email}`,
-            label: "Open PDF resume",
+            label: "Open Resume PDF",
           }}
           secondaryAction={{
             href: `mailto:${profile.email}`,
-            label: "Email me",
+            label: "Email Devi",
           }}
           tertiaryAction={
             profile.linkedinHref

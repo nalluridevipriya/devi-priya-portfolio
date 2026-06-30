@@ -17,7 +17,8 @@ export default function OtherWorksPage() {
       <section className="space-y-8">
         <SectionHeading
           eyebrow="Other works"
-          title="Interior design projects that shaped how I think about space, flow, and material detail."
+          title="Interior design projects that shaped my sense of space, flow, and material detail."
+          headingLevel="h1"
         />
 
         <OtherWorksGrid groups={otherWorkGroups} />

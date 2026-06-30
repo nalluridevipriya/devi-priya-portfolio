@@ -12,7 +12,7 @@ export function ProjectHero({ caseStudy, centered = false }: ProjectHeroProps) {
       <div className={cn("space-y-4", centered && "mx-auto")}>
         <h1
           className={cn(
-            "font-heading text-[56px] leading-[1.1] tracking-[-0.04em] text-foreground whitespace-nowrap",
+            "font-heading text-[clamp(2.25rem,6vw,3.5rem)] leading-[1.1] tracking-[-0.04em] text-balance text-foreground",
             centered ? "text-center" : "max-w-4xl"
           )}
         >

@@ -48,10 +48,7 @@ export function SiteNav() {
     const headerHeight =
       document.querySelector<HTMLElement>(".site-header")?.offsetHeight ?? 0
     const targetTop =
-      contactEl.getBoundingClientRect().top +
-      window.scrollY -
-      headerHeight -
-      24
+      contactEl.getBoundingClientRect().top + window.scrollY - headerHeight - 24
 
     window.history.pushState(
       null,
@@ -68,7 +65,9 @@ export function SiteNav() {
 
     const aboutEl = document.getElementById("about")
     const contactEl = document.getElementById("contact")
-    const sectionElements = [aboutEl, contactEl].filter(Boolean) as HTMLElement[]
+    const sectionElements = [aboutEl, contactEl].filter(
+      Boolean
+    ) as HTMLElement[]
 
     const updateActiveSection = () => {
       const viewportHeight = window.innerHeight
@@ -112,13 +111,16 @@ export function SiteNav() {
     syncFromHash()
     window.addEventListener("hashchange", syncFromHash)
     window.addEventListener("scroll", syncFromScroll, { passive: true })
-    document.addEventListener("scroll", syncFromScroll, { passive: true, capture: true })
+    document.addEventListener("scroll", syncFromScroll, {
+      passive: true,
+      capture: true,
+    })
     const activeSectionInterval = window.setInterval(updateActiveSection, 250)
 
-    const observer = new IntersectionObserver(
-      () => updateActiveSection(),
-      { rootMargin: "-35% 0px -45% 0px", threshold: [0, 0.2, 0.4, 0.6, 0.8, 1] }
-    )
+    const observer = new IntersectionObserver(() => updateActiveSection(), {
+      rootMargin: "-35% 0px -45% 0px",
+      threshold: [0, 0.2, 0.4, 0.6, 0.8, 1],
+    })
 
     sectionElements.forEach((element) => observer.observe(element))
 
@@ -138,7 +140,11 @@ export function SiteNav() {
   return (
     <nav className="flex flex-wrap items-center gap-x-5 gap-y-2 sm:gap-x-7 lg:gap-x-8">
       {navigation.map((item) => {
-        const isActive = isNavItemActive(item.label, pathname, activeHomeSection)
+        const isActive = isNavItemActive(
+          item.label,
+          pathname,
+          activeHomeSection
+        )
         const isContact = item.label === "Contact"
 
         return (
@@ -155,7 +161,7 @@ export function SiteNav() {
             }
             aria-current={isActive ? "page" : undefined}
             className={cn(
-              "inline-flex items-center rounded-full border px-3.5 py-1.5 text-[0.8125rem] font-medium tracking-[0.01em] transition-colors duration-300 sm:text-sm",
+              "inline-flex items-center rounded-full border px-3.5 py-1.5 text-[0.8125rem] font-medium tracking-[0.01em] transition-colors duration-300 focus:outline-none focus-visible:ring-[3px] focus-visible:ring-ring/30 sm:text-sm",
               isActive
                 ? "border-primary bg-primary text-primary-foreground"
                 : "border-transparent text-foreground/65 hover:border-primary hover:text-foreground"

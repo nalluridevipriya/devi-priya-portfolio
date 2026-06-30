@@ -17,7 +17,9 @@ export default function Page() {
       <SectionDivider />
 
       <section id="work" className="space-y-8">
-        <p className="text-[13px] font-medium uppercase tracking-[0.32em] text-primary">Projects</p>
+        <p className="text-[13px] font-medium tracking-[0.32em] text-primary uppercase">
+          Projects
+        </p>
 
         <WorkShowcaseGrid caseStudies={caseStudies} />
       </section>
@@ -30,7 +32,7 @@ export default function Page() {
 
       <section id="contact">
         <CtaRow
-          title="Let's Connect!"
+          title="Let's Connect"
           description="I would love to hear from you whether it is about design or new opportunities. Always excited to connect and share ideas."
           primaryAction={{
             href: profile.linkedinHref ?? profile.resumeHref,
@@ -38,7 +40,7 @@ export default function Page() {
           }}
           secondaryAction={{
             href: `mailto:${profile.email}`,
-            label: "Email Me",
+            label: "Email Devi",
           }}
         />
       </section>

@@ -45,7 +45,7 @@ export async function generateMetadata({
 
   if (!caseStudy) {
     return {
-      title: "Case study not found",
+      title: "Case Study Unavailable",
     }
   }
 
@@ -120,7 +120,7 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
             }
             description={
               caseStudy.keyDecisionsDescription ??
-              "This is where the case study makes judgment visible, not just outputs."
+              "This section shows the reasoning behind key design moves."
             }
           />
           <KeyDecisionsGrid decisions={caseStudy.keyDecisions} />
@@ -143,7 +143,9 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
                   href={caseStudy.screenDesignsFigmaHref}
                   target="_blank"
                   rel="noreferrer"
-                  aria-label={`Open ${caseStudy.screenDesignsFigmaLabel ?? "Figma file"}`}
+                  aria-label={
+                    caseStudy.screenDesignsFigmaLabel ?? "Open Figma Prototype"
+                  }
                   className="inline-flex w-fit shrink-0 items-center gap-2 rounded-full border border-primary bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground shadow-[0_14px_30px_-18px_rgb(89_62_95_/_0.85)] transition-colors duration-300 hover:bg-primary/90"
                 >
                   <Image
@@ -154,7 +156,10 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
                     aria-hidden="true"
                     className="h-4 w-auto"
                   />
-                  <span>{caseStudy.screenDesignsFigmaLabel ?? "Figma"}</span>
+                  <span>
+                    {caseStudy.screenDesignsFigmaLabel ??
+                      "Open Figma Prototype"}
+                  </span>
                   <RiArrowRightUpLine className="size-4" aria-hidden="true" />
                 </Link>
               ) : null}
@@ -171,7 +176,7 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
                     href={link.href}
                     target="_blank"
                     rel="noreferrer"
-                    aria-label={`Open ${link.label}`}
+                    aria-label={link.label}
                     className="inline-flex w-fit shrink-0 items-center gap-2 rounded-full border border-primary bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground shadow-[0_14px_30px_-18px_rgb(89_62_95_/_0.85)] transition-colors duration-300 hover:bg-primary/90"
                   >
                     <Image
@@ -253,7 +258,7 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
             title={caseStudy.outcomesTitle ?? "What the work produced"}
             description={
               caseStudy.outcomesDescription ??
-              "The outcomes are phrased carefully to stay credible without pretending the draft already has production metrics."
+              "The outcomes focus on observable improvements, prototype behavior, and credible next steps."
             }
           />
           <OutcomesGrid outcomes={caseStudy.outcomes} />
@@ -264,7 +269,7 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
         <section className="flex justify-start">
           <Button asChild size="lg" className="px-6">
             <a href={caseStudy.reportPdfHref} target="_blank" rel="noreferrer">
-              View Report PDF
+              Open Report PDF
               <RiArrowRightUpLine className="size-4" aria-hidden="true" />
             </a>
           </Button>
@@ -275,7 +280,7 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
         <div className="space-y-6">
           <SectionHeading
             eyebrow="Reflection"
-            title={caseStudy.reflectionTitle ?? "What I would strengthen next"}
+            title={caseStudy.reflectionTitle ?? "What I Would Strengthen Next"}
             description={caseStudy.reflection}
           />
           {caseStudy.reflectionNextSteps?.length ? (
@@ -300,7 +305,7 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
 
       <section id="contact">
         <CtaRow
-          title="Let's Connect!"
+          title="Let's Connect"
           description="I would love to hear from you whether it is about design or new opportunities. Always excited to connect and share ideas."
           primaryAction={{
             href: profile.linkedinHref ?? profile.resumeHref,
@@ -308,7 +313,7 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
           }}
           secondaryAction={{
             href: `mailto:${profile.email}`,
-            label: "Email Me",
+            label: "Email Devi",
           }}
         />
       </section>
