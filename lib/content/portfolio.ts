@@ -1072,8 +1072,8 @@ export const caseStudies: CaseStudy[] = [
       {
         src: "/work/litteen-social/screen-design-flow.png",
         alt: "LitTeen Social moderation flow showing dashboard preview, security alert review, and removal reason selection",
-        width: 6764,
-        height: 4198,
+        width: 1024,
+        height: 718,
       },
     ],
     screenDesignsFigmaHref:
