@@ -25,6 +25,9 @@ export function ScreenDesignFlow({
 
   if (screens.length === 1) {
     const isPortraitMockup = first.height > first.width * 1.45
+    // Avoid Next/Image requesting widths far above the source (e.g. 3840w),
+    // which upscales low-res exports and makes the flow look soft/blurry.
+    const landscapeMaxCssPx = Math.min(first.width, 1280)
 
     return (
       <Image
@@ -32,12 +35,22 @@ export function ScreenDesignFlow({
         alt={first.alt}
         width={first.width}
         height={first.height}
-        sizes="100vw"
+        sizes={
+          isPortraitMockup
+            ? "(max-width: 416px) 100vw, 416px"
+            : `(max-width: ${landscapeMaxCssPx}px) 100vw, ${landscapeMaxCssPx}px`
+        }
+        quality={100}
         priority
         className={cn(
           "mx-auto h-auto w-full",
-          isPortraitMockup ? "max-w-[26rem]" : "max-w-[86rem]"
+          isPortraitMockup && "max-w-[26rem]"
         )}
+        style={
+          isPortraitMockup
+            ? undefined
+            : { maxWidth: `min(100%, ${landscapeMaxCssPx}px)` }
+        }
       />
     )
   }
