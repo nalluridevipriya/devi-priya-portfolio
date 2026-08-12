@@ -256,7 +256,7 @@ export const resumeQuickLook = {
   titlePrefix: "Background at a",
   titleAccent: "glance",
   subtitle:
-    "A snapshot from my resume — open the PDF anytime for the full version.",
+    "A focused snapshot of UX, research, and spatial design experience.",
 }
 
 export const resumeSkillTags = [
@@ -295,22 +295,17 @@ export const profile: SiteProfile = {
   name: "Devi Priya Nalluri",
   title: "UX Designer",
   heroHeadline:
-    "Designer interested in understanding users and creating intuitive digital experiences.",
+    "UX designer seeking internship and entry-level roles focused on research, information architecture, and usable product flows.",
   heroOpenToLabel: "Open to work",
-  heroPills: [
-    "User Experience Designer",
-    "Product Designer",
-    "UX Researcher",
-    "Interior Designer",
-  ],
+  heroPills: ["UX Designer", "Product Design", "UX Research", "Spatial Design"],
   about:
-    "I care about the product moments that can quietly raise or lower stress: onboarding, service navigation, and any place where too much information lands at once. I am especially interested in internship and entry-level roles where I can keep sharpening my research, interaction, and storytelling practice in real teams.",
+    "I design product flows for moments where people need clarity fast: onboarding, service navigation, records, forms, and dense information spaces. I am looking for UX internship and entry-level roles where I can contribute research, interaction design, and careful storytelling on real product teams.",
   pullQuote:
-    "Good UX does not need to feel loud. I am most interested in the small decisions that help someone move forward with less friction and more confidence.",
+    "I care about the small product decisions that help someone understand the next step, trust the interface, and move forward with confidence.",
   editorialNote:
-    "The layout, tone, and information architecture are ready now, even though the final project evidence is still being collected. That makes this a strong v1 portfolio without pretending it is more finished than it is.",
+    "This portfolio presents current UX case studies with clear context, research methods, design decisions, and honest project scope.",
   resumeSummary:
-    "UX designer with 2+ years of experience crafting user-centered designs. Background in spatial design informs my ability to align solutions with user needs. I conduct user discovery and generative research, translating insights into functional design specs, collaborating with cross-functional teams from concept through execution.",
+    "UX designer with 2+ years of design experience across digital and spatial projects. I use research, journey mapping, wireflows, prototyping, and usability evaluation to turn unclear workflows into structured product experiences.",
   availability: "Open to internships and UX roles",
   email: "nalluridevipriya@gmail.com",
   phone: "(469) 332-8900",
@@ -321,38 +316,34 @@ export const profile: SiteProfile = {
 }
 
 export const aboutSection: AboutSectionContent = {
-  eyebrow: "Hey, that's me!",
+  eyebrow: "About Devi",
   paragraphs: [
     [{ text: "Namaste!", bold: true }],
     [
       { text: "I'm a " },
-      { text: "designer", italic: true },
+      { text: "UX designer", italic: true },
       {
-        text: " who enjoys making things ",
+        text: " who likes turning messy information into ",
       },
-      { text: "simpler", bold: true },
+      { text: "usable flows", bold: true },
       { text: ", " },
-      { text: "clearer", bold: true },
+      { text: "clear choices", bold: true },
       { text: ", and " },
-      { text: "easier", bold: true },
+      { text: "calmer moments", bold: true },
       {
-        text: " to use. I'm curious about how people think, make decisions, and interact with the world around them. I like understanding where people get stuck, and turning those insights into experiences that just ",
+        text: ". I study where people pause, what they miss, and what support they need to finish a task.",
       },
-      { text: "make sense", bold: true },
-      { text: "." },
     ],
     [
       { text: "My background in " },
       { text: "interior design", italic: true },
       {
-        text: " taught me how people move through and interact with physical spaces. ",
+        text: " taught me to watch circulation, hierarchy, light, constraints, and how people behave inside a space. ",
       },
       { text: "UX design", italic: true },
       {
-        text: " gave me a way to apply that same thinking to digital products, organizing information, simplifying complex systems, and creating experiences that feel ",
+        text: " lets me apply the same thinking to screens, systems, and service journeys.",
       },
-      { text: "intuitive from start to finish", bold: true },
-      { text: "." },
     ],
     [
       { text: "Whether I'm conducting " },
@@ -364,20 +355,18 @@ export const aboutSection: AboutSectionContent = {
       { text: ", or refining " },
       { text: "interactions", italic: true },
       {
-        text: ", I'm always looking for ways to reduce friction and make products feel more natural and approachable.",
+        text: ", I focus on the evidence behind each decision: what users need, what the interface must explain, and what can be removed.",
       },
     ],
     [
-      { text: "At the end of the day, I want to build " },
-      { text: "thoughtful", bold: true },
-      { text: " and " },
-      { text: "intuitive", bold: true },
-      { text: " " },
-      { text: "products", bold: true },
-      { text: " that help people accomplish what they need with " },
-      { text: "confidence", bold: true },
-      { text: "." },
-    ],
+      { text: "I am looking for UX teams where I can contribute " },
+      { text: "research synthesis", bold: true },
+      { text: ", " },
+      { text: "interaction design", bold: true },
+      { text: ", and " },
+      { text: "clear product storytelling", bold: true },
+      { text: " while continuing to grow with feedback and real users." },
+    ]
   ],
   photos: [
     {
@@ -431,180 +420,180 @@ export const heroPhotos: HeroPhoto[] = [
 export const homeHighlights = [
   {
     label: "Focus",
-    value: "Onboarding, service design, and everyday clarity.",
+    value:
+      "Onboarding, service journeys, dashboards, and dense information flows.",
   },
   {
     label: "Approach",
-    value: "Research first, polish second, learn continuously.",
+    value:
+      "Research-led framing, structured flows, usable prototypes, and clear tradeoffs.",
   },
   {
     label: "Stage",
-    value: "Portfolio v1 with honest draft case study content.",
+    value: "Seeking UX internships and entry-level product design roles.",
   },
 ]
 
 export const workingProcess: ProcessStep[] = [
   {
-    title: "Define the Problem Statement",
+    title: "Frame the User Problem",
     description:
-      "Start by clarifying who is blocked, what they are trying to do, and what assumptions are still fuzzy.",
+      "Clarify who is blocked, what they need to accomplish, and which assumptions need evidence.",
     artifact:
-      "I usually turn this into a short problem statement and a few testable questions before sketching any interface direction.",
+      "I turn early notes into a problem statement, target users, and testable research questions.",
   },
   {
-    title: "Map the journey",
+    title: "Map the Journey",
     description:
-      "Translate scattered notes into a visible flow so it is easier to spot friction, missing context, and unclear choices.",
+      "Translate research notes into visible flows so task order, missing context, and decision points are easier to evaluate.",
     artifact:
-      "Typical artifacts include lightweight journey maps, wireflows, and content hierarchies that explain why the sequence works.",
+      "Typical artifacts include journey maps, wireflows, content hierarchies, and task breakdowns.",
   },
   {
-    title: "Prototype for conversation",
+    title: "Prototype for Feedback",
     description:
-      "Use low-to-mid fidelity screens to make decisions tangible without spending too early on polish.",
+      "Use low-to-mid fidelity screens to make structure, copy, and interaction choices easier to critique.",
     artifact:
-      "I aim for prototypes that invite feedback quickly and keep iteration cheap, especially when the concept is still forming.",
+      "I build prototypes that help teams discuss alternatives, test assumptions, and revise quickly.",
   },
   {
-    title: "Reflect and tighten",
+    title: "Reflect and Refine",
     description:
-      "Capture what seems stronger, what still feels uncertain, and what evidence is needed next.",
+      "Capture what improved, what remains uncertain, and which evidence should guide the next iteration.",
     artifact:
-      "That reflection becomes the bridge between a draft project and a case study that can mature over time.",
+      "That reflection turns process work into a case study with clear decisions and credible next steps.",
   },
 ]
 
-export const caseStudies: CaseStudy[] = [
+const caseStudiesContent: CaseStudy[] = [
   {
     slug: "campus-connect-onboarding",
     title: "Healthcare Management App",
     tagline:
-      "Designing a unified mobile experience that helps caregivers and patients manage medical information with less stress.",
+      "Designing a mobile health record flow for caregivers and patients who manage scattered medical information.",
     summary:
-      "A UX design project focused on reducing healthcare information fragmentation by centralizing prescriptions, reports, medications, appointments, and emergency support into one accessible mobile experience.",
+      "A mobile UX concept that brings prescriptions, lab reports, medication schedules, appointments, and emergency support into one organized care-management experience.",
     projectType: "Design",
     role: "UX research and product design",
     duration: "Academic concept project",
     team: "Team project with peer critique",
     context:
-      "This project explored how a mobile healthcare management experience could support caregivers and patients who struggle to organize medical information across multiple files, messaging apps, notes, and photo galleries.",
+      "This project explored how caregivers and patients manage medical information across paper files, messaging apps, notes, and photo galleries, then translated those patterns into a centralized mobile experience.",
     problem:
-      "Users often struggle to access important healthcare information because prescriptions, medical reports, medication reminders, and appointment details are scattered across multiple platforms and formats. This fragmentation increases cognitive load, creates delays during time-sensitive situations, and makes healthcare management more stressful for both patients and caregivers.",
-    processTitle:
-      "From fragmented healthcare management to a unified care experience.",
+      "Caregivers and patients need quick access to prescriptions, reports, medication reminders, and appointment details. When that information is scattered across formats, routine care takes more effort and urgent situations become harder to manage.",
+    processTitle: "From scattered records to a clearer care-management flow.",
     processDescription:
-      "Each design decision was guided by user interviews, workflow analysis, usability testing, and healthcare research findings. The process focused on reducing cognitive load, simplifying information retrieval, and supporting both caregivers and patients through clearer digital healthcare management.",
+      "The process combined user interviews, workflow analysis, paper prototyping, heuristic evaluation, and cognitive walkthroughs. Each step focused on retrieval speed, privacy, and support for shared caregiving tasks.",
     processSteps: [
       {
         title: "Identified fragmented healthcare workflows",
         description:
-          "Research revealed that users were storing prescriptions, reports, reminders, and appointment information across paper files, messaging apps, notes, and photo galleries, creating stress and delays during healthcare situations.",
+          "Research showed users storing prescriptions, reports, reminders, and appointment details across paper files, messaging apps, notes, and photo galleries.",
         artifact:
-          "Outcome: Prioritized creating a centralized healthcare management experience that reduced information fragmentation and retrieval stress.",
+          "Outcome: Prioritized a single place to upload, label, retrieve, and share medical information.",
       },
       {
-        title: "Developed user-centered personas and caregiver journeys",
+        title: "Mapped caregiver and patient journeys",
         description:
-          "The team created personas for primary caregivers and medical assistants to better understand stress points, healthcare coordination challenges, and the need for organized medical access.",
+          "The team created caregiver and medical assistant personas to understand coordination needs, time pressure, and access patterns.",
         artifact:
-          "Outcome: Helped shape workflows around real caregiving behaviors, time-sensitive access, and simplified healthcare coordination.",
+          "Outcome: Shaped flows around family profiles, time-sensitive access, and repeat medication tasks.",
       },
       {
         title: "Explored multiple interaction directions through ideation",
         description:
-          "Crazy 8 exercises and storyboard explorations were used to test multiple layout structures for medical documentation, reminders, timelines, and emergency support features.",
+          "Crazy 8 exercises and storyboards compared structures for medical documents, reminders, timelines, and emergency support.",
         artifact:
-          "Outcome: Selected interaction patterns that improved discoverability, reduced cognitive load, and aligned with users' mental models of healthcare organization.",
+          "Outcome: Selected category-based navigation and timeline patterns that matched how users already organize care.",
       },
       {
         title: "Built low-fidelity and paper prototypes",
         description:
-          "Paper prototypes and low-fidelity wireframes explored workflows for uploading medical records, viewing prescriptions, tracking medications, and managing appointments.",
+          "Paper prototypes and low-fidelity wireframes tested uploading records, viewing prescriptions, tracking medication, and managing appointments.",
         artifact:
-          "Outcome: Allowed the team to validate navigation clarity, information hierarchy, and interaction flow before moving into high-fidelity prototyping.",
+          "Outcome: Validated navigation, hierarchy, and task sequence before high-fidelity design.",
       },
       {
         title: "Refined the experience through usability testing",
         description:
-          "Heuristic evaluations and cognitive walkthroughs uncovered issues related to navigation clarity, visual hierarchy, spacing, and workflow discoverability.",
+          "Heuristic evaluation and cognitive walkthroughs surfaced issues in navigation labels, hierarchy, spacing, and discoverability.",
         artifact:
-          "Outcome: Guided improvements to navigation structures, screen hierarchy, feedback systems, and overall usability consistency.",
+          "Outcome: Guided updates to dashboard structure, record cards, feedback states, and navigation consistency.",
       },
     ],
-    keyDecisionsTitle:
-      "The design decisions that shaped the healthcare experience.",
+    keyDecisionsTitle: "Design Decisions That Shaped the Healthcare Flow",
     keyDecisionsDescription:
-      "Every design decision was grounded in healthcare usability principles, cognitive load reduction, and accessibility-focused interaction design. The goal was to help users feel more organized, confident, and supported while managing medical information.",
+      "The key decisions focused on quick recognition, shared caregiving, privacy, and consistent mobile patterns for sensitive healthcare tasks.",
     keyDecisions: [
       {
         title: "Centralized medical information into one system",
         description:
-          "Medical documents, prescriptions, medications, appointments, and emergency information were organized into one unified mobile experience.",
+          "Medical documents, prescriptions, medications, appointments, and emergency information were grouped in one mobile system.",
         impact:
-          "Reduced reliance on fragmented systems and improved access to critical healthcare information during appointments and emergencies.",
+          "Supported faster retrieval during appointments, routine medication checks, and urgent care moments.",
       },
       {
         title: "Prioritized recognition over recall",
         description:
-          "Dashboard layouts used category icons, card-based organization, timeline views, and visual grouping systems to support faster scanning and reduced memory effort.",
+          "Dashboard layouts used category icons, cards, timeline views, and visual grouping to support scanning.",
         impact:
-          "Helped users locate information quickly without relying heavily on search or memorization.",
+          "Helped users locate records through visible categories and recent activity.",
       },
       {
         title: "Designed for both caregivers and individual users",
         description:
-          "The experience supported caregivers managing multiple family members while also accommodating individual users handling their own medications and appointments.",
+          "The experience supported caregivers managing multiple family members and individuals managing their own care.",
         impact:
-          "Created a more flexible healthcare management system that addressed different healthcare coordination needs.",
+          "Created a flexible structure for family profiles, medication reminders, and appointment context.",
       },
       {
         title: "Used privacy-aware interaction patterns",
         description:
-          "Reminder systems, medication notifications, and healthcare records were designed to reduce embarrassment, stress, and exposure of sensitive health information in public settings.",
+          "Reminder systems, medication notifications, and record views used discreet language and compact previews.",
         impact:
-          "Improved user trust while making healthcare interactions feel calmer and more discreet.",
+          "Made sensitive health tasks feel calmer in shared and public settings.",
       },
       {
         title: "Created a consistent mobile-first design system",
         description:
-          "The interface used a clean healthcare-focused visual system with accessible typography, structured spacing, reusable components, and simplified navigation.",
+          "The interface used readable typography, structured spacing, reusable components, and simplified navigation.",
         impact:
-          "Improved usability consistency and reduced cognitive load across screens and workflows.",
+          "Kept repeated tasks predictable across records, reminders, appointments, and emergency support.",
       },
     ],
-    outcomesTitle: "What the project improved",
+    outcomesTitle: "What the Project Improved",
     outcomesDescription:
-      "The project explored how centralized healthcare management could reduce stress, improve organization, and support more confident healthcare interactions for caregivers and patients.",
+      "The project shows how a centralized mobile structure can make healthcare information easier to scan, retrieve, and act on during routine and urgent care.",
     outcomes: [
       {
         title: "Improved access to medical information",
         description:
-          "Users could upload, organize, retrieve, and manage prescriptions, reports, medicines, and appointment histories from a single platform.",
+          "Users could upload, organize, retrieve, and manage prescriptions, reports, medicines, and appointment histories from one place.",
       },
       {
         title: "Reduced cognitive load during healthcare tasks",
         description:
-          "Features such as categorized records, medication reminders, timeline tracking, and structured dashboards simplified healthcare management workflows.",
+          "Categorized records, medication reminders, timeline tracking, and structured dashboards reduced the amount users had to remember.",
       },
       {
         title: "Created clearer medication management workflows",
         description:
-          "Medication schedules, dosage details, reminder systems, and medicine tracking features improved visibility and supported medication adherence.",
+          "Medication schedules, dosage details, reminders, and tracking cards made daily medication tasks easier to review.",
       },
       {
         title: "Improved user confidence through organized systems",
         description:
-          "Usability testing showed that timeline-based records and medicine card views were immediately understandable and useful to participants.",
+          "Testing indicated that timeline-based records and medicine cards were easy for participants to understand quickly.",
       },
       {
         title: "Supported both routine and emergency healthcare needs",
         description:
-          "Emergency SOS features, location sharing, and quick document retrieval workflows helped extend the experience beyond routine healthcare management.",
+          "Emergency SOS, location sharing, and quick document retrieval extended the flow to time-sensitive healthcare needs.",
       },
     ],
-    reflectionTitle: "What I would improve next",
+    reflectionTitle: "What I Would Improve Next",
     reflection:
-      "If the project continued further, I would expand usability testing with caregivers, patients, and healthcare professionals to better evaluate long-term workflow efficiency, accessibility, and trust within real healthcare situations.",
+      "Next, I would test the prototype with caregivers, patients, and healthcare professionals to evaluate retrieval speed, accessibility, trust, and shared-account workflows in realistic care scenarios.",
     reflectionNextSteps: [
       "Testing the system across larger and more diverse healthcare user groups",
       "Improving accessibility compliance and readability standards",
@@ -612,7 +601,7 @@ export const caseStudies: CaseStudy[] = [
       "Expanding interoperability with hospitals and healthcare providers",
       "Measuring long-term effects on cognitive load and healthcare task efficiency",
     ],
-    status: "Featured draft case study",
+    status: "Supporting UX concept",
     coverStyle: "from-[#f0d7c1] via-[#f8efe3] to-[#e2e0cf]",
     overviewHighlights: [
       {
@@ -628,17 +617,17 @@ export const caseStudies: CaseStudy[] = [
       {
         label: "Case study role",
         value:
-          "Shows UX research, persona development, prototyping, and usability testing applied to a complex healthcare management problem.",
+          "Shows UX research, persona development, prototyping, and usability evaluation for a complex healthcare management problem.",
       },
       {
         label: "Honesty note",
         value:
-          "Concept project based on interviews, ideation, and usability testing without fabricated clinical outcomes or implementation claims.",
+          "Concept project based on interviews, ideation, and usability evaluation. Clinical outcomes and implementation metrics are outside this project scope.",
       },
     ],
     screenDesignsTitle: "Prototype Mockups",
     screenDesignsDescription:
-      "A mobile healthcare management home screen presented in an iPhone mockup.",
+      "A mobile healthcare management flow showing home, lab report, and lab test screens.",
     screenDesigns: [
       {
         src: "/work/campus-connect-onboarding/healthcare-prototype-flow-sr.png",
@@ -650,7 +639,7 @@ export const caseStudies: CaseStudy[] = [
     ],
     screenDesignsFigmaHref:
       "https://www.figma.com/proto/o5URHoVTYsKHOPB1YODcdm/Healthcare-Management-App?node-id=1-767&p=f&viewport=288%2C283%2C0.08&t=oInVpXctVFv93Sw6-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=1%3A767&page-id=0%3A1",
-    screenDesignsFigmaLabel: "Healthcare Management App",
+    screenDesignsFigmaLabel: "Open Figma Prototype",
     reportPdfHref:
       "/work/campus-connect-onboarding/healthcare-management-app-report.pdf",
   },
@@ -658,154 +647,150 @@ export const caseStudies: CaseStudy[] = [
     slug: "neighborly-pantry-flow",
     title: "Arizona Science Center Website Redesign",
     tagline:
-      "A UX redesign focused on simplifying exploration, discovery, and ticket booking.",
+      "Improving navigation, exhibit discovery, and ticket booking through usability testing with 9 participants.",
     summary:
-      "Redesigned key areas of the Arizona Science Center website to improve navigation clarity, exhibition discovery, and the ticket purchasing experience. The project focused on reducing cognitive load, improving information hierarchy, and creating a more intuitive user journey across the platform.",
+      "A research-led website redesign for Arizona Science Center. The project used moderated usability testing, heuristic evaluation, and content restructuring to improve exhibit discovery, FAQ access, mobile navigation, and ticket purchasing.",
     projectType: "Re-Design",
     role: "UX designer and researcher",
-    duration: "Short concept exploration",
+    duration: "Short UX redesign study",
     team: "Solo",
     context:
-      "A research-driven UX/UI redesign project focused on improving the Arizona Science Center website experience through usability evaluation, accessibility analysis, and interface redesign. The project explored how clearer navigation, stronger information hierarchy, and simplified user flows could improve exhibition discovery and reduce friction during ticket purchasing",
+      "This redesign study evaluated the Arizona Science Center website through moderated usability testing, accessibility review, and interface analysis. The work focused on visit planning tasks: finding exhibits, locating FAQs, using mobile navigation, and buying tickets.",
     problem:
-      "Users experienced significant friction while navigating the website, purchasing tickets, and locating important information such as FAQs, exhibit details, and event timings. Research revealed that inconsistent navigation, unclear ticket structures, and fragmented information architecture increased cognitive load, reduced user confidence, and led to task abandonment.",
+      "Visitors had trouble finding key planning information, comparing exhibits, understanding ticket options, and completing checkout. Testing showed low task success, unclear FAQ/refund paths, mobile menu issues, and unreliable search results.",
     quantitativeResearch: {
-      title: "Quantitative Research",
+      title: "Quantitative Research With 9 Participants",
       description:
-        "We conducted moderated usability testing with **9 participants** to evaluate navigation, ticket purchasing, information discovery, FAQ access, and mobile usability on the Arizona Science Center website. The study measured task success rates, usability issues, and user behavior across key visitor journeys.",
+        "We conducted moderated usability testing with **9 participants** across navigation, ticket purchasing, information discovery, FAQ access, search, and mobile usability. The study measured task success rates, repeated usability issues, and user behavior across core visit-planning journeys.",
       observationsHeading: "Observations",
       observations: [
         {
           value: "62%",
           description:
-            "**61.6% overall task success rate**, indicating that many users encountered obstacles while completing common website tasks.",
+            "**61.6% overall task success rate** across common visitor tasks.",
         },
         {
           value: "100%",
           description:
-            "**100% of participants were unable to easily locate FAQs and refund information**, making it one of the most critical usability issues identified during testing.",
+            "**100% of participants struggled to locate FAQs and refund information**, making support content a critical information architecture issue.",
         },
         {
           value: "67%",
           description:
-            "**66.7% of participants experienced difficulty completing the ticket purchasing flow**, including adding tickets to the cart and understanding ticket types.",
+            "**66.7% of participants had difficulty with ticket purchasing**, including cart actions and ticket type comprehension.",
         },
         {
           value: "78%",
           description:
-            "**77.8% of users encountered issues with the mobile navigation menu**, reporting problems with responsiveness and discoverability while using the site on mobile devices.",
+            "**77.8% of participants encountered mobile menu issues** related to responsiveness and discoverability.",
         },
         {
           value: "100%",
           description:
-            "**100% of users reported irrelevant search results**, making search an unreliable method for finding exhibits, FAQs, and support content.",
+            "**100% of participants reported irrelevant search results** while looking for exhibits, FAQs, and support content.",
         },
       ],
     },
-    processTitle:
-      "From usability findings to a more intuitive user experience.",
+    processTitle: "From usability findings to clearer visit planning.",
     processDescription:
-      "Each redesign decision was guided by usability testing, heuristic evaluation, observations, and user research findings. The process focused on reducing friction in navigation, improving information hierarchy, and simplifying critical user tasks across the website.",
+      "The redesign translated observed task failures into changes across navigation, content hierarchy, exhibit browsing, ticket selection, and system feedback.",
     processSteps: [
       {
         title: "Identified high-friction user tasks",
         description:
-          "Focused on the areas where users struggled the most: ticket selection, finding FAQs, understanding exhibit information, and navigating event timings.",
+          "Focused on the tasks where participants struggled most: ticket selection, FAQ discovery, exhibit comparison, event timing, search, and mobile navigation.",
         artifact:
-          "Outcome: Prioritized redesigning the pages that created the highest confusion and task abandonment during testing.",
+          "Outcome: Prioritized the pages and flows tied to low task success and repeated hesitation.",
       },
       {
         title: "Restructured navigation and information hierarchy",
         description:
-          "Used card sorting and user mental models to reorganize navigation labels, homepage sections, and exhibition categories into clearer and more intuitive structures.",
+          "Used card sorting and observed mental models to reorganize navigation labels, homepage sections, and exhibition categories.",
         artifact:
-          "Outcome: Improved content discoverability and reduced reliance on the footer for finding important information.",
+          "Outcome: Moved key visit-planning content into easier-to-find navigation and page sections.",
       },
       {
         title: "Simplified the ticket purchasing flow",
         description:
-          "Redesigned the ticket experience into a more guided step-by-step process with clearer ticket inclusions, simplified actions, and supportive microcopy.",
+          "Redesigned ticket selection as a guided flow with clearer ticket types, visible inclusions, fewer unclear actions, and supportive microcopy.",
         artifact:
-          "Outcome: Reduced uncertainty during decision-making and improved confidence throughout checkout.",
+          "Outcome: Reduced uncertainty during ticket comparison, cart review, and checkout.",
       },
       {
         title: "Created consistent exhibition browsing experiences",
         description:
-          "Standardized exhibition layouts to ensure users could quickly understand exhibit descriptions, timings, interaction types, and supporting educational content.",
+          "Standardized exhibition pages so visitors could scan descriptions, timing, interaction type, and educational content in a predictable order.",
         artifact:
-          "Outcome: Reduced cognitive load by creating a predictable and easier-to-scan browsing experience.",
+          "Outcome: Made exhibits easier to compare across list and detail pages.",
       },
       {
         title: "Improved clarity through system feedback and guidance",
         description:
-          "Introduced confirmation screens, clearer messaging, disclaimers, and contextual guidance to help users feel informed throughout the interaction flow.",
+          "Added confirmation screens, payment guidance, refund context, and checkout messaging at decision points.",
         artifact:
-          "Outcome: Increased transparency, trust, and reassurance during key user actions such as purchasing tickets.",
+          "Outcome: Made key actions feel more predictable during ticket purchase.",
       },
     ],
-    keyDecisionsTitle: "The design decisions that shaped the experience.",
+    keyDecisionsTitle: "Design Decisions Backed by Testing",
     keyDecisionsDescription:
-      "Every redesign decision was grounded in usability findings, user behaviour observations, and research insights gathered throughout the evaluation process. The focus was on reducing friction, improving clarity, and helping users complete important tasks with greater confidence.",
+      "The strongest redesign moves came directly from the 9-participant usability study: support content needed clearer paths, ticketing needed guidance, and exhibit pages needed a predictable structure.",
     keyDecisions: [
       {
         title: "Reduced confusion through clearer navigation",
         description:
-          "Navigation labels and homepage categories were reorganized based on card sorting exercises and user mental models to make information easier to discover.",
+          "Navigation labels and homepage categories were reorganized around visitor planning tasks.",
         impact:
-          "Users could identify exhibitions, events, films, and ticket-related information more intuitively without relying heavily on the footer.",
+          "Exhibits, events, films, tickets, FAQs, and support content became easier to locate from primary page areas.",
       },
       {
         title: "Prioritized important information earlier in the experience",
         description:
-          "Key visitor information such as exhibit details, timings, ticket inclusions, and FAQs was surfaced earlier within the layout hierarchy.",
-        impact:
-          "Reduced cognitive load and minimized the amount of scanning required to complete tasks.",
+          "Exhibit details, timings, ticket inclusions, FAQs, and refund information were surfaced earlier in the page hierarchy.",
+        impact: "Reduced scanning effort for common visit-planning decisions.",
       },
       {
         title: "Simplified the ticket purchasing process",
         description:
-          "The ticket flow was redesigned into a more structured step-by-step experience with clearer ticket types, reduced unnecessary inputs, and supportive microcopy.",
+          "The ticket flow became a structured sequence with clearer ticket types, visible inclusions, fewer ambiguous steps, and support copy.",
         impact:
-          "Helped reduce uncertainty during decision-making and improved user confidence throughout checkout.",
+          "Helped visitors understand what they were buying before payment.",
       },
       {
         title: "Created consistent exhibition structures",
         description:
-          "Exhibition pages were redesigned using a unified layout system that consistently presented descriptions, interaction types, educational content, and supporting resources.",
-        impact:
-          "Allowed users to compare and explore exhibitions more easily without fragmented information.",
+          "Exhibition pages used a unified layout for descriptions, interaction type, educational content, and supporting resources.",
+        impact: "Made exhibit comparison easier across the browsing flow.",
       },
       {
         title: "Improved reassurance through system feedback",
         description:
-          "Confirmation messages, payment disclaimers, and contextual guidance were added throughout the flow to make interactions feel more transparent and predictable.",
-        impact:
-          "Increased trust, reduced user hesitation, and created a more guided overall experience.",
+          "Confirmation messages, payment disclaimers, and contextual guidance were added throughout checkout.",
+        impact: "Reduced hesitation at purchase and confirmation moments.",
       },
     ],
-    outcomesTitle: "What the redesign improved",
+    outcomesTitle: "What the Redesign Improved",
     outcomesDescription:
-      "The redesign addressed major usability issues identified during research and testing by improving navigation clarity, simplifying ticket purchasing, and restructuring how information was presented across the website.",
+      "The redesign addresses the major usability issues found in testing: navigation clarity, ticket purchasing, exhibit browsing, mobile discovery, search alternatives, and support content access.",
     outcomes: [
       {
         title: "Improved navigation and information discovery",
         description:
-          "Users were able to navigate exhibitions, events, and ticket-related information more intuitively through clearer categorization and reorganized navigation structures.",
+          "Reorganized navigation and homepage sections created clearer paths to exhibits, events, tickets, FAQs, and refund content.",
       },
       {
         title: "Reduced friction during ticket purchasing",
         description:
-          "The simplified ticket flow reduced confusion around ticket types, inclusions, and checkout steps while improving user confidence during decision-making.",
+          "The revised ticket flow clarified ticket types, inclusions, cart actions, and checkout steps.",
       },
       {
         title: "Created a more consistent browsing experience",
         description:
-          "Exhibition pages followed a unified layout structure that made exhibit information easier to scan, compare, and understand.",
+          "Exhibition pages followed a unified structure for scanning, comparing, and understanding exhibit options.",
       },
       {
         title: "Improved trust through clearer system feedback",
         description:
-          "Confirmation states, disclaimers, and supportive microcopy helped create a more transparent and reassuring experience throughout key user interactions.",
+          "Confirmation states, disclaimers, and supportive microcopy made purchase steps easier to understand.",
       },
     ],
     outcomeComparisons: [
@@ -815,7 +800,7 @@ export const caseStudies: CaseStudy[] = [
         websiteLabel: "Arizona Science Center Website",
         figmaHref:
           "https://www.figma.com/design/zctEWyruHMVh4V6awsAv9H/Arizona-Science-Center-Website-Redesign?node-id=0-1",
-        figmaLabel: "Figma Prototype",
+        figmaLabel: "Open Figma Prototype",
         beforeAfter: {
           beforeImage: "/work/arizona-science-center/homepage-existing.png",
           afterImage: "/work/arizona-science-center/homepage-after.png",
@@ -826,7 +811,7 @@ export const caseStudies: CaseStudy[] = [
           whatChanged:
             "Reorganized navigation labels, homepage categories, and exhibition discovery paths based on card sorting and usability findings.",
           whyChanged:
-            "Users struggled to find exhibitions, events, and ticket information without relying heavily on the footer.",
+            "Participants struggled to find exhibits, events, tickets, FAQs, and refund information from primary navigation paths.",
         },
       },
       {
@@ -835,7 +820,7 @@ export const caseStudies: CaseStudy[] = [
         websiteLabel: "All Exhibitions",
         figmaHref:
           "https://www.figma.com/design/zctEWyruHMVh4V6awsAv9H/Arizona-Science-Center-Website-Redesign?node-id=0-1",
-        figmaLabel: "Figma Prototype",
+        figmaLabel: "Open Figma Prototype",
         beforeAfter: {
           beforeImage:
             "/work/arizona-science-center/all-exhibitions-existing.png",
@@ -891,7 +876,7 @@ export const caseStudies: CaseStudy[] = [
           whatChanged:
             "Standardized exhibition layouts with consistent placement of descriptions, timings, interaction types, and educational content.",
           whyChanged:
-            "Fragmented page structures increased scanning effort and made it harder for users to compare exhibits.",
+            "Fragmented page structures increased scanning effort and made exhibit comparison harder.",
         },
       },
       {
@@ -900,7 +885,7 @@ export const caseStudies: CaseStudy[] = [
         websiteLabel: "Buy Tickets",
         figmaHref:
           "https://www.figma.com/design/zctEWyruHMVh4V6awsAv9H/Arizona-Science-Center-Website-Redesign?node-id=0-1",
-        figmaLabel: "Figma Prototype",
+        figmaLabel: "Open Figma Prototype",
         beforeAfter: {
           beforeImage: "/work/arizona-science-center/buy-tickets-existing.png",
           beforeAlt: "Original Arizona Science Center Buy Tickets page",
@@ -932,22 +917,22 @@ export const caseStudies: CaseStudy[] = [
           beforeLabel: "Existing design",
           afterLabel: "Redesign",
           whatChanged:
-            "Restructured checkout into a guided step-by-step flow with clearer ticket types, inclusions, and supportive microcopy.",
+            "Restructured checkout into a guided step-by-step flow with clearer ticket types, inclusions, and support copy.",
           whyChanged:
-            "Testing showed confusion around ticket options and checkout steps led to hesitation and task abandonment.",
+            "Testing showed confusion around ticket options and checkout steps, especially during cart and payment tasks.",
         },
       },
     ],
-    reflectionTitle: "What I would improve next",
+    reflectionTitle: "What I Would Improve Next",
     reflection:
-      "If this project continued further, I would expand usability testing with a larger participant group and conduct additional accessibility evaluations focused on WCAG compliance and mobile responsiveness.",
+      "Next, I would run a follow-up usability test on the redesign, compare task success against the original baseline, and complete a deeper WCAG review across mobile and desktop breakpoints.",
     reflectionNextSteps: [
       "Measuring task completion improvements after redesign",
       "Testing navigation discoverability across different user groups",
       "Refining mobile interactions for quicker access to visitor information",
       "Iterating further on accessibility, guidance, and system feedback patterns",
     ],
-    status: "Supporting draft study",
+    status: "Featured UX case study",
     coverStyle: "from-[#d6dcc4] via-[#f4efe2] to-[#ead2be]",
     overviewHighlights: [
       {
@@ -963,12 +948,12 @@ export const caseStudies: CaseStudy[] = [
       {
         label: "Format",
         value:
-          "Focused redesign of high-friction website pages identified through usability testing, heuristic evaluation, and user research.",
+          "Focused redesign of high-friction website pages identified through usability testing, heuristic evaluation, and IA review.",
       },
       {
         label: "Strength shown",
         value:
-          "UX research synthesis, usability testing, information architecture, interaction design, and translating research findings into structured, user-centered design solutions.",
+          "Usability testing, research synthesis, information architecture, interaction design, and evidence-led redesign decisions.",
       },
     ],
   },
@@ -976,96 +961,93 @@ export const caseStudies: CaseStudy[] = [
     slug: "focus-flow-habit-loop",
     title: "Admin Dashboard & Ad Management Portal",
     tagline:
-      "Designing clearer moderation and campaign workflows for a safer teen social platform.",
+      "Structuring moderation and campaign workflows for a teen-focused social platform.",
     summary:
-      "A UX/UI redesign project focused on improving moderation workflows and advertising management for a teen-focused social media platform. The project explored how centralized dashboard systems could reduce operational friction, improve decision-making, and support safer platform governance for teenage users.",
+      "A systems UX project for an internal moderation dashboard and ad management portal. The work focused on queue visibility, escalation context, campaign setup, approval states, and operational decision-making.",
     projectType: "Re-Design",
     role: "UX designer and researcher",
     duration: "Academic concept project",
     team: "Solo",
     context:
-      "A UX redesign project focused on creating a centralized admin dashboard and ad management portal for a teen-focused social media platform. The work explored how moderation systems, campaign management tools, and operational visibility could support both platform safety and business growth.",
+      "This project explored how internal teams could review flagged content, understand moderation context, manage campaigns, and track approval states from a centralized operational dashboard.",
     problem:
-      "The platform lacked a structured system for moderation and advertising operations. Internal teams struggled with fragmented workflows, limited context during moderation, and unclear campaign management processes, making it difficult to efficiently manage platform safety and advertiser needs.",
-    processTitle: "From research findings to scalable operational workflows.",
+      "Moderation and advertising tasks were fragmented across unclear workflows. Internal teams needed faster access to flagged content, review context, escalation paths, campaign setup details, and performance visibility.",
+    processTitle:
+      "From fragmented operations to structured dashboard workflows.",
     processDescription:
-      "Each design decision was guided by research, journey mapping, workflow analysis, and usability-focused iterations. The process focused on simplifying moderation systems, improving campaign management clarity, and reducing operational friction across dashboard experiences.",
+      "The process used workflow analysis, journey mapping, dashboard hierarchy, and prototype iteration to organize high-priority moderation and campaign management tasks.",
     processSteps: [
       {
         title: "Identified high-friction moderation tasks",
         description:
-          "Focused on the areas where moderators and internal teams experienced the most workflow complexity: flagged content review, user reporting, escalation flows, and moderation visibility.",
+          "Mapped the areas with the highest operational complexity: flagged content review, user reports, escalation paths, and moderation status visibility.",
         artifact:
-          "Outcome: prioritized redesigning operational workflows that slowed decision-making and increased cognitive load during high-volume moderation tasks.",
+          "Outcome: Prioritized workflows that affected review speed, context gathering, and escalation decisions.",
       },
       {
         title: "Restructured dashboard information hierarchy",
         description:
-          "Organized analytics, alerts, moderation queues, and campaign data using clearer visual hierarchy and grouped operational systems.",
+          "Grouped analytics, alerts, queues, reports, campaign status, and performance data by task priority.",
         artifact:
-          "Outcome: improved visibility into high-priority actions while reducing excessive scanning across dense dashboard environments.",
+          "Outcome: Made urgent actions easier to identify in a dense dashboard environment.",
       },
       {
         title: "Simplified campaign management flows",
         description:
-          "Redesigned the advertising workflow into a clearer step-by-step system covering audience targeting, campaign setup, scheduling, approvals, and analytics visibility.",
+          "Redesigned campaign setup into a step-by-step flow for targeting, scheduling, approvals, and analytics review.",
         artifact:
-          "Outcome: reduced workflow confusion and improved advertiser confidence during campaign management tasks.",
+          "Outcome: Clarified campaign state, next action, and performance context for ad managers.",
       },
       {
         title: "Created consistent system structures",
         description:
-          "Designed reusable dashboard layouts, moderation patterns, and analytics components to support consistency across the platform.",
+          "Designed reusable dashboard layouts, moderation patterns, status modules, and analytics components.",
         artifact:
-          "Outcome: improved scalability, predictability, and usability across moderation and advertising workflows.",
+          "Outcome: Created a consistent structure across moderation and advertising workflows.",
       },
       {
         title: "Improved clarity through contextual guidance",
         description:
-          "Introduced clearer moderation context, campaign states, status visibility, and structured feedback systems throughout the platform.",
+          "Added clearer review context, campaign states, status labels, and guidance near decision points.",
         artifact:
-          "Outcome: increased transparency, operational confidence, and workflow predictability for both moderators and advertisers.",
+          "Outcome: Helped moderators and ad managers understand what changed, what needed review, and what action came next.",
       },
     ],
-    keyDecisionsTitle:
-      "The design decisions that shaped the platform experience.",
+    keyDecisionsTitle: "Design Decisions for Operational Clarity",
     keyDecisionsDescription:
-      "Every redesign decision was grounded in workflow analysis, research findings, and usability considerations gathered throughout the project. The focus was on improving operational efficiency, reducing friction, and helping internal teams make faster and clearer decisions.",
+      "The main design decisions focused on high-risk moderation, campaign workflow visibility, dashboard scanability, and reusable structures for operational tools.",
     keyDecisions: [
       {
         title: "Prioritized high-risk moderation actions",
         description:
-          "Critical moderation alerts, flagged content, and AI-supported review indicators were surfaced earlier within dashboard layouts.",
+          "Critical alerts, flagged content, and AI-supported review indicators were surfaced earlier in dashboard layouts.",
         impact:
-          "Helped moderators identify urgent cases more quickly while improving response efficiency.",
+          "Helped moderators identify urgent cases and review supporting context faster.",
       },
       {
         title: "Reduced cognitive load across dashboards",
         description:
-          "Dashboard systems were simplified by separating operational tasks into clearer workflow groups and reducing unnecessary interface clutter.",
-        impact:
-          "Improved scanability and reduced mental overload during high-volume operational tasks.",
+          "Operational tasks were separated into clearer groups for queues, analytics, reports, campaigns, and approvals.",
+        impact: "Improved scanability during high-volume dashboard review.",
       },
       {
         title: "Improved campaign workflow transparency",
         description:
-          "Campaign approval states, targeting configurations, scheduling systems, and performance tracking were made more visible throughout the workflow.",
-        impact:
-          "Reduced uncertainty and improved advertiser confidence during campaign management.",
+          "Campaign approvals, targeting configurations, scheduling, and performance tracking became visible throughout the flow.",
+        impact: "Helped ad managers understand campaign state and next action.",
       },
       {
         title: "Created consistent system patterns",
         description:
-          "Reusable layouts, navigation structures, analytics modules, and moderation components were introduced across the platform.",
-        impact:
-          "Improved platform consistency, scalability, and long-term maintainability.",
+          "Reusable layouts, navigation structures, analytics modules, and moderation components were introduced across screens.",
+        impact: "Supported consistency across related operational workflows.",
       },
       {
         title: "Balanced safety with platform operations",
         description:
-          "The system was designed to support moderation efficiency while also addressing advertiser workflows and platform governance needs.",
+          "The system connected safety review, advertiser workflows, and platform governance needs in one operational model.",
         impact:
-          "Created a stronger balance between operational usability, platform safety, and business requirements.",
+          "Made the dashboard useful for moderation decisions and campaign operations.",
       },
     ],
     screenDesigns: [
@@ -1078,12 +1060,12 @@ export const caseStudies: CaseStudy[] = [
     ],
     screenDesignsFigmaHref:
       "https://www.figma.com/proto/llMj8QoMoYEqVEjevc8U6j/Admin-Dashboard---Ad-Management-Portal?page-id=0%3A1&node-id=8-8494&p=f&viewport=-1735%2C132%2C0.74&t=nRsP7s0SWsZUlTTk-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=8%3A8494",
-    screenDesignsFigmaLabel: "Admin Dashboard",
+    screenDesignsFigmaLabel: "Open Figma Prototype",
     reportPdfHref: "/work/litteen-social/technical-report.pdf",
     screenDesignsLinks: [
       {
         href: "https://www.figma.com/proto/llMj8QoMoYEqVEjevc8U6j/Admin-Dashboard---Ad-Management-Portal?page-id=0%3A1&node-id=29-479&p=f&viewport=-1735%2C132%2C0.74&t=nRsP7s0SWsZUlTTk-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=29%3A479&show-proto-sidebar=1",
-        label: "Ad Management Portal",
+        label: "Open Ad Management Prototype",
       },
     ],
     screenDesignsSupportingImages: [
@@ -1096,34 +1078,34 @@ export const caseStudies: CaseStudy[] = [
         height: 5338,
       },
     ],
-    outcomesTitle: "What the redesign improved",
+    outcomesTitle: "What the Redesign Improved",
     outcomesDescription:
-      "The redesign addressed major workflow inefficiencies identified during research and analysis by improving moderation visibility, simplifying campaign management, and creating clearer operational dashboard systems.",
+      "The redesign shows how internal dashboard structure can support faster review, clearer status visibility, and more predictable campaign management.",
     outcomes: [
       {
         title: "Improved moderation visibility",
         description:
-          "Moderators could access flagged content, alerts, reports, and user activity more efficiently through centralized operational dashboards.",
+          "Moderators could access flagged content, alerts, reports, and user activity from a centralized review surface.",
       },
       {
         title: "Reduced friction during campaign management",
         description:
-          "The structured advertising workflow simplified campaign setup, targeting, scheduling, and approval processes while improving usability for advertisers.",
+          "The advertising workflow clarified campaign setup, targeting, scheduling, approval state, and performance review.",
       },
       {
         title: "Created a more consistent dashboard experience",
         description:
-          "Dashboard systems followed unified interaction and layout patterns that made operational workflows easier to navigate and understand.",
+          "Dashboard screens followed shared interaction, layout, and status patterns.",
       },
       {
         title: "Improved transparency through clearer system feedback",
         description:
-          "Moderation states, campaign approvals, analytics visibility, and operational status indicators helped create more predictable workflows throughout the platform.",
+          "Moderation states, campaign approvals, analytics, and status indicators made workflows easier to track.",
       },
     ],
-    reflectionTitle: "What I would improve next",
+    reflectionTitle: "What I Would Improve Next",
     reflection:
-      "If the project continued further, I would expand usability testing with moderators and advertisers to better evaluate workflow efficiency, dashboard clarity, and decision-making patterns under realistic operational conditions.",
+      "Next, I would test the dashboard with people familiar with moderation, trust-and-safety review, and ad operations to evaluate review speed, decision confidence, and dashboard scanability.",
     reflectionNextSteps: [
       "Testing dashboard usability across different operational roles",
       "Refining alert prioritization and escalation systems",
@@ -1131,7 +1113,7 @@ export const caseStudies: CaseStudy[] = [
       "Improving responsive behavior across tablet and mobile workflows",
       "Iterating further on analytics filtering, reporting systems, and moderation guidance patterns",
     ],
-    status: "Supporting draft study",
+    status: "Supporting systems case study",
     coverStyle: "from-[#e9dac7] via-[#f7f2e8] to-[#d9ddd2]",
     overviewHighlights: [
       {
@@ -1142,21 +1124,33 @@ export const caseStudies: CaseStudy[] = [
       {
         label: "Interaction focus",
         value:
-          "Designing scalable moderation systems, campaign workflows, and decision-support tools that reduce cognitive load while improving workflow clarity and operational efficiency.",
+          "Moderation systems, campaign workflows, status visibility, and decision-support patterns for dense operational tools.",
       },
       {
         label: "Case study role",
         value:
-          "Supports the portfolio through a systems-focused UX project involving dashboard design, moderation workflows, information hierarchy, and operational tooling.",
+          "Shows systems-focused UX work involving dashboard design, moderation workflows, information hierarchy, and operational tooling.",
       },
       {
         label: "Honesty note",
         value:
-          "Conceptual academic project based on UX research, workshops, and prototype exploration without fabricated business metrics or implementation claims.",
+          "Conceptual academic project based on UX research, workshops, and prototype exploration. Business metrics and implementation outcomes are outside this project scope.",
       },
     ],
   },
 ]
+
+const caseStudyDisplayOrder = [
+  "neighborly-pantry-flow",
+  "campus-connect-onboarding",
+  "focus-flow-habit-loop",
+] as const
+
+export const caseStudies: CaseStudy[] = caseStudyDisplayOrder
+  .map((slug) =>
+    caseStudiesContent.find((caseStudy) => caseStudy.slug === slug)
+  )
+  .filter((caseStudy): caseStudy is CaseStudy => caseStudy !== undefined)
 
 export const otherWorks: OtherWork[] = [
   {
@@ -1189,7 +1183,7 @@ export const otherWorks: OtherWork[] = [
       "Translated client briefs into spatial layouts that improved circulation, storage, and day-to-day usability.",
       "Developed moodboards and presentation materials to help clients visualize finishes, furniture direction, and overall atmosphere.",
       "Prepared technical drawings and specifications that supported smoother coordination between design and on-site execution.",
-      "Participated in client meetings to capture feedback and refine layouts without losing project momentum.",
+      "Participated in client meetings to capture feedback and keep layout decisions moving.",
     ],
     coverStyle: "from-[#ddd0c4] via-[#f3ebe3] to-[#d8cfc4]",
     productShowcaseTitle: "Objects and finishes from residential projects",
@@ -1202,12 +1196,12 @@ export const otherWorks: OtherWork[] = [
     tagline:
       "Making compact urban homes feel open, organized, and easy to live in every day.",
     summary:
-      "Apartment-focused work emphasizing efficient layouts, built-in storage, and finish palettes that hold up in smaller footprints without feeling cramped or generic.",
+      "Apartment-focused work emphasizing efficient layouts, built-in storage, and finish palettes for smaller footprints that still feel open and personal.",
     category: "Residential",
     role: "Project Manager / Designer",
     period: "2022 – 2023",
     context:
-      "Apartment clients often needed clearer zoning between work, rest, and entertaining within a single open plan, plus storage that did not consume precious floor area.",
+      "Apartment clients often needed clearer zoning between work, rest, and entertaining within a single open plan, plus storage that preserved floor area.",
     approach:
       "Projects started with lifestyle interviews and existing-condition surveys, then moved into space-planning options, 3D visualizations for client sign-off, and detailed joinery drawings for compact kitchens and bedrooms.",
     highlights: [
@@ -1223,7 +1217,7 @@ export const otherWorks: OtherWork[] = [
       },
     ],
     contributions: [
-      "Reorganized open-plan apartments into clearer work, dining, and rest zones without adding permanent walls.",
+      "Reorganized open-plan apartments into clearer work, dining, and rest zones while preserving openness.",
       "Specified built-in wardrobes and kitchen modules sized to millimeter tolerances for tighter construction sites.",
       "Curated lighter material palettes and lighting layers to amplify daylight in north-facing units.",
       "Coordinated with contractors on snag lists and finish samples so handover matched approved visuals.",
@@ -1329,7 +1323,7 @@ export const interiorProducts: InteriorProduct[] = [
     material: "Oak veneer · matte lacquer",
     dimensions: 'W 72" × D 16" × H 30"',
     description:
-      "Low-profile console with concealed cable routing and adjustable shelving for living zones that needed storage without visual weight.",
+      "Low-profile console with concealed cable routing and adjustable shelving for living zones that needed quiet storage.",
     imageAlt: "Modular oak storage console in a residential living room",
     placeholderGradient: "from-[#c4b5a6] via-[#ebe3da] to-[#d8cfc4]",
     layout: "featured",
@@ -1380,7 +1374,7 @@ export const interiorProducts: InteriorProduct[] = [
     material: "PET felt · powder-coated steel",
     dimensions: 'W 48" × H 42"',
     description:
-      "Desk-mounted screen balancing visual privacy with open sightlines so focus zones did not feel boxed in.",
+      "Desk-mounted screen balancing visual privacy with open sightlines so focus zones felt comfortable.",
     imageAlt: "Acoustic desk divider in an open office",
     placeholderGradient: "from-[#9aa3b5] via-[#e8ecf2] to-[#c5c9d4]",
     layout: "featured",
@@ -1417,7 +1411,7 @@ export const interiorProducts: InteriorProduct[] = [
     category: "Lighting",
     material: "Aluminum · diffused acrylic",
     description:
-      "Grouped pendants over bench desking to create rhythm and reduce glare without dropping ceiling height visually.",
+      "Grouped pendants over bench desking to create rhythm, reduce glare, and keep ceiling height feeling open.",
     imageAlt: "Linear pendant lighting cluster over office bench desking",
     placeholderGradient: "from-[#8892a4] via-[#eef1f6] to-[#c0c6d2]",
     layout: "tall",
@@ -1430,7 +1424,7 @@ export const interiorProducts: InteriorProduct[] = [
     material: "Powder-coated steel · oak cap",
     dimensions: "Modular heights",
     description:
-      "Stackable plinths with interchangeable tops so merchandising could shift seasonally without new custom builds.",
+      "Stackable plinths with interchangeable tops so merchandising could shift seasonally using the same fixture system.",
     imageAlt: "Modular retail display plinth system",
     placeholderGradient: "from-[#b5a48f] via-[#f2e9dc] to-[#cfc0ad]",
     layout: "featured",
@@ -1467,7 +1461,7 @@ export const interiorProducts: InteriorProduct[] = [
     material: "Terrazzo-look solid surface",
     dimensions: "Compact checkout",
     description:
-      "Durable counter edge and concealed storage for POS hardware, designed for high-traffic corners without blocking flow.",
+      "Durable counter edge and concealed storage for POS hardware, designed for high-traffic corners with clear circulation.",
     imageAlt: "Retail point-of-sale counter in terrazzo-look solid surface",
     placeholderGradient: "from-[#948575] via-[#e6ddd0] to-[#b8a896]",
     layout: "wide",
@@ -1501,7 +1495,7 @@ export const resumeSections: ResumeSection[] = [
         bullets: [
           "Managed end-to-end coordination and design delivery for 3 concurrent projects, translating client needs into functional spatial layouts, taking ownership of the process from client conversations to final handoff.",
           "Built moodboards, graphics, and presentations to communicate vision and successfully bring in new business.",
-          "Bridged the gap between the design phase and the actual build by managing day-to-day logistics, negotiating vendor quotes, and coordinating directly with on-site teams so the design did not get lost in translation.",
+          "Connected design intent to the physical build by managing day-to-day logistics, negotiating vendor quotes, and coordinating directly with on-site teams.",
         ],
       },
       {

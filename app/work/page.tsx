@@ -17,8 +17,9 @@ export default function WorkPage() {
       <section className="space-y-8">
         <SectionHeading
           eyebrow="Projects"
-          title="Case studies that show how I frame problems before I polish screens."
-          description="Each project has its own screen with context, process, decisions, and outcomes you can explore in depth."
+          title="UX case studies showcasing my research, structure, and product decision-making."
+          description="Explore context, methods, design decisions, outcomes, and next steps for each project."
+          headingLevel="h1"
         />
 
         <WorkShowcaseGrid caseStudies={caseStudies} />

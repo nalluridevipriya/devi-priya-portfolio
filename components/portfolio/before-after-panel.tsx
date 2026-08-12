@@ -27,7 +27,7 @@ export function BeforeAfterPanel({
   whyChanged,
   showTopDivider = true,
   figmaHref,
-  figmaLabel = "Figma Prototype",
+  figmaLabel = "Open Figma Prototype",
   websiteHref,
   websiteLabel = "Arizona Science Center Website",
 }: BeforeAfterPanelProps) {
@@ -65,12 +65,20 @@ export function BeforeAfterPanel({
 
       <div className="grid gap-4 sm:grid-cols-2">
         <div className="rounded-[1.25rem] border border-border/80 bg-background/80 p-4">
-          <p className="text-xs uppercase tracking-[0.24em] text-primary">What changed</p>
-          <p className="mt-3 text-sm leading-7 text-foreground">{whatChanged}</p>
+          <p className="text-xs tracking-[0.24em] text-primary uppercase">
+            What changed
+          </p>
+          <p className="mt-3 text-sm leading-7 text-foreground">
+            {whatChanged}
+          </p>
         </div>
         <div className="rounded-[1.25rem] border border-border/80 bg-background/80 p-4">
-          <p className="text-xs uppercase tracking-[0.24em] text-primary">Why it changed</p>
-          <p className="mt-3 text-sm leading-7 text-muted-foreground">{whyChanged}</p>
+          <p className="text-xs tracking-[0.24em] text-primary uppercase">
+            Why it changed
+          </p>
+          <p className="mt-3 text-sm leading-7 text-muted-foreground">
+            {whyChanged}
+          </p>
         </div>
       </div>
     </div>

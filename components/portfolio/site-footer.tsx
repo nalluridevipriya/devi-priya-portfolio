@@ -27,7 +27,10 @@ export function SiteFooter() {
           </p>
         </div>
 
-        <nav aria-label="Footer" className="flex flex-wrap items-center gap-6 sm:gap-8">
+        <nav
+          aria-label="Footer"
+          className="flex flex-wrap items-center gap-6 sm:gap-8"
+        >
           {footerLinks.map((link) =>
             link.external ? (
               <a
@@ -35,7 +38,7 @@ export function SiteFooter() {
                 href={link.href}
                 target="_blank"
                 rel="noreferrer"
-                className="text-sm font-semibold text-foreground/70 transition-colors hover:text-primary"
+                className="rounded-sm text-sm font-semibold text-foreground/70 transition-colors hover:text-primary focus:outline-none focus-visible:ring-[3px] focus-visible:ring-ring/30"
               >
                 {link.label}
               </a>
@@ -43,7 +46,7 @@ export function SiteFooter() {
               <Link
                 key={link.label}
                 href={link.href}
-                className="text-sm font-semibold text-foreground/70 transition-colors hover:text-primary"
+                className="rounded-sm text-sm font-semibold text-foreground/70 transition-colors hover:text-primary focus:outline-none focus-visible:ring-[3px] focus-visible:ring-ring/30"
               >
                 {link.label}
               </Link>

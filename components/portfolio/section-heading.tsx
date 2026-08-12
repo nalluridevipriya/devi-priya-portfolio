@@ -5,6 +5,7 @@ type SectionHeadingProps = {
   title: string
   description?: string
   centered?: boolean
+  headingLevel?: "h1" | "h2" | "h3"
 }
 
 export function SectionHeading({
@@ -12,21 +13,29 @@ export function SectionHeading({
   title,
   description,
   centered = false,
+  headingLevel = "h2",
 }: SectionHeadingProps) {
+  const Heading = headingLevel
+
   return (
     <div className={cn("space-y-4", centered ? "mx-auto max-w-3xl" : "")}>
-      <p className={cn("text-[13px] font-semibold uppercase tracking-[0.32em] text-primary", centered ? "text-center" : "")}>
+      <p
+        className={cn(
+          "text-[13px] font-semibold tracking-[0.32em] text-primary uppercase",
+          centered ? "text-center" : ""
+        )}
+      >
         {eyebrow}
       </p>
       <div className="space-y-4">
-        <h2
+        <Heading
           className={cn(
-            "font-heading text-4xl font-light leading-tight tracking-[-0.03em] text-foreground sm:text-5xl md:text-2xl",
+            "font-heading text-4xl leading-tight font-light tracking-[-0.03em] text-balance text-foreground sm:text-5xl md:text-2xl",
             centered ? "mx-auto max-w-3xl text-center" : "max-w-3xl"
           )}
         >
           {title}
-        </h2>
+        </Heading>
         {description ? (
           <p
             className={cn(

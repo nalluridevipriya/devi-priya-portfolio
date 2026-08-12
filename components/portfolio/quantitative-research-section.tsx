@@ -30,16 +30,20 @@ export function QuantitativeResearchSection({
   research,
   className,
 }: QuantitativeResearchSectionProps) {
-  const leftObservations = research.observations.filter((_, index) => index % 2 === 0)
-  const rightObservations = research.observations.filter((_, index) => index % 2 === 1)
+  const leftObservations = research.observations.filter(
+    (_, index) => index % 2 === 0
+  )
+  const rightObservations = research.observations.filter(
+    (_, index) => index % 2 === 1
+  )
 
   return (
     <section className={cn("space-y-10", className)}>
       <div className="max-w-3xl space-y-4">
-        <h3 className="text-left text-[13px] font-semibold uppercase tracking-[0.32em] text-primary">
+        <p className="text-left text-[13px] font-semibold tracking-[0.32em] text-primary uppercase">
           {research.observationsHeading ?? "Observations"}
-        </h3>
-        <h2 className="font-heading text-2xl font-light tracking-[-0.03em] text-foreground">
+        </p>
+        <h2 className="font-heading text-2xl font-light tracking-[-0.03em] text-balance text-foreground">
           {research.title ?? "Quantitative Research"}
         </h2>
         <p className="max-w-2xl text-base leading-8 text-muted-foreground">
@@ -71,7 +75,7 @@ function ObservationStat({
 }: QuantitativeResearch["observations"][number]) {
   return (
     <div className="max-w-md space-y-3">
-      <p className="font-heading text-5xl font-light leading-none tracking-[-0.04em] text-primary sm:text-6xl">
+      <p className="font-heading text-5xl leading-none font-light tracking-[-0.04em] text-primary sm:text-6xl">
         {value}
       </p>
       <p className="text-base leading-7 text-foreground">

@@ -36,7 +36,7 @@ export async function generateMetadata({
 
   if (!work) {
     return {
-      title: "Project not found",
+      title: "Project Unavailable",
     }
   }
 
@@ -65,7 +65,9 @@ export default async function OtherWorkPage({ params }: OtherWorkPageProps) {
         <div
           className={cn(
             "relative min-h-[16rem] overflow-hidden rounded-[2rem] border border-border/80",
-            work.coverStyle ? `bg-gradient-to-br ${work.coverStyle}` : "bg-muted"
+            work.coverStyle
+              ? `bg-gradient-to-br ${work.coverStyle}`
+              : "bg-muted"
           )}
           aria-hidden="true"
         />
@@ -79,14 +81,25 @@ export default async function OtherWorkPage({ params }: OtherWorkPageProps) {
         ) : null}
 
         <div className="grid gap-5 lg:grid-cols-2">
-          <EditorialCard title="Context" description={work.context} />
-          <EditorialCard title="Approach" description={work.approach} />
+          <EditorialCard
+            title="Context"
+            titleElement="h2"
+            description={work.context}
+          />
+          <EditorialCard
+            title="Approach"
+            titleElement="h2"
+            description={work.approach}
+          />
         </div>
 
-        <EditorialCard title="Contributions">
+        <EditorialCard title="Contributions" titleElement="h2">
           <ul className="space-y-3">
             {work.contributions.map((item) => (
-              <li key={item} className="flex gap-3 text-sm leading-7 text-muted-foreground">
+              <li
+                key={item}
+                className="flex gap-3 text-sm leading-7 text-muted-foreground"
+              >
                 <span className="mt-2 size-1.5 shrink-0 rounded-full bg-secondary" />
                 <span>{item}</span>
               </li>
@@ -101,11 +114,11 @@ export default async function OtherWorkPage({ params }: OtherWorkPageProps) {
           description="See how spatial thinking, research, and detail-oriented design carry into my product and UX work."
           primaryAction={{
             href: "/work",
-            label: "View projects",
+            label: "View UX Projects",
           }}
           secondaryAction={{
             href: `mailto:${profile.email}`,
-            label: "Email me",
+            label: "Email Devi",
           }}
         />
       </article>
