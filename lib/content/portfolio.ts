@@ -1052,10 +1052,10 @@ const caseStudiesContent: CaseStudy[] = [
     ],
     screenDesigns: [
       {
-        src: "/work/litteen-social/screen-design-flow.png",
+        src: "/work/litteen-social/screen-design-flow-hr.png",
         alt: "LitTeen Social moderation flow showing dashboard preview, security alert review, and removal reason selection",
-        width: 1024,
-        height: 718,
+        width: 7364,
+        height: 5344,
       },
     ],
     screenDesignsFigmaHref:
