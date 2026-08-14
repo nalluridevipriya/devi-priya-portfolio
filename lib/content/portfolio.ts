@@ -376,7 +376,7 @@ export const aboutSection: AboutSectionContent = {
     },
     {
       src: "/about/tulip-garden.png",
-      alt: "Standing in a field of purple and yellow tulips",
+      alt: "Portrait in a lavender traditional outfit by a decorated doorway",
       gradient: "from-[#9a9088] via-[#bfb6ae] to-[#ddd8d2]",
     },
   ],
@@ -397,7 +397,7 @@ export const heroPhotos: HeroPhoto[] = [
   },
   {
     src: "/about/tulip-garden.png",
-    alt: "Standing in a field of purple and yellow tulips",
+    alt: "Portrait in a lavender traditional outfit by a decorated doorway",
   },
   {
     src: "/hero/childhood-portrait.png",
