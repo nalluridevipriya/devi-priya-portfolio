@@ -391,7 +391,7 @@
     position: relative;
     z-index: 0;
     width: fit-content;
-    max-width: min(100%, 15.5rem);
+    max-width: min(100%, 20rem);
     background: color-mix(in oklab, var(--primary) 12%, var(--card));
     box-shadow:
       0 1px 0 rgb(255 255 255 / 0.55) inset,
@@ -449,7 +449,7 @@
 
   @media (min-width: 640px) {
     .hero-sticky-note {
-      max-width: 16rem;
+      max-width: 24rem;
     }
   }
 

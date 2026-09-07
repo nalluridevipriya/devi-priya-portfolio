@@ -495,7 +495,7 @@ const caseStudiesContent: CaseStudy[] = [
       {
         title: "Mapped caregiver and patient journeys",
         description:
-          "The team created caregiver and medical assistant personas to understand coordination needs, time pressure, and access patterns.",
+          "Created caregiver and medical assistant personas to understand coordination needs, time pressure, and access patterns.",
         artifact:
           "Outcome: Shaped flows around family profiles, time-sensitive access, and repeat medication tasks.",
       },
@@ -661,7 +661,7 @@ const caseStudiesContent: CaseStudy[] = [
     quantitativeResearch: {
       title: "Quantitative Research With 9 Participants",
       description:
-        "We conducted moderated usability testing with **9 participants** across navigation, ticket purchasing, information discovery, FAQ access, search, and mobile usability. The study measured task success rates, repeated usability issues, and user behavior across core visit-planning journeys.",
+        "I conducted moderated usability testing with **9 participants** across navigation, ticket purchasing, information discovery, FAQ access, search, and mobile usability. The study measured task success rates, repeated usability issues, and user behavior across core visit-planning journeys.",
       observationsHeading: "Observations",
       observations: [
         {
