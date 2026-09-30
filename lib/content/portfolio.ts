@@ -229,6 +229,8 @@ export type SkillTool = {
 
 export const skillTools: SkillTool[] = [
   { id: "figma", name: "Figma", src: "/skills/figma.svg" },
+  { id: "miro", name: "Miro", src: "/skills/miro.svg" },
+  { id: "github", name: "GitHub", src: "/skills/github.svg" },
   { id: "indesign", name: "Adobe InDesign", src: "/skills/indesign.svg" },
   {
     id: "illustrator",
