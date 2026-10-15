@@ -797,6 +797,49 @@ const caseStudiesContent: CaseStudy[] = [
     ],
     outcomeComparisons: [
       {
+        title: "Ticket purchasing flow",
+        websiteHref: "https://www.azscience.org/buy-tickets/",
+        websiteLabel: "Buy Tickets",
+        figmaHref:
+          "https://www.figma.com/design/zctEWyruHMVh4V6awsAv9H/Arizona-Science-Center-Website-Redesign?node-id=0-1",
+        figmaLabel: "Open Figma Prototype",
+        beforeAfter: {
+          beforeImage: "/work/arizona-science-center/buy-tickets-existing.png",
+          beforeAlt: "Original Arizona Science Center Buy Tickets page",
+          afterImage:
+            "/work/arizona-science-center/ticket-flow-after-display.png",
+          afterImages: [
+            {
+              src: "/work/arizona-science-center/ticket-flow-after-display.png",
+              alt: "Redesigned Arizona Science Center ticket selection flow",
+              width: 1600,
+              height: 4032,
+            },
+            {
+              src: "/work/arizona-science-center/ticket-payment-redesign.png",
+              alt: "Redesigned Arizona Science Center ticket payment page",
+              width: 2880,
+              height: 3736,
+            },
+            {
+              src: "/work/arizona-science-center/ticket-confirmation-redesign.png",
+              alt: "Redesigned Arizona Science Center ticket confirmation page",
+              width: 2880,
+              height: 3736,
+            },
+          ],
+          afterImageWidth: 1600,
+          afterImageHeight: 4032,
+          afterAlt: "Redesigned step-by-step ticket purchasing flow",
+          beforeLabel: "Existing design",
+          afterLabel: "Redesign",
+          whatChanged:
+            "Restructured checkout into a guided step-by-step flow with clearer ticket types, inclusions, and support copy.",
+          whyChanged:
+            "Testing showed confusion around ticket options and checkout steps, especially during cart and payment tasks.",
+        },
+      },
+      {
         title: "Homepage & navigation",
         websiteHref: "https://www.azscience.org/",
         websiteLabel: "Arizona Science Center Website",
@@ -879,49 +922,6 @@ const caseStudiesContent: CaseStudy[] = [
             "Standardized exhibition layouts with consistent placement of descriptions, timings, interaction types, and educational content.",
           whyChanged:
             "Fragmented page structures increased scanning effort and made exhibit comparison harder.",
-        },
-      },
-      {
-        title: "Ticket purchasing flow",
-        websiteHref: "https://www.azscience.org/buy-tickets/",
-        websiteLabel: "Buy Tickets",
-        figmaHref:
-          "https://www.figma.com/design/zctEWyruHMVh4V6awsAv9H/Arizona-Science-Center-Website-Redesign?node-id=0-1",
-        figmaLabel: "Open Figma Prototype",
-        beforeAfter: {
-          beforeImage: "/work/arizona-science-center/buy-tickets-existing.png",
-          beforeAlt: "Original Arizona Science Center Buy Tickets page",
-          afterImage:
-            "/work/arizona-science-center/ticket-flow-after-display.png",
-          afterImages: [
-            {
-              src: "/work/arizona-science-center/ticket-flow-after-display.png",
-              alt: "Redesigned Arizona Science Center ticket selection flow",
-              width: 1600,
-              height: 4032,
-            },
-            {
-              src: "/work/arizona-science-center/ticket-payment-redesign.png",
-              alt: "Redesigned Arizona Science Center ticket payment page",
-              width: 2880,
-              height: 3736,
-            },
-            {
-              src: "/work/arizona-science-center/ticket-confirmation-redesign.png",
-              alt: "Redesigned Arizona Science Center ticket confirmation page",
-              width: 2880,
-              height: 3736,
-            },
-          ],
-          afterImageWidth: 1600,
-          afterImageHeight: 4032,
-          afterAlt: "Redesigned step-by-step ticket purchasing flow",
-          beforeLabel: "Existing design",
-          afterLabel: "Redesign",
-          whatChanged:
-            "Restructured checkout into a guided step-by-step flow with clearer ticket types, inclusions, and support copy.",
-          whyChanged:
-            "Testing showed confusion around ticket options and checkout steps, especially during cart and payment tasks.",
         },
       },
     ],

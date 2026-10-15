@@ -93,6 +93,34 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
         </section>
       ) : null}
 
+      {caseStudy.outcomeComparisons?.length ? (
+        <section className="space-y-5">
+          <div className="flex flex-col gap-10 lg:gap-12">
+            <p className="text-[13px] font-semibold tracking-[0.32em] text-primary uppercase">
+              Before & after
+            </p>
+            <div className="flex w-full flex-col gap-10 lg:gap-12">
+              {caseStudy.outcomeComparisons.map((comparison) => (
+                <EditorialCard
+                  key={comparison.title}
+                  className="w-full"
+                  title={comparison.title}
+                >
+                  <BeforeAfterPanel
+                    {...comparison.beforeAfter}
+                    showTopDivider={false}
+                    figmaHref={comparison.figmaHref}
+                    figmaLabel={comparison.figmaLabel}
+                    websiteHref={comparison.websiteHref}
+                    websiteLabel={comparison.websiteLabel}
+                  />
+                </EditorialCard>
+              ))}
+            </div>
+          </div>
+        </section>
+      ) : null}
+
       <section className="space-y-5">
         <div className="flex flex-col gap-10 lg:gap-12">
           <SectionHeading
@@ -219,34 +247,6 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
                 ))}
               </div>
             ) : null}
-          </div>
-        </section>
-      ) : null}
-
-      {caseStudy.outcomeComparisons?.length ? (
-        <section className="space-y-5">
-          <div className="flex flex-col gap-10 lg:gap-12">
-            <p className="text-[13px] font-semibold tracking-[0.32em] text-primary uppercase">
-              Before & after
-            </p>
-            <div className="flex w-full flex-col gap-10 lg:gap-12">
-              {caseStudy.outcomeComparisons.map((comparison) => (
-                <EditorialCard
-                  key={comparison.title}
-                  className="w-full"
-                  title={comparison.title}
-                >
-                  <BeforeAfterPanel
-                    {...comparison.beforeAfter}
-                    showTopDivider={false}
-                    figmaHref={comparison.figmaHref}
-                    figmaLabel={comparison.figmaLabel}
-                    websiteHref={comparison.websiteHref}
-                    websiteLabel={comparison.websiteLabel}
-                  />
-                </EditorialCard>
-              ))}
-            </div>
           </div>
         </section>
       ) : null}
