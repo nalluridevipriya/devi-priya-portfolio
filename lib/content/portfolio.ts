@@ -770,9 +770,9 @@ const caseStudiesContent: CaseStudy[] = [
         impact: "Reduced hesitation at purchase and confirmation moments.",
       },
     ],
-    outcomesTitle: "What the Redesign Improved",
+    outcomesTitle: "Intended Benefits of the Redesign",
     outcomesDescription:
-      "The redesign addresses the major usability issues found in testing: navigation clarity, ticket purchasing, exhibit browsing, mobile discovery, search alternatives, and support content access.",
+      "The redesign addresses issues identified in the original usability study with 9 participants. Follow-up testing has not yet been conducted, so these benefits are intended outcomes rather than measured improvements.",
     outcomes: [
       {
         title: "Improved navigation and information discovery",
