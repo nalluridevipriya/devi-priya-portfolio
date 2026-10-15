@@ -9,8 +9,11 @@ const footerLinks = [
     : null,
   {
     label: "Resume",
-    href: profile.resumePdfHref ?? profile.resumeHref,
-    external: Boolean(profile.resumePdfHref),
+    href:
+      profile.resumePdfViewHref ??
+      profile.resumePdfHref ??
+      profile.resumeHref,
+    external: Boolean(profile.resumePdfViewHref ?? profile.resumePdfHref),
   },
 ].filter(Boolean) as { label: string; href: string; external: boolean }[]
 

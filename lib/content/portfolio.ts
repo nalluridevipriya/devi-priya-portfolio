@@ -195,6 +195,7 @@ export type SiteProfile = {
   location?: string
   resumeHref: string
   resumePdfHref?: string
+  resumePdfViewHref?: string
   linkedinHref?: string
 }
 
@@ -313,7 +314,8 @@ export const profile: SiteProfile = {
   phone: "(469) 332-8900",
   location: "Tempe, AZ",
   resumeHref: "/resume",
-  resumePdfHref: "/resume/devi-priya-nalluri-resume.pdf",
+  resumePdfHref: "/api/resume-pdf",
+  resumePdfViewHref: "/resume/pdf",
   linkedinHref: "https://www.linkedin.com/in/devi-priya-nalluri/",
 }
 

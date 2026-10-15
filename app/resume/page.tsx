@@ -50,9 +50,13 @@ export default function ResumePage() {
             </a>
           </div>
 
-          {profile.resumePdfHref ? (
+          {profile.resumePdfViewHref ?? profile.resumePdfHref ? (
             <Button asChild size="lg" className="my-[15px] h-10 w-full sm:w-40">
-              <a href={profile.resumePdfHref} target="_blank" rel="noreferrer">
+              <a
+                href={profile.resumePdfViewHref ?? profile.resumePdfHref}
+                target="_blank"
+                rel="noreferrer"
+              >
                 Open Resume PDF
                 <RiFilePdfLine className="size-4" aria-hidden="true" />
               </a>
@@ -68,7 +72,10 @@ export default function ResumePage() {
           title="Let's connect"
           description="Reach out about internships, UX roles, or collaboration. You can also open the PDF resume for sharing or printing."
           primaryAction={{
-            href: profile.resumePdfHref ?? `mailto:${profile.email}`,
+            href:
+              profile.resumePdfViewHref ??
+              profile.resumePdfHref ??
+              `mailto:${profile.email}`,
             label: "Open Resume PDF",
           }}
           secondaryAction={{
