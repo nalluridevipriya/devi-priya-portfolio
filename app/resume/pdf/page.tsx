@@ -1,6 +1,7 @@
 import Link from "next/link"
 import { RiDownloadLine } from "@remixicon/react"
 
+import { ResumePdfPreview } from "@/components/portfolio/resume-pdf-preview"
 import { SiteShell } from "@/components/portfolio/site-shell"
 import { Button } from "@/components/ui/button"
 import { profile } from "@/lib/content/portfolio"
@@ -21,8 +22,7 @@ export default function ResumePdfPage() {
               Resume PDF
             </h1>
             <p className="text-sm text-muted-foreground">
-              If the preview does not appear, use download to open the file in
-              your PDF app.
+              Scroll the preview, or download the file to open it in a PDF app.
             </p>
           </div>
           <Button asChild variant="outline">
@@ -33,13 +33,7 @@ export default function ResumePdfPage() {
           </Button>
         </div>
 
-        <div className="overflow-hidden rounded-2xl border border-border/70 bg-muted/30">
-          <iframe
-            src={resumePdfSrc}
-            title="Devi Priya Nalluri resume PDF"
-            className="h-[min(85vh,1100px)] w-full bg-white"
-          />
-        </div>
+        <ResumePdfPreview />
 
         <p className="text-center text-sm text-muted-foreground">
           <Link href="/resume" className="text-primary underline-offset-4 hover:underline">
